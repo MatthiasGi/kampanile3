@@ -10,8 +10,8 @@
       <tr>
         <th scope="col">{% translate "Name" %}</th>
         <th scope="col">{% translate "Slug" %}</th>
-        <th scope="col">{% translate "Transpose" %}</th>
-        <th scope="col">{% translate "Tempo" %}</th>
+        <th scope="col"><span class="mdi mdi-music-accidental-sharp" title="{% trans "Transpose" %}" data-bs-toggle="tooltip"></span></th>
+        <th scope="col"><span class="mdi mdi-metronome" title="{% trans "Tempo" %}" data-bs-toggle="tooltip"></span></th>
         <th scope="col">{% translate "Actions" %}</th>
       </tr>
     </thead>
@@ -19,7 +19,7 @@
       {% for song in object_list %}
         <tr>
           <th scope="row">{{ song.name }}</th>
-          <td>{{ song.slug }}</td>
+          <td><code>{{ song.slug }}</code></td>
           <td>{{ song.transpose }}</td>
           <td>{{ song.tempo }}</td>
           <td></td>
