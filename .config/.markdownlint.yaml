@@ -1,0 +1,11 @@
+---
+default: true
+
+# MD033/no-inline-html
+# Erlauben von HTML im Markdown: Gerne für Inhaltsverzeichnis und so genutzt.
+MD033: false
+
+# MD013/line-length
+# Zu lange Zeilen in Tabellen erlauben, technisch leider nicht anders lösbar.
+MD013:
+  tables: false

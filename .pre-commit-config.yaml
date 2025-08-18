@@ -1,0 +1,171 @@
+---
+default_language_version:
+  ruby: 3.2.1
+exclude: "(migrations)"
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: debug-statements
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: fix-byte-order-marker
+      - id: forbid-submodules
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: name-tests-test
+        args: ["--django"]
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+
+  - repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+      - id: check-json5
+
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.24.1
+    hooks:
+      - id: validate-pyproject
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.9
+    hooks:
+      - id: ruff
+      - id: ruff-format
+
+  - repo: https://github.com/pycqa/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        name: isort
+        args:
+          - "--combine-as"
+          - "--trailing-comma"
+          - "--multi-line"
+          - "3"
+          - "--line-length"
+          - "79"
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.11.0.1
+    hooks:
+      - id: shellcheck
+
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.17.2
+    hooks:
+      - id: yamlfmt
+        args: ["-conf", ".config/.yamlfmt.yaml"]
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        args: ["-c=.config/.yamllint.yaml"]
+
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.18.1
+    hooks:
+      - id: markdownlint-cli2
+        args: ["--config", ".config/.markdownlint.yaml"]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/ecugol/pre-commit-hooks-django
+    rev: v0.4.0
+    hooks:
+      - id: check-untracked-migrations
+      - id: check-absent-migrations
+
+  - repo: https://github.com/jazzband/pip-tools
+    rev: v7.5.0
+    hooks:
+      - id: pip-compile
+        name: pip-compile (production-requirements.txt)
+        files: pyproject.toml
+        args:
+          - "-o"
+          - "requirements/production-requirements.txt"
+          - "--extra"
+          - "production"
+          - "--strip-extras"
+      - id: pip-compile
+        name: pip-compile (development-requirements.txt)
+        files: pyproject.toml
+        args:
+          - "-o"
+          - "requirements/development-requirements.txt"
+          - "--extra"
+          - "development"
+          - "--strip-extras"
+
+  - repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
+    rev: v0.8.0
+    hooks:
+      - id: pre-commit-update
+        args: [--dry-run]
+
+  - repo: https://github.com/mondeja/pre-commit-po-hooks
+    rev: v1.7.3
+    hooks:
+      - id: obsolete-messages
+      - id: untranslated-messages
+      - id: fuzzy-messages
+
+  - repo: local
+    hooks:
+      - id: django-check
+        name: Django System Check Framework
+        entry: sh -c
+        args:
+          - cd kampanile3; python manage.py check
+        pass_filenames: false
+        language: system
+        always_run: true
+
+      - id: django-test
+        name: Django Tests
+        entry: sh -c
+        args:
+          - cd kampanile3; python manage.py test --failfast --noinput --parallel
+        pass_filenames: false
+        language: system
+        types: [python]
+
+      - id: django-makemessages
+        name: Django make messages (i18n)
+        entry: sh -c
+        args:
+          - cd kampanile3; python manage.py makemessages -a --no-obsolete
+        pass_filenames: false
+        language: system
+        files: ^.*\.(po|py|html|js|txt)$
+
+      - id: eslint
+        name: ESLint
+        entry: sh -c 'npm run lint:fix'
+        pass_filenames: false
+        language: system
+        types: [javascript]

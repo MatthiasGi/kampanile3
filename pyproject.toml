@@ -1,0 +1,27 @@
+[project]
+name = "kampanile3"
+version = "0.0.1a1.dev1"
+description = "A customizable chime with web interface."
+keywords = ["kampanile", "chime", "bell", "ring", "midi"]
+dependencies = [
+  "django",
+  "mido",
+  "python-rtmidi",
+  "directorium",
+]
+
+[project.optional-dependencies]
+development = [
+  "pre-commit",
+]
+
+[[project.authors]]
+name = "Matthias Gianfelice"
+email = "matthias@gianfelice.de"
+
+[[project.maintainers]]
+name = "Matthias Gianfelice"
+email = "matthias@gianfelice.de"
+
+[project.urls]
+Repository = "https://github.com/MatthiasGi/kampanile3"
