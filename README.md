@@ -15,4 +15,13 @@ source .venv/bin/activate
 pip install -r requirements/development-requirements.txt
 
 pre-commit install
+
+cd kampanile3
+python manage.py migrate
+python manage.py createsuperuser
+
+npm install
+python manage.py collectstatic --noinput
+
+python manage.py runserver
 ```

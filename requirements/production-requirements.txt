@@ -14,6 +14,8 @@ directorium==0.2.0
     # via kampanile3 (pyproject.toml)
 django==5.2.5
     # via kampanile3 (pyproject.toml)
+django-npm==1.0.1
+    # via kampanile3 (pyproject.toml)
 idna==3.10
     # via requests
 mido==1.3.3

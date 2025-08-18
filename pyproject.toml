@@ -7,6 +7,7 @@ dependencies = [
   "django",
   "mido",
   "python-rtmidi",
+  "django-npm",
   "directorium",
 ]
 
