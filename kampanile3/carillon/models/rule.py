@@ -12,6 +12,13 @@ def validate_rule_condition(value):
 class Rule(models.Model):
     """A rule that defines when and what a striker should play."""
 
+    class RepeatSettings(models.TextChoices):
+        OFF = "o", _("Off")
+        HOURS12 = "h12", _("For every hour once 12-based")
+        HOURS24 = "h24", _("For every hour once 24-based")
+        MINUTES15 = "m15", _("For every 15 minutes")
+        MINUTES30 = "m30", _("For every 30 minutes")
+
     name = models.CharField(max_length=255, verbose_name=_("Name"))
     """The name of the rule for a friendly display."""
 
@@ -50,6 +57,17 @@ class Rule(models.Model):
         null=True,
     )
     """The song to play when the rule applies. None is allowed for rules that abort playing sounds."""
+
+    repeat = models.CharField(
+        max_length=3,
+        choices=RepeatSettings,
+        default=RepeatSettings.OFF,
+        verbose_name=_("Repeat"),
+        help_text=_(
+            "How often the played song should be repeated if the rule applies."
+        ),
+    )
+    """The song can optionally be repeated based on the selected setting."""
 
     @property
     def parsed_condition(self):

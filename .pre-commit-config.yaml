@@ -158,7 +158,7 @@ repos:
         name: Django make messages (i18n)
         entry: sh -c
         args:
-          - cd kampanile3; python manage.py makemessages -a --no-obsolete
+          - cd kampanile3; python manage.py makemessages -l de --no-obsolete
         pass_filenames: false
         language: system
         files: ^.*\.(po|py|html|js|txt)$
