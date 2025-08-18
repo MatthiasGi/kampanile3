@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 08:04+0000\n"
+"POT-Creation-Date: 2025-08-18 10:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,13 +15,58 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: carillon/apps.py:8
 msgid "Carillon"
 msgstr "Carillon"
 
-#: carillon/models/song.py:9
+#: carillon/models/rule.py:15 carillon/models/song.py:9
 msgid "Name"
 msgstr "Name"
+
+#: carillon/models/rule.py:20
+msgid "Priority"
+msgstr "Priorität"
+
+#: carillon/models/rule.py:21
+msgid "The priority of the rule. Higher values means firstly evaluated."
+msgstr "Die Priorität der Regel. Höhere Werte bedeuten eine frühere Auswertung."
+
+#: carillon/models/rule.py:27
+msgid "Cancel following rules"
+msgstr "Abbrechen nachfolgender Regeln"
+
+#: carillon/models/rule.py:29
+msgid ""
+"If checked, no following rule with smaller priority will be executed if this "
+"rule applies."
+msgstr ""
+"Wenn aktiviert, werden keine nachfolgenden Regeln mit niedrigerer Priorität "
+"ausgeführt, wenn diese Regel zutrifft."
+
+#: carillon/models/rule.py:35
+msgid "Condition"
+msgstr "Bedingung"
+
+#: carillon/models/rule.py:36
+msgid "A JSON object actually defining the condition."
+msgstr "Ein JSON-Objekt, das die Bedingung definiert."
+
+#: carillon/models/rule.py:46 carillon/models/song.py:72
+msgid "Song"
+msgstr "Stück"
+
+#: carillon/models/rule.py:47
+msgid "The song to play when the rule applies."
+msgstr "Das zu spielende Stück, wenn die Regel zutrifft."
+
+#: carillon/models/rule.py:64
+msgid "Rule"
+msgstr "Regel"
+
+#: carillon/models/rule.py:65
+msgid "Rules"
+msgstr "Regeln"
 
 #: carillon/models/song.py:15
 msgid "Slug"
@@ -29,7 +74,8 @@ msgstr "Codewort"
 
 #: carillon/models/song.py:16
 msgid "Unique identifier for the song to e.g. access it via API."
-msgstr "Eindeutiger Bezeichner für das Lied, um es z.B. über die API zu erreichen."
+msgstr ""
+"Eindeutiger Bezeichner für das Lied, um es z.B. über die API zu erreichen."
 
 #: carillon/models/song.py:20
 msgid "MIDI file"
@@ -54,10 +100,6 @@ msgid ""
 msgstr ""
 "Das Tempo des Liedes in Schlägen pro Minute (BPM). Wenn nicht gesetzt, wird "
 "das Tempo aus der MIDI-Datei übernommen."
-
-#: carillon/models/song.py:72
-msgid "Song"
-msgstr "Stück"
 
 #: carillon/models/song.py:73
 msgid "Songs"
