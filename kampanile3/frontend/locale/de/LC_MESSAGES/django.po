@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 16:50+0000\n"
+"POT-Creation-Date: 2025-08-18 23:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,31 +16,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: frontend/templates/carillon/song_list.html:5
-#: frontend/templates/frontend/base.html:28
+#: .\frontend\templates\carillon\song_list.html:5
+#: .\frontend\templates\frontend\base.html:28
 msgid "Songs"
 msgstr "Stücke"
 
-#: frontend/templates/carillon/song_list.html:6
+#: .\frontend\templates\carillon\song_list.html:6
 msgid "The following songs are available in the carillon to play:"
 msgstr "Die folgenden Stücke sind im Carillon verfügbar:"
 
-#: frontend/templates/carillon/song_list.html:11
+#: .\frontend\templates\carillon\song_list.html:11
 msgid "Name"
 msgstr "Name"
 
-#: frontend/templates/carillon/song_list.html:12
+#: .\frontend\templates\carillon\song_list.html:12
 msgid "Slug"
 msgstr "Codewort"
 
-#: frontend/templates/carillon/song_list.html:13
+#: .\frontend\templates\carillon\song_list.html:13
 msgid "Transpose"
 msgstr "Transponieren"
 
-#: frontend/templates/carillon/song_list.html:14
+#: .\frontend\templates\carillon\song_list.html:14
 msgid "Tempo"
 msgstr "Tempo"
 
-#: frontend/templates/carillon/song_list.html:15
+#: .\frontend\templates\carillon\song_list.html:15
 msgid "Actions"
 msgstr "Aktionen"

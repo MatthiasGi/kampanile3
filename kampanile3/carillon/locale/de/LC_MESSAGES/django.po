@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 11:04+0000\n"
+"POT-Creation-Date: 2025-08-18 23:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,48 +16,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: carillon/apps.py:8
+#: .\carillon\apps.py:8
 msgid "Carillon"
 msgstr "Carillon"
 
-#: carillon/models/rule.py:16
+#: .\carillon\models\rule.py:16
 msgid "Off"
 msgstr "Aus"
 
-#: carillon/models/rule.py:17
+#: .\carillon\models\rule.py:17
 msgid "For every hour once 12-based"
 msgstr "Für jede volle Stunde (12-Stunden-Format)"
 
-#: carillon/models/rule.py:18
+#: .\carillon\models\rule.py:18
 msgid "For every hour once 24-based"
 msgstr "Für jede volle Stunde (24-Stunden-Format)"
 
-#: carillon/models/rule.py:19
+#: .\carillon\models\rule.py:19
 msgid "For every 15 minutes"
 msgstr "Für jede Viertelstunde"
 
-#: carillon/models/rule.py:20
+#: .\carillon\models\rule.py:20
 msgid "For every 30 minutes"
 msgstr "Für jede halbe Stunde"
 
-#: carillon/models/rule.py:22 carillon/models/song.py:9
+#: .\carillon\models\rule.py:22 .\carillon\models\song.py:9
 msgid "Name"
 msgstr "Name"
 
-#: carillon/models/rule.py:27
+#: .\carillon\models\rule.py:27
 msgid "Priority"
 msgstr "Priorität"
 
-#: carillon/models/rule.py:28
+#: .\carillon\models\rule.py:28
 msgid "The priority of the rule. Higher values means firstly evaluated."
 msgstr ""
 "Die Priorität der Regel. Höhere Werte bedeuten eine frühere Auswertung."
 
-#: carillon/models/rule.py:34
+#: .\carillon\models\rule.py:34
 msgid "Cancel following rules"
 msgstr "Abbrechen nachfolgender Regeln"
 
-#: carillon/models/rule.py:36
+#: .\carillon\models\rule.py:36
 msgid ""
 "If checked, no following rule with smaller priority will be executed if this "
 "rule applies."
@@ -65,72 +65,72 @@ msgstr ""
 "Wenn aktiviert, werden keine nachfolgenden Regeln mit niedrigerer Priorität "
 "ausgeführt, wenn diese Regel zutrifft."
 
-#: carillon/models/rule.py:42
+#: .\carillon\models\rule.py:42
 msgid "Condition"
 msgstr "Bedingung"
 
-#: carillon/models/rule.py:43
+#: .\carillon\models\rule.py:43
 msgid "A JSON object actually defining the condition."
 msgstr "Ein JSON-Objekt, das die Bedingung definiert."
 
-#: carillon/models/rule.py:53 carillon/models/song.py:72
+#: .\carillon\models\rule.py:53 .\carillon\models\song.py:71
 msgid "Song"
 msgstr "Stück"
 
-#: carillon/models/rule.py:54
+#: .\carillon\models\rule.py:54
 msgid "The song to play when the rule applies."
 msgstr "Das zu spielende Stück, wenn die Regel zutrifft."
 
-#: carillon/models/rule.py:65
+#: .\carillon\models\rule.py:65
 msgid "Repeat"
 msgstr "Wiederholen"
 
-#: carillon/models/rule.py:67
+#: .\carillon\models\rule.py:67
 msgid "How often the played song should be repeated if the rule applies."
 msgstr ""
 "Wie oft das gespielte Stück wiederholt werden soll, wenn die Regel zutrifft."
 
-#: carillon/models/rule.py:82
+#: .\carillon\models\rule.py:82
 msgid "Rule"
 msgstr "Regel"
 
-#: carillon/models/rule.py:83
+#: .\carillon\models\rule.py:83
 msgid "Rules"
 msgstr "Regeln"
 
-#: carillon/models/song.py:15
+#: .\carillon\models\song.py:15
 msgid "Slug"
 msgstr "Codewort"
 
-#: carillon/models/song.py:16
+#: .\carillon\models\song.py:16
 msgid "Unique identifier for the song to e.g. access it via API."
 msgstr ""
 "Eindeutiger Bezeichner für das Lied, um es z.B. über die API zu erreichen."
 
-#: carillon/models/song.py:20
+#: .\carillon\models\song.py:20
 msgid "MIDI file"
 msgstr "MIDI-Datei"
 
-#: carillon/models/song.py:25
+#: .\carillon\models\song.py:25
 msgid "Transpose"
 msgstr "Transponieren"
 
-#: carillon/models/song.py:26
+#: .\carillon\models\song.py:26
 msgid "Transposition in semitones, e.g. -12 for one octave down."
 msgstr "Transposition in Halbtönen, z.B. -12 für eine Oktave nach unten."
 
-#: carillon/models/song.py:33
-msgid "Tempo"
-msgstr "Tempo"
+#: .\carillon\models\song.py:32
+msgid "Tempo Multiplier"
+msgstr "Tempo-Multiplikator"
 
-#: carillon/models/song.py:35
+#: .\carillon\models\song.py:34
 msgid ""
-"The tempo of the song in beats per minute (BPM). If not set, the tempo is "
-"taken from the MIDI file."
+"A multiplier for the tempo of the song. This can be used to speed up or slow "
+"down the song."
 msgstr ""
-"Das Tempo des Liedes in Schlägen pro Minute (BPM). Wenn nicht gesetzt, wird "
-"das Tempo aus der MIDI-Datei übernommen."
+"Ein Multiplikator für das Tempo des Stücks. Er kann verwendet werden, um das "
+"Stück zu beschleunigen oder zu verlangsamen."
 
-#: carillon/models/song.py:73
+#: .\carillon\models\song.py:72
 msgid "Songs"
 msgstr "Stücke"
