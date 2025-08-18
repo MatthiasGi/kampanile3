@@ -27,20 +27,19 @@ class Song(models.Model):
     )
     """The number of semitones to transpose the song."""
 
-    tempo = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name=_("Tempo"),
+    tempo_multiplier = models.FloatField(
+        default=1.0,
+        verbose_name=_("Tempo Multiplier"),
         help_text=_(
-            "The tempo of the song in beats per minute (BPM). If not set, the tempo is taken from the MIDI file."
+            "A multiplier for the tempo of the song. This can be used to speed up or slow down the song."
         ),
     )
-    """The tempo for the song. If `None`, the tempo is taken from the MIDI-file."""
+    """A multiplier for the tempo of the song. This can be used to speed up or slow down the song."""
 
     @property
     def midiFile(self) -> mido.MidiFile:
         """Simply returns the MIDI-file as a `mido.MidiFile` object."""
-        return mido.MidiFile(self.file.path) @ property
+        return mido.MidiFile(self.file.path)
 
     def fileTempo(self) -> int | None:
         """The tempo read from the file or `None` if not found."""
