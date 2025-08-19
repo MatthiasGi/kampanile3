@@ -1,5 +1,7 @@
 import json
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
@@ -12,7 +14,7 @@ from ..forms import SongForm
 from ..models import Carillon, Song
 
 
-class SongView(ListView):
+class SongView(LoginRequiredMixin, ListView):
     model = Song
 
     def get_context_data(self, **kwargs):
@@ -29,7 +31,7 @@ class SongView(ListView):
         return context
 
 
-class SongDetailView(DetailView):
+class SongDetailView(LoginRequiredMixin, DetailView):
     model = Song
 
     def get_context_data(self, **kwargs):
@@ -45,7 +47,7 @@ class SongDetailView(DetailView):
         return context
 
 
-class SongCreateView(CreateView):
+class SongCreateView(LoginRequiredMixin, CreateView):
     model = Song
     form_class = SongForm
     template_name = "carillon/simple_form.html"
@@ -63,7 +65,7 @@ class SongCreateView(CreateView):
         return context
 
 
-class SongUpdateView(UpdateView):
+class SongUpdateView(LoginRequiredMixin, UpdateView):
     model = Song
     form_class = SongForm
     template_name = "carillon/simple_form.html"
@@ -81,7 +83,7 @@ class SongUpdateView(UpdateView):
         return context
 
 
-class SongDeleteView(DeleteView):
+class SongDeleteView(LoginRequiredMixin, DeleteView):
     model = Song
     template_name = "carillon/confirm_delete.html"
 
@@ -99,6 +101,7 @@ class SongDeleteView(DeleteView):
         return context
 
 
+@login_required
 @csrf_exempt
 def play_view(request, pk):
     """Simple view to play a song on a specific carillon."""

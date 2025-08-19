@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 15:15+0200\n"
+"POT-Creation-Date: 2025-08-19 16:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,13 +16,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\frontend\templates\frontend\base.html:28
+#: .\frontend\templates\frontend\base.html:29
 msgid "Carillons"
 msgstr "Carillons"
 
-#: .\frontend\templates\frontend\base.html:33
+#: .\frontend\templates\frontend\base.html:34
 msgid "Songs"
 msgstr "Stücke"
+
+#: .\frontend\templates\frontend\base.html:48
+msgid "Change password"
+msgstr "Passwort ändern"
+
+#: .\frontend\templates\frontend\base.html:55
+msgid "Administration"
+msgstr "Administration"
+
+#: .\frontend\templates\frontend\base.html:65
+msgid "Logout"
+msgstr "Logout"
 
 #: .\frontend\templates\frontend\includes\table_btn_group.html:5
 msgid "View"
@@ -35,3 +47,25 @@ msgstr "Bearbeiten"
 #: .\frontend\templates\frontend\includes\table_btn_group.html:15
 msgid "Delete"
 msgstr "Löschen"
+
+#: .\frontend\templates\registration\login.html:7
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+"Passwort und Benutzername stimmen nicht überein. Bitte versuchen Sie es "
+"erneut."
+
+#: .\frontend\templates\registration\login.html:14
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+msgstr ""
+"Ihr Konto hat keinen Zugriff auf diese Seite. Um fortzufahren, melden Sie "
+"sich bitte mit einem Konto an, das Zugriff hat."
+
+#: .\frontend\templates\registration\login.html:16
+msgid "Please login to see this page."
+msgstr "Bitte melden Sie sich an, um diese Seite zu sehen."
+
+#: .\frontend\templates\registration\login.html:24
+msgid "Login"
+msgstr "Einloggen"

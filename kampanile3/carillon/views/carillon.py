@@ -1,6 +1,8 @@
 import json
 
 from carillon.models import Carillon
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
@@ -12,7 +14,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from ..forms import CarillonForm
 
 
-class CarillonListView(ListView):
+class CarillonListView(LoginRequiredMixin, ListView):
     model = Carillon
 
     def get_context_data(self, **kwargs):
@@ -27,7 +29,7 @@ class CarillonListView(ListView):
         return context
 
 
-class CarillonDetailView(DetailView):
+class CarillonDetailView(LoginRequiredMixin, DetailView):
     model = Carillon
 
     def get_context_data(self, **kwargs):
@@ -42,7 +44,7 @@ class CarillonDetailView(DetailView):
         return context
 
 
-class CarillonCreateView(CreateView):
+class CarillonCreateView(LoginRequiredMixin, CreateView):
     model = Carillon
     form_class = CarillonForm
     template_name = "carillon/simple_form.html"
@@ -60,7 +62,7 @@ class CarillonCreateView(CreateView):
         return context
 
 
-class CarillonUpdateView(UpdateView):
+class CarillonUpdateView(LoginRequiredMixin, UpdateView):
     model = Carillon
     form_class = CarillonForm
     template_name = "carillon/simple_form.html"
@@ -79,7 +81,7 @@ class CarillonUpdateView(UpdateView):
         return context
 
 
-class CarillonDeleteView(DeleteView):
+class CarillonDeleteView(LoginRequiredMixin, DeleteView):
     model = Carillon
     template_name = "carillon/confirm_delete.html"
 
@@ -97,6 +99,7 @@ class CarillonDeleteView(DeleteView):
         return context
 
 
+@login_required
 @csrf_exempt
 def hit_note_view(request, pk):
     """Simple view to hit a note on a specific carillon."""

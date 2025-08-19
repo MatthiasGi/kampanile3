@@ -1,0 +1,27 @@
+{% extends "frontend/base.html" %}
+{% load i18n crispy_forms_tags %}
+
+{% block content %}
+  {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+      {% blocktranslate %}Your username and password didn't match. Please try again.{% endblocktranslate %}
+    </div>
+  {% endif %}
+
+  {% if next %}
+    <div class="alert alert-danger" role="alert">
+    {% if user.is_authenticated %}
+      {% blocktranslate %}Your account doesn't have access to this page. To proceed, please login with an account that has access.{% endblocktranslate %}
+    {% else %}
+      {% blocktranslate %}Please login to see this page.{% endblocktranslate %}
+    {% endif %}
+    </div>
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="{% trans "Login" %}" class="btn btn-primary w-100">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+{% endblock %}

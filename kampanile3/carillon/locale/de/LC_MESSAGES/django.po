@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 15:18+0200\n"
+"POT-Creation-Date: 2025-08-19 16:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Der Name des seriellen Ports, der zum Verbinden mit dem Carillon verwendet "
 "wird."
 
-#: .\carillon\models\carillon.py:59 .\carillon\views\carillon.py:23
+#: .\carillon\models\carillon.py:59 .\carillon\views\carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
 
@@ -161,7 +161,7 @@ msgstr ""
 "Ein Multiplikator für das Tempo des Stücks. Er kann verwendet werden, um das "
 "Stück zu beschleunigen oder zu verlangsamen."
 
-#: .\carillon\models\song.py:86 .\carillon\views\song.py:23
+#: .\carillon\models\song.py:86 .\carillon\views\song.py:25
 msgid "Songs"
 msgstr "Stücke"
 
@@ -232,62 +232,62 @@ msgstr "Fehler beim Spielen des Stücks: ${ data.error }"
 msgid "Add song"
 msgstr "Stück hinzufügen"
 
-#: .\carillon\views\carillon.py:24
+#: .\carillon\views\carillon.py:26
 msgid "The following carillons are configured in the system:"
 msgstr "Die folgenden Stücke sind im System verfügbar:"
 
-#: .\carillon\views\carillon.py:39
+#: .\carillon\views\carillon.py:41
 #, python-format
 msgid "Carillon: %(name)s"
 msgstr "Carillon: %(name)s"
 
-#: .\carillon\views\carillon.py:56
+#: .\carillon\views\carillon.py:58
 msgid "Create carillon"
 msgstr "Carillon erstellen"
 
-#: .\carillon\views\carillon.py:57
+#: .\carillon\views\carillon.py:59
 msgid "Add a carillon to play notes on."
 msgstr "Ein Carillon hinzufügen, um Noten darauf zu spielen:"
 
-#: .\carillon\views\carillon.py:74
+#: .\carillon\views\carillon.py:76
 msgid "Modify carillon"
 msgstr "Carillon bearbeiten"
 
-#: .\carillon\views\carillon.py:75
+#: .\carillon\views\carillon.py:77
 #, python-format
 msgid "Modify the settings of the carillon: %(name)s"
 msgstr "Einstellungen des Carillons ändern: %(name)s"
 
-#: .\carillon\views\carillon.py:92
+#: .\carillon\views\carillon.py:94
 msgid "Delete carillon"
 msgstr "Carillon löschen"
 
-#: .\carillon\views\carillon.py:93
+#: .\carillon\views\carillon.py:95
 #, python-format
 msgid "Are you sure you want to delete carillon %(name)s?"
 msgstr "Sind Sie sicher, dass Sie das Carillon %(name)s löschen möchten?"
 
-#: .\carillon\views\song.py:25
+#: .\carillon\views\song.py:27
 msgid "The following songs are available in the carillon to play:"
 msgstr "Die folgenden Stücke sind im Carillon verfügbar, um sie zu spielen:"
 
-#: .\carillon\views\song.py:59
+#: .\carillon\views\song.py:61
 msgid "Create song"
 msgstr "Stück erstellen"
 
-#: .\carillon\views\song.py:60
+#: .\carillon\views\song.py:62
 msgid "Add a song to the carillon."
 msgstr "Stück zum System hinzufügen."
 
-#: .\carillon\views\song.py:77
+#: .\carillon\views\song.py:79
 msgid "Update song"
 msgstr "Stück bearbeiten"
 
-#: .\carillon\views\song.py:94
+#: .\carillon\views\song.py:96
 msgid "Delete song"
 msgstr "Stück löschen"
 
-#: .\carillon\views\song.py:95
+#: .\carillon\views\song.py:97
 #, python-format
 msgid "Are you sure you want to delete the song: %(name)s?"
 msgstr "Sind Sie sicher, dass Sie das Stück %(name)s löschen möchten?"
