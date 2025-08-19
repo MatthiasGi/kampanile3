@@ -2,12 +2,14 @@
 {% load i18n %}
 
 {% block content %}
-  <h1>{% translate "Delete carillon" %}</h1>
-  <p class="lead">{% blocktranslate %}Delete the carillon:{% endblocktranslate %}</p>
-
-  <form method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
+  <form method="post">
+    {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Confirm">
-</form>
+    <div class="row pt-3">
+      <a href="{{ back_link }}" class="btn btn-outline-secondary col-5">
+        {% trans "Cancel" %}
+      </a>
+      <input type="submit" class="btn btn-danger col-6 offset-1" value="{% trans "Confirm deletion" %}>
+    </div>
+  </form>
 {% endblock %}

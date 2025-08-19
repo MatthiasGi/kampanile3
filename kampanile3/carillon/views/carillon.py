@@ -3,6 +3,8 @@ import json
 from carillon.models import Carillon
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -13,23 +15,83 @@ from ..forms import CarillonForm
 class CarillonListView(ListView):
     model = Carillon
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "menu_active": "carillon",
+                "title": _("Carillons"),
+                "subtitle": _("The following carillons are configured in the system:"),
+            }
+        )
+        return context
+
 
 class CarillonDetailView(DetailView):
     model = Carillon
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "menu_active": "carillon",
+                "back_link": reverse("carillon:carillons:list"),
+                "title": _("Carillon: %(name)s") % {"name": self.object.name},
+            }
+        )
+        return context
 
 
 class CarillonCreateView(CreateView):
     model = Carillon
     form_class = CarillonForm
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "menu_active": "carillon",
+                "back_link": reverse("carillon:carillons:list"),
+                "title": _("Create carillon"),
+                "subtitle": _("Add a carillon to play notes on."),
+            }
+        )
+        return context
+
 
 class CarillonUpdateView(UpdateView):
     model = Carillon
     form_class = CarillonForm
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "menu_active": "carillon",
+                "back_link": self.object.get_absolute_url(),
+                "title": _("Modify carillon"),
+                "subtitle": _("Modify the settings of the carillon: %(name)s")
+                % {"name": self.object.name},
+            }
+        )
+        return context
+
 
 class CarillonDeleteView(DeleteView):
     model = Carillon
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "menu_active": "carillon",
+                "back_link": reverse("carillon:carillons:list"),
+                "title": _("Delete carillon"),
+                "subtitle": _("Are you sure you want to delete carillon %(name)s?")
+                % {"name": self.object.name},
+            }
+        )
+        return context
 
 
 @csrf_exempt

@@ -1,12 +1,15 @@
 {% extends "frontend/base.html" %}
 {% load i18n %}
 
-{% block content %}
-  <h1>{{ carillon.name }}</h1>
-  <p class="lead">
-    {% blocktranslate with port=carillon.port_name%}The carillon is connected to port <code>{{ port }}</code>. You can play notes on it.{% endblocktranslate %}
-  </p>
+{% block subtitle %}
+  {% if carillon.port_name %}
+    {% blocktranslate with port=carillon.port_name %}The carillon is connected to port <code>{{ port }}</code>.{% endblocktranslate %}
+  {% else %}
+    {% blocktranslate %}The carillon is connected to the default port.{% endblocktranslate %}
+  {% endif %}
+{% endblock %}
 
+{% block content %}
   <h2>{% trans "Test playing notes" %}</h2>
   <div class="piano-container">
     <button type="button" class="btn btn-outline-primary" data-note="36">C2</button>
@@ -16,8 +19,7 @@
     <button type="button" class="btn btn-outline-primary" data-note="84">C6</button>
   </div>
 
-  <div class="alert-placeholder position-fixed top-0 end-0 p-2">
-  </div>
+  <div class="alert-placeholder mt-2"></div>
 {% endblock %}
 
 {% block extra_body %}

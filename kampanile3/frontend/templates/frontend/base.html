@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
       <div class="container-md">
         <a class="navbar-brand" href="{% url "frontend:index" %}"><i class="mdi mdi-bell-outline"></i> Kampanile</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'carillon:carillons:list' %}">
+              <a class="nav-link{% if menu_active == "carillon" %} active{% endif %}" href="{% url 'carillon:carillons:list' %}">
                 {% trans "Carillons" %}
               </a>
             </li>
@@ -38,6 +38,17 @@
       </div>
     </nav>
     <div class="container-md py-3">
+      {% block header %}
+        <h1>
+          {% if back_link %}
+            <a href="{{ back_link }}" class="btn btn-outline-secondary me-2 rounded-circle">
+              <span class="mdi mdi-arrow-left"></span>
+            </a>
+          {% endif %}
+          {{ title }}
+        </h1>
+        <p class="lead">{% block subtitle %}{{ subtitle }}{% endblock %}</p>
+      {% endblock %}
       {% block content %}{% endblock %}
     </div>
     <script src="{% static "bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>

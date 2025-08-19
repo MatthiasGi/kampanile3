@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 11:11+0200\n"
+"POT-Creation-Date: 2025-08-19 13:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,24 @@ msgstr ""
 msgid "Carillon"
 msgstr "Carillon"
 
+#: .\carillon\forms.py:46
+#: .\carillon\templates\carillon\carillon_confirm_delete.html:10
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: .\carillon\forms.py:48
+msgid "Save"
+msgstr "Speichern"
+
 #: .\carillon\models\carillon.py:17 .\carillon\models\rule.py:22
 #: .\carillon\models\song.py:9
-#: .\carillon\templates\carillon\carillon_list.html:11
+#: .\carillon\templates\carillon\carillon_list.html:14
 #: .\carillon\templates\carillon\song_list.html:11
 msgid "Name"
 msgstr "Name"
 
 #: .\carillon\models\carillon.py:23
-#: .\carillon\templates\carillon\carillon_list.html:12
+#: .\carillon\templates\carillon\carillon_list.html:15
 msgid "Port Name"
 msgstr "Portname"
 
@@ -149,69 +158,94 @@ msgstr ""
 msgid "Songs"
 msgstr "Stücke"
 
-#: .\carillon\templates\carillon\carillon_confirm_delete.html:5
-msgid "Delete carillon"
-msgstr "Carillon löschen"
+#: .\carillon\templates\carillon\carillon_confirm_delete.html:12
+msgid "Confirm deletion"
+msgstr "Löschen bestätigen"
 
-#: .\carillon\templates\carillon\carillon_confirm_delete.html:6
-msgid "Delete the carillon:"
-msgstr "Carillon löschen:"
-
-#: .\carillon\templates\carillon\carillon_detail.html:7
+#: .\carillon\templates\carillon\carillon_detail.html:6
 #, python-format
-msgid ""
-"The carillon is connected to port <code>%(port)s</code>. You can play notes "
-"on it."
-msgstr ""
-"Das Carillon ist mit dem Port <code>%(port)s</code> verbunden. Sie können "
-"Noten darauf spielen."
+msgid "The carillon is connected to port <code>%(port)s</code>."
+msgstr "Das Carillon ist mit dem Port <code>%(port)s</code> verbunden."
 
-#: .\carillon\templates\carillon\carillon_detail.html:10
+#: .\carillon\templates\carillon\carillon_detail.html:8
+msgid "The carillon is connected to the default port."
+msgstr "Das Carillon ist mit dem Standardport verbunden."
+
+#: .\carillon\templates\carillon\carillon_detail.html:13
 msgid "Test playing notes"
 msgstr "Noten testen"
 
-#: .\carillon\templates\carillon\carillon_detail.html:42
+#: .\carillon\templates\carillon\carillon_detail.html:44
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:50
+#: .\carillon\templates\carillon\carillon_detail.html:52
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
 
-#: .\carillon\templates\carillon\carillon_form.html:5
+#: .\carillon\templates\carillon\carillon_list.html:7
 msgid "Add carillon"
 msgstr "Carillon hinzufügen"
 
-#: .\carillon\templates\carillon\carillon_form.html:6
-msgid "Add a carillon to play notes:"
-msgstr "Ein Carillon hinzufügen, um Noten zu spielen:"
+#: .\carillon\templates\carillon\carillon_list.html:30
+msgid "View"
+msgstr "Ansehen"
 
-#: .\carillon\templates\carillon\carillon_list.html:5
-msgid "Carillons"
-msgstr "Carillons"
+#: .\carillon\templates\carillon\carillon_list.html:33
+msgid "Update"
+msgstr "Bearbeiten"
 
-#: .\carillon\templates\carillon\carillon_list.html:6
+#: .\carillon\templates\carillon\carillon_list.html:36
+msgid "Delete"
+msgstr "Löschen"
+
 #: .\carillon\templates\carillon\song_list.html:6
 msgid "The following songs are available in the carillon to play:"
 msgstr "Die folgenden Stücke sind im Carillon verfügbar, um sie zu spielen:"
 
-#: .\carillon\templates\carillon\carillon_list.html:13
+#: .\carillon\templates\carillon\song_list.html:14
+msgid "Tempo"
+msgstr "Tempo"
+
 #: .\carillon\templates\carillon\song_list.html:15
 msgid "Actions"
 msgstr "Aktionen"
 
-#: .\carillon\templates\carillon\carillon_list.html:27
-msgid "View"
-msgstr "Ansehen"
+#: .\carillon\views\carillon.py:23
+msgid "Carillons"
+msgstr "Carillons"
 
-#: .\carillon\templates\carillon\carillon_list.html:30
-msgid "Update"
-msgstr "Bearbeiten"
+#: .\carillon\views\carillon.py:24
+msgid "The following carillons are configured in the system:"
+msgstr "Die folgenden Stücke sind im System verfügbar:"
 
-#: .\carillon\templates\carillon\carillon_list.html:33
-msgid "Delete"
-msgstr "Löschen"
+#: .\carillon\views\carillon.py:39
+#, python-format
+msgid "Carillon: %(name)s"
+msgstr "Carillon: %(name)s"
 
-#: .\carillon\templates\carillon\song_list.html:14
-msgid "Tempo"
-msgstr "Tempo"
+#: .\carillon\views\carillon.py:55
+msgid "Create carillon"
+msgstr "Carillon erstellen"
+
+#: .\carillon\views\carillon.py:56
+msgid "Add a carillon to play notes on."
+msgstr "Ein Carillon hinzufügen, um Noten darauf zu spielen:"
+
+#: .\carillon\views\carillon.py:72
+msgid "Modify carillon"
+msgstr "Carillon bearbeiten"
+
+#: .\carillon\views\carillon.py:73
+#, python-format
+msgid "Modify the settings of the carillon: %(name)s"
+msgstr "Einstellungen des Carillons ändern: %(name)s"
+
+#: .\carillon\views\carillon.py:89
+msgid "Delete carillon"
+msgstr "Carillon löschen"
+
+#: .\carillon\views\carillon.py:90
+#, python-format
+msgid "Are you sure you want to delete carillon %(name)s?"
+msgstr "Sind Sie sicher, dass Sie das Carillon %(name)s löschen möchten?"

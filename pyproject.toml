@@ -8,6 +8,8 @@ dependencies = [
   "mido",
   "python-rtmidi",
   "django-npm",
+  "django-crispy-forms",
+  "crispy-bootstrap5",
   "directorium",
 ]
 
