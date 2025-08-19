@@ -10,6 +10,7 @@ urlpatterns = [
             (
                 [
                     path("", carillon.CarillonListView.as_view(), name="list"),
+                    path("add/", carillon.CarillonCreateView.as_view(), name="add"),
                     path(
                         "<int:pk>/",
                         carillon.CarillonDetailView.as_view(),
@@ -26,7 +27,6 @@ urlpatterns = [
                         name="delete",
                     ),
                     path("<int:pk>/hit/", carillon.hit_note_view, name="hit_note"),
-                    path("add/", carillon.CarillonCreateView.as_view(), name="add"),
                 ],
                 "carillons",
             )
@@ -38,6 +38,27 @@ urlpatterns = [
             (
                 [
                     path("", song.SongView.as_view(), name="list"),
+                    path(
+                        "add/",
+                        song.SongCreateView.as_view(),
+                        name="add",
+                    ),
+                    path(
+                        "<int:pk>/",
+                        song.SongDetailView.as_view(),
+                        name="detail",
+                    ),
+                    path(
+                        "<int:pk>/update/",
+                        song.SongUpdateView.as_view(),
+                        name="update",
+                    ),
+                    path(
+                        "<int:pk>/delete/",
+                        song.SongDeleteView.as_view(),
+                        name="delete",
+                    ),
+                    path("<int:pk>/play/", song.play_view, name="play"),
                 ],
                 "songs",
             )

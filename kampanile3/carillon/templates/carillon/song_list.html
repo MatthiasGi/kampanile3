@@ -1,28 +1,32 @@
 {% extends "frontend/base.html" %}
-{% load i18n static %}
+{% load i18n %}
 
 {% block content %}
-  <h1>{% translate "Songs" %}</h1>
-  <p class="lead">{% blocktranslate %}The following songs are available in the carillon to play:{% endblocktranslate %}</p>
+  {% url "carillon:songs:add" as url %}
+  {% include "frontend/includes/add_button.html" with label=_("Add song") %}
 
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">{% translate "Name" %}</th>
-        <th scope="col">{% translate "Slug" %}</th>
-        <th scope="col"><span class="mdi mdi-music-accidental-sharp" title="{% trans "Transpose" %}" data-bs-toggle="tooltip"></span></th>
-        <th scope="col"><span class="mdi mdi-metronome" title="{% trans "Tempo" %}" data-bs-toggle="tooltip"></span></th>
-        <th scope="col">{% translate "Actions" %}</th>
+        <th scope="col" class="w-50">{% translate "Name" %}</th>
+        <th scope="col" class="w-50">{% translate "Slug" %}</th>
+        <th scope="col" class="text-center"><span class="mdi mdi-music-accidental-sharp" title="{% trans "Transpose" %}" data-bs-toggle="tooltip"></span></th>
+        <th scope="col" class="text-center"><span class="mdi mdi-metronome" title="{% trans "Tempo multiplier" %}" data-bs-toggle="tooltip"></span></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       {% for song in song_list %}
         <tr>
-          <th scope="row">{{ song.name }}</th>
+          <th scope="row"><a href="{{ song.get_absolute_url }}">{{ song.name }}</a></th>
           <td><code>{{ song.slug }}</code></td>
-          <td>{{ song.transpose }}</td>
-          <td>{{ song.tempo_multiplier }}</td>
-          <td></td>
+          <td class="text-nowrap">{{ song.transpose }}</td>
+          <td class="text-nowrap">{{ song.tempo_percentage }}&nbsp;%</td>
+          <td class="text-nowrap">
+            {% url "carillon:songs:update" song.pk as update_url %}
+            {% url "carillon:songs:delete" song.pk as delete_url %}
+            {% include "frontend/includes/table_btn_group.html" with view_url=song.get_absolute_url %}
+          </td>
         </tr>
       {% endfor %}
     </tbody>

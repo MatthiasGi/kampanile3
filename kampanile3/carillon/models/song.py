@@ -1,5 +1,6 @@
 import mido
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -37,16 +38,26 @@ class Song(models.Model):
     """A multiplier for the tempo of the song. This can be used to speed up or slow down the song."""
 
     @property
+    def tempo_percentage(self) -> int:
+        """Returns the tempo as a percentage of the original tempo."""
+        return int(self.tempo_multiplier * 100)
+
+    @property
     def midiFile(self) -> mido.MidiFile:
         """Simply returns the MIDI-file as a `mido.MidiFile` object."""
         return mido.MidiFile(self.file.path)
 
+    @property
     def fileTempo(self) -> int | None:
         """The tempo read from the file or `None` if not found."""
         for msg in self.midiFile.tracks[0]:
             if msg.type == "set_tempo":
                 return msg.tempo
         return None
+
+    def bpm(self) -> float:
+        """Returns the BPM (Beats Per Minute) of the song."""
+        return mido.tempo2bpm(self.fileTempo)
 
     @property
     def midi(self) -> list[mido.Message]:
@@ -55,7 +66,7 @@ class Song(models.Model):
         The returned list has already transposed notes and adjusted timing.
         """
         messages: list[mido.Message] = []
-        tempo = self.tempo if self.tempo is not None else self.fileTempo
+        tempo = self.fileTempo * self.tempo_multiplier
         for msg in self.midiFile.tracks[0]:
             if msg.type not in ("note_on", "note_off"):
                 continue
@@ -63,6 +74,9 @@ class Song(models.Model):
             note = msg.note + self.transpose
             messages.append(msg.copy(time=time, note=note))
         return messages
+
+    def get_absolute_url(self):
+        return reverse("carillon:songs:detail", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
         return self.name

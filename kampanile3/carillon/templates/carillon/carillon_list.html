@@ -2,11 +2,8 @@
 {% load i18n %}
 
 {% block content %}
-  <div class="position-relative">
-    <a href="{% url 'carillon:carillons:add' %}" class="btn btn-outline-primary position-absolute end-0 bottom-0 mb-3">
-      <span class="mdi mdi-plus"></span> {% translate "Add carillon" %}
-    </a>
-  </div>
+  {% url "carillon:carillons:add" as url %}
+  {% include "frontend/includes/add_button.html" with label=_("Add carillon") %}
 
   <table class="table">
     <thead>
@@ -26,17 +23,9 @@
           </th>
           <td><code>{{ carillon.port_name }}</code></td>
           <td class="text-nowrap">
-            <div class="btn-group btn-group-sm" role="group">
-              <a class="btn btn-outline-primary" href="{{ carillon.get_absolute_url }}" title="{% trans "View" %}" data-bs-toggle="tooltip">
-                <span class="mdi mdi-eye-outline"></span>
-              </a>
-              <a class="btn btn-outline-primary" href="{% url 'carillon:carillons:update' carillon.pk %}" title="{% trans "Update" %}" data-bs-toggle="tooltip">
-                <span class="mdi mdi-pencil-outline"></span>
-              </a>
-              <a class="btn btn-outline-danger" href="{% url 'carillon:carillons:delete' carillon.pk %}" title="{% trans "Delete" %}" data-bs-toggle="tooltip">
-                <span class="mdi mdi-delete-outline"></span>
-              </a>
-            </div>
+            {% url "carillon:carillons:update" carillon.pk as update_url %}
+            {% url "carillon:carillons:delete" carillon.pk as delete_url %}
+            {% include "frontend/includes/table_btn_group.html" with view_url=carillon.get_absolute_url %}
           </td>
         </tr>
       {% endfor %}

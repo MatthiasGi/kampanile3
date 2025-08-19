@@ -11,7 +11,7 @@
 
 {% block content %}
   <h2>{% trans "Test playing notes" %}</h2>
-  <div class="piano-container">
+  <div class="piano-container mb-3">
     <button type="button" class="btn btn-outline-primary" data-note="36">C2</button>
     <button type="button" class="btn btn-outline-primary" data-note="48">C3</button>
     <button type="button" class="btn btn-outline-primary" data-note="60">C4</button>
@@ -19,7 +19,7 @@
     <button type="button" class="btn btn-outline-primary" data-note="84">C6</button>
   </div>
 
-  <div class="alert-placeholder mt-2"></div>
+  <div class="alert-placeholder"></div>
 {% endblock %}
 
 {% block extra_body %}
@@ -27,7 +27,7 @@
 document.querySelectorAll('.piano-container button').forEach(button => {
   button.addEventListener('click', function() {
     const note = this.getAttribute('data-note');
-    fetch(`{% url 'carillon:carillons:hit_note' pk=carillon.pk %}`, {
+    fetch(`{% url 'carillon:carillons:hit_note' carillon.pk %}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -50,3 +50,10 @@ class Carillon(models.Model):
 
     def get_absolute_url(self):
         return reverse("carillon:carillons:detail", kwargs={"pk": self.pk})
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        verbose_name = _("Carillon")
+        verbose_name_plural = _("Carillons")

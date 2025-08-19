@@ -45,6 +45,7 @@ class CarillonDetailView(DetailView):
 class CarillonCreateView(CreateView):
     model = Carillon
     form_class = CarillonForm
+    template_name = "carillon/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -62,6 +63,7 @@ class CarillonCreateView(CreateView):
 class CarillonUpdateView(UpdateView):
     model = Carillon
     form_class = CarillonForm
+    template_name = "carillon/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -79,6 +81,7 @@ class CarillonUpdateView(UpdateView):
 
 class CarillonDeleteView(DeleteView):
     model = Carillon
+    template_name = "carillon/confirm_delete.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -110,5 +113,4 @@ def hit_note_view(request, pk):
         carillon.hit(note)
         return JsonResponse({"success": True, "carillon_id": pk, "note": note})
     except Exception as e:
-        print(str(e))
         return JsonResponse({"error": str(e)}, status=500)

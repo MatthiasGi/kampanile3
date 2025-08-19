@@ -1,0 +1,75 @@
+{% extends "frontend/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <dl class="row mt-3">
+    <dt class="col-sm-3">{% trans "Slug" %}</dt>
+    <dd class="col-sm-9"><code>{{ song.slug }}</code></dd>
+    <dt class="col-sm-3">{% trans "File" %}</dt>
+    <dd class="col-sm-9"><code>{{ song.file }}</code></dd>
+    <dt class="col-sm-3">{% trans "Transpose" %}</dt>
+    <dd class="col-sm-9">{{ song.transpose }}</dd>
+    <dt class="col-sm-3">{% trans "Tempo multiplier" %}</dt>
+    <dd class="col-sm-9">{{ song.tempo_percentage }}&nbsp;%</dd>
+    <dt class="col-sm-3">{% trans "Base tempo" %}</dt>
+    <dd class="col-sm-9">
+      {% blocktranslate with bpm=song.bpm %}{{ bpm }} bpm{% endblocktranslate %}
+    </dd>
+  </dl>
+
+  <h2 class="mb-3">{% trans "Test play song on carillon" %}</h2>
+
+  <div class="row mb-3">
+    <label for="carillon-select" class="col-sm-2 col-form-label">
+      {% trans "Play on:" %}
+    </label>
+    <div class="col-sm-9">
+      <select class="form-select col-sm-9" id="carillon-select">
+        {% for carillon in carillons %}
+          <option value="{{ carillon.pk }}">{{ carillon.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button class="btn btn-primary col-sm-1 play-song-button" id="play-song-button">
+      <span class="mdi mdi-play"></span>
+    </button>
+  </div>
+
+  <div class="alert-placeholder"></div>
+{% endblock %}
+
+{% block extra_body %}
+<script>
+document.querySelector('.play-song-button').addEventListener('click', () => {
+  fetch(`{% url 'carillon:songs:play' song.pk %}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      carillon_id: document.getElementById('carillon-select').value
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    const alert = document.createElement('div')
+    document.querySelector('.alert-placeholder').appendChild(alert)
+    alert.classList.add('alert', 'alert-dismissible', 'fade', 'show')
+    if (data.success) {
+      alert.classList.add('alert-success')
+      alert.innerHTML = "{% blocktranslate %}Song played successfully!{% endblocktranslate %}"
+      const bsAlert = new bootstrap.Alert(alert)
+      setTimeout(() => {
+        if (bsAlert) bsAlert.close();
+      }, 3000);
+    } else {
+      alert.classList.add('alert-danger')
+      alert.innerHTML = `
+        {% blocktranslate with error=data.error %}Error playing song: ${ data.error }{% endblocktranslate %}
+      `
+    }
+    alert.innerHTML += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+  })
+});
+</script>
+{% endblock %}

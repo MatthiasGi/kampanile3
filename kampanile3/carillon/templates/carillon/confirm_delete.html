@@ -6,10 +6,10 @@
     {% csrf_token %}
     {{ form }}
     <div class="row pt-3">
-      <a href="{{ back_link }}" class="btn btn-outline-secondary col-5">
+      <a href="{{ back_link }}" class="btn btn-outline-secondary btn-lg col-5">
         {% trans "Cancel" %}
       </a>
-      <input type="submit" class="btn btn-danger col-6 offset-1" value="{% trans "Confirm deletion" %}>
+      <input type="submit" class="btn btn-danger btn-lg col-6 offset-1" value="{% trans "Confirm deletion" %}">
     </div>
   </form>
 {% endblock %}
