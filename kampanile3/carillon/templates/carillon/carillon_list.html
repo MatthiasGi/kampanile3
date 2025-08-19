@@ -1,0 +1,42 @@
+{% extends "frontend/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{% translate "Carillons" %}</h1>
+  <p class="lead">{% blocktranslate %}The following songs are available in the carillon to play:{% endblocktranslate %}</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">{% translate "Name" %}</th>
+        <th scope="col">{% translate "Port Name" %}</th>
+        <th scope="col">{% translate "Actions" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for carillon in carillon_list %}
+        <tr>
+          <th scope="row">
+            <a href="{{ carillon.get_absolute_url }}">
+              {{ carillon.name }}
+            </a>
+          </th>
+          <td><code>{{ carillon.port_name }}</code></td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group">
+              <a class="btn btn-primary" href="{{ carillon.get_absolute_url }}" title="{% trans "View" %}" data-bs-toggle="tooltip">
+                <span class="mdi mdi-eye-outline"></span>
+              </a>
+              <a class="btn btn-primary" href="{% url 'carillon:carillons:update' carillon.pk %}" title="{% trans "Update" %}" data-bs-toggle="tooltip">
+                <span class="mdi mdi-pencil-outline"></span>
+              </a>
+              <a class="btn btn-danger" href="{% url 'carillon:carillons:delete' carillon.pk %}" title="{% trans "Delete" %}" data-bs-toggle="tooltip">
+                <span class="mdi mdi-delete-outline"></span>
+              </a>
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "frontend/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{% translate "Add carillon" %}</h1>
+  <p class="lead">{% blocktranslate %}Add a carillon to play notes:{% endblocktranslate %}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

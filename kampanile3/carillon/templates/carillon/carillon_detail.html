@@ -1,0 +1,58 @@
+{% extends "frontend/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{{ carillon.name }}</h1>
+  <p class="lead">
+    {% blocktranslate with port=carillon.port_name%}The carillon is connected to port <code>{{ port }}</code>. You can play notes on it.{% endblocktranslate %}
+  </p>
+
+  <h2>{% trans "Test playing notes" %}</h2>
+  <div class="piano-container">
+    <button type="button" class="btn btn-outline-primary" data-note="36">C2</button>
+    <button type="button" class="btn btn-outline-primary" data-note="48">C3</button>
+    <button type="button" class="btn btn-outline-primary" data-note="60">C4</button>
+    <button type="button" class="btn btn-outline-primary" data-note="72">C5</button>
+    <button type="button" class="btn btn-outline-primary" data-note="84">C6</button>
+  </div>
+
+  <div class="alert-placeholder position-fixed top-0 end-0 p-2">
+  </div>
+{% endblock %}
+
+{% block extra_body %}
+<script>
+document.querySelectorAll('.piano-container button').forEach(button => {
+  button.addEventListener('click', function() {
+    const note = this.getAttribute('data-note');
+    fetch(`{% url 'carillon:carillons:hit_note' pk=carillon.pk %}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({note: note})
+    })
+    .then(response => response.json())
+    .then(data => {
+      const alert = document.createElement('div')
+      document.querySelector('.alert-placeholder').appendChild(alert)
+      alert.classList.add('alert', 'alert-dismissible', 'fade', 'show')
+      if (data.success) {
+        alert.classList.add('alert-success')
+        alert.innerHTML = "{% blocktranslate %}Note played successfully!{% endblocktranslate %}"
+        const bsAlert = new bootstrap.Alert(alert)
+        setTimeout(() => {
+          if (bsAlert) bsAlert.close();
+        }, 3000);
+      } else {
+        alert.classList.add('alert-danger')
+        alert.innerHTML = `
+          {% blocktranslate with error=data.error %}Error playing note: ${ data.error }{% endblocktranslate %}
+        `
+      }
+      alert.innerHTML += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+    })
+  });
+});
+</script>
+{% endblock %}

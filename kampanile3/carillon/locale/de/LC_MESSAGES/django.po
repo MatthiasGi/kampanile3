@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 23:06+0200\n"
+"POT-Creation-Date: 2025-08-19 11:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,24 @@ msgstr ""
 #: .\carillon\apps.py:8
 msgid "Carillon"
 msgstr "Carillon"
+
+#: .\carillon\models\carillon.py:17 .\carillon\models\rule.py:22
+#: .\carillon\models\song.py:9
+#: .\carillon\templates\carillon\carillon_list.html:11
+#: .\carillon\templates\carillon\song_list.html:11
+msgid "Name"
+msgstr "Name"
+
+#: .\carillon\models\carillon.py:23
+#: .\carillon\templates\carillon\carillon_list.html:12
+msgid "Port Name"
+msgstr "Portname"
+
+#: .\carillon\models\carillon.py:24
+msgid "The name of the serial port used to connect to the carillon."
+msgstr ""
+"Der Name des seriellen Ports, der zum Verbinden mit dem Carillon verwendet "
+"wird."
 
 #: .\carillon\models\rule.py:16
 msgid "Off"
@@ -39,10 +57,6 @@ msgstr "Für jede Viertelstunde"
 #: .\carillon\models\rule.py:20
 msgid "For every 30 minutes"
 msgstr "Für jede halbe Stunde"
-
-#: .\carillon\models\rule.py:22 .\carillon\models\song.py:9
-msgid "Name"
-msgstr "Name"
 
 #: .\carillon\models\rule.py:27
 msgid "Priority"
@@ -98,7 +112,7 @@ msgstr "Regel"
 msgid "Rules"
 msgstr "Regeln"
 
-#: .\carillon\models\song.py:15
+#: .\carillon\models\song.py:15 .\carillon\templates\carillon\song_list.html:12
 msgid "Slug"
 msgstr "Codewort"
 
@@ -111,7 +125,7 @@ msgstr ""
 msgid "MIDI file"
 msgstr "MIDI-Datei"
 
-#: .\carillon\models\song.py:25
+#: .\carillon\models\song.py:25 .\carillon\templates\carillon\song_list.html:13
 msgid "Transpose"
 msgstr "Transponieren"
 
@@ -131,6 +145,73 @@ msgstr ""
 "Ein Multiplikator für das Tempo des Stücks. Er kann verwendet werden, um das "
 "Stück zu beschleunigen oder zu verlangsamen."
 
-#: .\carillon\models\song.py:72
+#: .\carillon\models\song.py:72 .\carillon\templates\carillon\song_list.html:5
 msgid "Songs"
 msgstr "Stücke"
+
+#: .\carillon\templates\carillon\carillon_confirm_delete.html:5
+msgid "Delete carillon"
+msgstr "Carillon löschen"
+
+#: .\carillon\templates\carillon\carillon_confirm_delete.html:6
+msgid "Delete the carillon:"
+msgstr "Carillon löschen:"
+
+#: .\carillon\templates\carillon\carillon_detail.html:7
+#, python-format
+msgid ""
+"The carillon is connected to port <code>%(port)s</code>. You can play notes "
+"on it."
+msgstr ""
+"Das Carillon ist mit dem Port <code>%(port)s</code> verbunden. Sie können "
+"Noten darauf spielen."
+
+#: .\carillon\templates\carillon\carillon_detail.html:10
+msgid "Test playing notes"
+msgstr "Noten testen"
+
+#: .\carillon\templates\carillon\carillon_detail.html:42
+msgid "Note played successfully!"
+msgstr "Note erfolgreich gespielt!"
+
+#: .\carillon\templates\carillon\carillon_detail.html:50
+msgid "Error playing note: ${ data.error }"
+msgstr "Fehler beim Spielen der Note: ${ data.error }"
+
+#: .\carillon\templates\carillon\carillon_form.html:5
+msgid "Add carillon"
+msgstr "Carillon hinzufügen"
+
+#: .\carillon\templates\carillon\carillon_form.html:6
+msgid "Add a carillon to play notes:"
+msgstr "Ein Carillon hinzufügen, um Noten zu spielen:"
+
+#: .\carillon\templates\carillon\carillon_list.html:5
+msgid "Carillons"
+msgstr "Carillons"
+
+#: .\carillon\templates\carillon\carillon_list.html:6
+#: .\carillon\templates\carillon\song_list.html:6
+msgid "The following songs are available in the carillon to play:"
+msgstr "Die folgenden Stücke sind im Carillon verfügbar, um sie zu spielen:"
+
+#: .\carillon\templates\carillon\carillon_list.html:13
+#: .\carillon\templates\carillon\song_list.html:15
+msgid "Actions"
+msgstr "Aktionen"
+
+#: .\carillon\templates\carillon\carillon_list.html:27
+msgid "View"
+msgstr "Ansehen"
+
+#: .\carillon\templates\carillon\carillon_list.html:30
+msgid "Update"
+msgstr "Bearbeiten"
+
+#: .\carillon\templates\carillon\carillon_list.html:33
+msgid "Delete"
+msgstr "Löschen"
+
+#: .\carillon\templates\carillon\song_list.html:14
+msgid "Tempo"
+msgstr "Tempo"
