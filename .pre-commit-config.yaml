@@ -162,10 +162,3 @@ repos:
         pass_filenames: false
         language: system
         files: ^.*\.(po|py|html|js|txt)$
-
-      - id: eslint
-        name: ESLint
-        entry: sh -c 'npm run lint:fix'
-        pass_filenames: false
-        language: system
-        types: [javascript]

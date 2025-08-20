@@ -23,53 +23,95 @@
     <label for="carillon-select" class="col-sm-2 col-form-label">
       {% trans "Play on:" %}
     </label>
-    <div class="col-sm-9">
+    <div class="col-sm-8">
       <select class="form-select col-sm-9" id="carillon-select">
         {% for carillon in carillons %}
           <option value="{{ carillon.pk }}">{{ carillon.name }}</option>
         {% endfor %}
       </select>
     </div>
-    <button class="btn btn-primary col-sm-1 play-song-button" id="play-song-button">
-      <span class="mdi mdi-play"></span>
-    </button>
+    <div class="col-sm-2">
+      <div class="row gx-2">
+        <div class="col">
+          <button class="btn btn-primary w-100" id="play-song-button">
+            <span class="mdi mdi-play"></span>
+          </button>
+        </div>
+        <div class="col">
+          <button class="btn btn-outline-secondary w-100" id="stop-song-button">
+            <span class="mdi mdi-stop"></span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="alert-placeholder"></div>
 {% endblock %}
 
 {% block extra_body %}
-<script>
-document.querySelector('.play-song-button').addEventListener('click', () => {
-  fetch(`{% url 'carillon:songs:play' song.pk %}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      carillon_id: document.getElementById('carillon-select').value
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    const alert = document.createElement('div')
-    document.querySelector('.alert-placeholder').appendChild(alert)
-    alert.classList.add('alert', 'alert-dismissible', 'fade', 'show')
-    if (data.success) {
-      alert.classList.add('alert-success')
-      alert.innerHTML = "{% blocktranslate %}Song played successfully!{% endblocktranslate %}"
-      const bsAlert = new bootstrap.Alert(alert)
-      setTimeout(() => {
-        if (bsAlert) bsAlert.close();
-      }, 3000);
-    } else {
-      alert.classList.add('alert-danger')
-      alert.innerHTML = `
-        {% blocktranslate with error=data.error %}Error playing song: ${ data.error }{% endblocktranslate %}
-      `
-    }
-    alert.innerHTML += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
-  })
-});
-</script>
+  <script>
+    document.getElementById('play-song-button').addEventListener('click', () => {
+      fetch(`{% url 'carillon:songs:play' song.pk %}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          carillon_id: document.getElementById('carillon-select').value
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const alert = document.createElement('div')
+        document.querySelector('.alert-placeholder').appendChild(alert)
+        alert.classList.add('alert', 'alert-dismissible', 'fade', 'show')
+        if (data.success) {
+          alert.classList.add('alert-success')
+          alert.innerHTML = "{% blocktranslate %}Song is playing successfully!{% endblocktranslate %}"
+          const bsAlert = new bootstrap.Alert(alert)
+          setTimeout(() => {
+            if (bsAlert) bsAlert.close();
+          }, 3000);
+        } else {
+          alert.classList.add('alert-danger')
+          alert.innerHTML = `
+            {% blocktranslate with error=data.error %}Error playing song: ${ data.error }{% endblocktranslate %}
+          `
+        }
+        alert.innerHTML += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+      })
+    });
+
+    document.getElementById('stop-song-button').addEventListener('click', () => {
+      const carillonId = document.getElementById('carillon-select').value;
+      const url = '{% url 'carillon:carillons:stop' 1234 %}'.replace('1234', carillonId);
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const alert = document.createElement('div')
+        document.querySelector('.alert-placeholder').appendChild(alert)
+        alert.classList.add('alert', 'alert-dismissible', 'fade', 'show')
+        if (data.success) {
+          alert.classList.add('alert-success')
+          alert.innerHTML = "{% blocktranslate %}Song stopped successfully!{% endblocktranslate %}"
+          const bsAlert = new bootstrap.Alert(alert)
+          setTimeout(() => {
+            if (bsAlert) bsAlert.close();
+          }, 3000);
+        } else {
+          alert.classList.add('alert-danger')
+          alert.innerHTML = `
+            {% blocktranslate with error=data.error %}Error stopping song: ${ data.error }{% endblocktranslate %}
+          `
+        }
+        alert.innerHTML += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+      })
+    });
+  </script>
 {% endblock %}

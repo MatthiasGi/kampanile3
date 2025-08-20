@@ -112,7 +112,8 @@ def play_view(request, pk):
         song = get_object_or_404(Song, pk=pk)
         data = json.loads(request.body)
         carillon = get_object_or_404(Carillon, pk=data.get("carillon_id"))
-        carillon.play(song.midi)
-        return JsonResponse({"success": True, "carillon_id": pk, "song_id": song.pk})
+        return JsonResponse(
+            {"success": carillon.play(song.midi), "carillon_id": pk, "song_id": song.pk}
+        )
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)

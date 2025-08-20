@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 16:29+0200\n"
+"POT-Creation-Date: 2025-08-20 16:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\carillon\apps.py:8 .\carillon\models\carillon.py:58
+#: .\carillon\apps.py:8 .\carillon\models\carillon.py:116
 msgid "Carillon"
 msgstr "Carillon"
 
@@ -28,25 +28,25 @@ msgstr "Abbrechen"
 msgid "Save"
 msgstr "Speichern"
 
-#: .\carillon\models\carillon.py:17 .\carillon\models\rule.py:22
+#: .\carillon\models\carillon.py:35 .\carillon\models\rule.py:22
 #: .\carillon\models\song.py:10
 #: .\carillon\templates\carillon\carillon_list.html:11
 #: .\carillon\templates\carillon\song_list.html:11
 msgid "Name"
 msgstr "Name"
 
-#: .\carillon\models\carillon.py:23
+#: .\carillon\models\carillon.py:41
 #: .\carillon\templates\carillon\carillon_list.html:12
 msgid "Port Name"
 msgstr "Portname"
 
-#: .\carillon\models\carillon.py:24
+#: .\carillon\models\carillon.py:42
 msgid "The name of the serial port used to connect to the carillon."
 msgstr ""
 "Der Name des seriellen Ports, der zum Verbinden mit dem Carillon verwendet "
 "wird."
 
-#: .\carillon\models\carillon.py:59 .\carillon\views\carillon.py:25
+#: .\carillon\models\carillon.py:117 .\carillon\views\carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
 
@@ -178,11 +178,11 @@ msgstr "Das Carillon ist mit dem Standardport verbunden."
 msgid "Test playing notes"
 msgstr "Noten testen"
 
-#: .\carillon\templates\carillon\carillon_detail.html:44
+#: .\carillon\templates\carillon\carillon_detail.html:42
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:52
+#: .\carillon\templates\carillon\carillon_detail.html:44
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
 
@@ -220,13 +220,21 @@ msgstr "Stück auf Carillon testen"
 msgid "Play on:"
 msgstr "Spielen auf:"
 
-#: .\carillon\templates\carillon\song_detail.html:60
-msgid "Song played successfully!"
-msgstr "Stück erfolgreich gespielt!"
+#: .\carillon\templates\carillon\song_detail.html:71
+msgid "Song is playing successfully!"
+msgstr "Stück wird erfolgreich abgespielt!"
 
-#: .\carillon\templates\carillon\song_detail.html:68
+#: .\carillon\templates\carillon\song_detail.html:79
 msgid "Error playing song: ${ data.error }"
 msgstr "Fehler beim Spielen des Stücks: ${ data.error }"
+
+#: .\carillon\templates\carillon\song_detail.html:102
+msgid "Song stopped successfully!"
+msgstr "Stück erfolgreich gestoppt!"
+
+#: .\carillon\templates\carillon\song_detail.html:110
+msgid "Error stopping song: ${ data.error }"
+msgstr "Fehler beim Stoppen des Stücks: ${ data.error }"
 
 #: .\carillon\templates\carillon\song_list.html:6
 msgid "Add song"

@@ -1,5 +1,5 @@
 {% extends "frontend/base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block subtitle %}
   {% if carillon.port_name %}
@@ -23,6 +23,7 @@
 {% endblock %}
 
 {% block extra_body %}
+<script src="{% static "carillon/alert_helper.js" %}"></script>
 <script>
 document.querySelectorAll('.piano-container button').forEach(button => {
   button.addEventListener('click', function() {
@@ -36,23 +37,13 @@ document.querySelectorAll('.piano-container button').forEach(button => {
     })
     .then(response => response.json())
     .then(data => {
-      const alert = document.createElement('div')
-      document.querySelector('.alert-placeholder').appendChild(alert)
-      alert.classList.add('alert', 'alert-dismissible', 'fade', 'show')
+      let alert;
       if (data.success) {
-        alert.classList.add('alert-success')
-        alert.innerHTML = "{% blocktranslate %}Note played successfully!{% endblocktranslate %}"
-        const bsAlert = new bootstrap.Alert(alert)
-        setTimeout(() => {
-          if (bsAlert) bsAlert.close();
-        }, 3000);
+        alert = generateAlert("{% blocktranslate %}Note played successfully!{% endblocktranslate %}", "success", 3000)
       } else {
-        alert.classList.add('alert-danger')
-        alert.innerHTML = `
-          {% blocktranslate with error=data.error %}Error playing note: ${ data.error }{% endblocktranslate %}
-        `
+        alert = generateAlert(`{% blocktranslate with error=data.error %}Error playing note: ${ data.error }{% endblocktranslate %}`, "success", 3000)
       }
-      alert.innerHTML += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
+      document.querySelector('.alert-placeholder').appendChild(alert);
     })
   });
 });

@@ -117,3 +117,18 @@ def hit_note_view(request, pk):
         return JsonResponse({"success": True, "carillon_id": pk, "note": note})
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+
+@login_required
+@csrf_exempt
+def stop_view(request, pk):
+    """Simple view to stop the current song on a specific carillon."""
+    if request.method != "POST":
+        return JsonResponse({"error": "Only POST method allowed"}, status=405)
+
+    try:
+        carillon = get_object_or_404(Carillon, pk=pk)
+        carillon.stop()
+        return JsonResponse({"success": True, "carillon_id": pk})
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)

@@ -27,6 +27,7 @@ urlpatterns = [
                         name="delete",
                     ),
                     path("<int:pk>/hit/", carillon.hit_note_view, name="hit_note"),
+                    path("<int:pk>/stop/", carillon.stop_view, name="stop"),
                 ],
                 "carillons",
             )
