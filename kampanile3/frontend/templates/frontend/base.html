@@ -34,6 +34,11 @@
                   {% trans "Songs" %}
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link{% if menu_active == "rule" %} active{% endif %}" href="{% url 'carillon:rules:list' %}">
+                  {% trans "Rules" %}
+                </a>
+              </li>
             </ul>
           </div>
           <div class="dropdown">

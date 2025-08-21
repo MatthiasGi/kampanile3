@@ -1,0 +1,23 @@
+{% extends "frontend/base.html" %}
+{% load i18n static %}
+
+{% block content %}
+  {% url "carillon:rules:update" rule.pk as url %}
+  {% include "frontend/includes/update_button.html" with label=_("Update rule") %}
+
+  <dl class="row mt-3">
+    <dt class="col-sm-3">{% trans "Priority" %}</dt>
+    <dd class="col-sm-9">{{ rule.priority }}</dd>
+    <dt class="col-sm-3">{% trans "Cancel following rules" %}</dt>
+    <dd class="col-sm-9">{{ rule.cancel_following|yesno:_("Yes,No") }}</dd>
+    <dt class="col-sm-3">{% trans "Song" %}</dt>
+    <dd class="col-sm-9">
+      <a href="{{ rule.song.get_absolute_url }}">{{ rule.song.name }}</a>
+    </dd>
+    <dt class="col-sm-3">{% trans "Repeat" %}</dt>
+    <dd class="col-sm-9">{{ rule.get_repeat_display }}</dd>
+  </dl>
+
+  <h2 class="mb-3">{% trans "Condition" %}</h2>
+  {% include "./includes/rule_condition_render.html" with condition=rule.condition %}
+{% endblock %}

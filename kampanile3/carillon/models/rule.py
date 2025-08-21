@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from ..conditions import build_condition
@@ -73,6 +74,9 @@ class Rule(models.Model):
     def parsed_condition(self):
         """Return the parsed condition object."""
         return build_condition(self.condition)
+
+    def get_absolute_url(self):
+        return reverse("carillon:rules:detail", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
         return self.name

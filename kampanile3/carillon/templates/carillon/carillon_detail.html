@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block content %}
+  {% url "carillon:carillons:update" carillon.pk as url %}
+  {% include "frontend/includes/update_button.html" with label=_("Update carillon") %}
+
   <h2>{% trans "Test playing notes" %}</h2>
   <div class="piano-container mb-3">
     <button type="button" class="btn btn-outline-primary" data-note="36">C2</button>

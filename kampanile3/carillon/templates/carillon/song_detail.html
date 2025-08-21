@@ -2,6 +2,9 @@
 {% load i18n %}
 
 {% block content %}
+  {% url "carillon:songs:update" song.pk as url %}
+  {% include "frontend/includes/update_button.html" with label=_("Update song") %}
+
   <dl class="row mt-3">
     <dt class="col-sm-3">{% trans "Slug" %}</dt>
     <dd class="col-sm-9"><code>{{ song.slug }}</code></dd>

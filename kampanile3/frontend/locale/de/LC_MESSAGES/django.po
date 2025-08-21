@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-19 16:29+0200\n"
+"POT-Creation-Date: 2025-08-21 10:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,15 +24,19 @@ msgstr "Carillons"
 msgid "Songs"
 msgstr "Stücke"
 
-#: .\frontend\templates\frontend\base.html:48
+#: .\frontend\templates\frontend\base.html:39
+msgid "Rules"
+msgstr "Regeln"
+
+#: .\frontend\templates\frontend\base.html:53
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: .\frontend\templates\frontend\base.html:55
+#: .\frontend\templates\frontend\base.html:60
 msgid "Administration"
 msgstr "Administration"
 
-#: .\frontend\templates\frontend\base.html:65
+#: .\frontend\templates\frontend\base.html:70
 msgid "Logout"
 msgstr "Logout"
 

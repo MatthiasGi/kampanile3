@@ -1,6 +1,6 @@
 from django.urls import include, path
 
-from .views import carillon, song
+from .views import carillon, rule, song
 
 app_name = "carillon"
 urlpatterns = [
@@ -38,7 +38,7 @@ urlpatterns = [
         include(
             (
                 [
-                    path("", song.SongView.as_view(), name="list"),
+                    path("", song.SongListView.as_view(), name="list"),
                     path(
                         "add/",
                         song.SongCreateView.as_view(),
@@ -62,6 +62,25 @@ urlpatterns = [
                     path("<int:pk>/play/", song.play_view, name="play"),
                 ],
                 "songs",
+            )
+        ),
+    ),
+    path(
+        "rules/",
+        include(
+            (
+                [
+                    path("", rule.RuleListView.as_view(), name="list"),
+                    path("add/", rule.RuleCreateView.as_view(), name="add"),
+                    path("<int:pk>/", rule.RuleDetailView.as_view(), name="detail"),
+                    path(
+                        "<int:pk>/update/", rule.RuleUpdateView.as_view(), name="update"
+                    ),
+                    path(
+                        "<int:pk>/delete/", rule.RuleDeleteView.as_view(), name="delete"
+                    ),
+                ],
+                "rules",
             )
         ),
     ),

@@ -5,7 +5,8 @@ from django import forms
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
-from .models import Carillon, Song
+from .models import Carillon, Rule, Song
+from .widgets import RuleConditionWidget
 
 
 class FormAction(Layout):
@@ -88,5 +89,34 @@ class SongForm(forms.ModelForm):
             Field("file"),
             Field("transpose"),
             Field("tempo_multiplier"),
+            FormAction(cancel_url=url),
+        )
+
+
+class RuleForm(forms.ModelForm):
+    class Meta:
+        model = Rule
+        fields = ["name", "priority", "cancel_following", "condition", "song", "repeat"]
+        widgets = {
+            "condition": RuleConditionWidget(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = "form-horizontal"
+        self.helper.label_class = "col-sm-2"
+        self.helper.field_class = "col-sm-10"
+        if self.instance.pk:
+            url = self.instance.get_absolute_url()
+        else:
+            url = reverse("carillon:rules:list")
+        self.helper.layout = Layout(
+            Field("name"),
+            Field("priority"),
+            Field("cancel_following"),
+            Field("condition"),
+            Field("song"),
+            Field("repeat"),
             FormAction(cancel_url=url),
         )

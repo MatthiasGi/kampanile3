@@ -1,6 +1,5 @@
 import json
 
-from carillon.models import Carillon
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
@@ -12,6 +11,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from ..forms import CarillonForm
+from ..models import Carillon
 
 
 class CarillonListView(LoginRequiredMixin, ListView):

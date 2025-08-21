@@ -14,7 +14,7 @@ from ..forms import SongForm
 from ..models import Carillon, Song
 
 
-class SongView(LoginRequiredMixin, ListView):
+class SongListView(LoginRequiredMixin, ListView):
     model = Song
 
     def get_context_data(self, **kwargs):

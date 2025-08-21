@@ -1,0 +1,5 @@
+{% if icon %}
+  <span class="mdi mdi-{{ icon }}" title="{{ rule.get_repeat_display }}" data-bs-toggle="tooltip"></span>
+{% else %}
+  <span title="{{ rule.get_repeat_display }}" data-bs-toggle="tooltip">{{ rule.repeat }}</span>
+{% endif %}

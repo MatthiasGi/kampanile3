@@ -1,0 +1,76 @@
+{% load i18n %}
+
+<div class="btn-toolbar mb-2" id="toolbar-{{ widget.attrs.id }}">
+  <div class="btn-group me-2">
+    <button class="btn btn-outline-primary code-cleanup" title="{% trans "Cleanup code" %}" data-bs-toggle="tooltip">
+      <span class="mdi mdi-magic-staff"></span>
+    </button>
+  </div>
+  <div class="btn-group me-2">
+    <button class="btn btn-outline-primary code-add" title="{% trans "Not condition" %}" data-bs-toggle="tooltip" data-code='{"type": "not", "condition": {}}'>
+      <span class="mdi mdi-exclamation"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "And condition" %}" data-bs-toggle="tooltip" data-code='{"type": "and", "conditions": []}'>
+      <span class="mdi mdi-ampersand"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Or condition" %}" data-bs-toggle="tooltip" data-code='{"type": "or", "conditions": []}'>
+      <span class="mdi mdi-math-norm"></span>
+    </button>
+  </div>
+  <div class="btn-group me-2">
+    <button class="btn btn-outline-primary code-add" title="{% trans "Minute condition" %}" data-bs-toggle="tooltip" data-code='{"type": "minute", "minute": 0}'>
+      <span class="mdi mdi-timelapse"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Time condition" %}" data-bs-toggle="tooltip" data-code='{"type": "time", "comparator": "eq", "hour": 0, "minute": 0}'>
+      <span class="mdi mdi-clock"></span>
+    </button>
+  </div>
+</div>
+<textarea name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>{% if widget.value %}{{ widget.value }}{% endif %}</textarea>
+<div class="alert-placeholder my-1">
+</div>
+
+<script>
+  function cleanupCode() {
+    const alertPlaceholder = document.querySelector('.alert-placeholder')
+    const errors = alertPlaceholder.querySelectorAll('.cleanup-error').forEach(el => el.remove())
+    const textarea = document.getElementById("{{ widget.attrs.id }}")
+
+    try {
+      let data = JSON.parse(textarea.value || "{}")
+      textarea.value = JSON.stringify(data, null, 2)
+    } catch (e) {
+      const alert = generateAlert(`{% blocktranslate %}Invalid JSON format: ${e.message}{% endblocktranslate %}`, "danger")
+      alert.classList.add("cleanup-error")
+      alertPlaceholder.appendChild(alert)
+    }
+  }
+
+  cleanupCode()
+  const toolbar = document.getElementById("toolbar-{{ widget.attrs.id }}")
+  toolbar.querySelector('.code-cleanup').addEventListener("click", (e) => {
+    e.preventDefault()
+    cleanupCode()
+  })
+  toolbar.querySelectorAll('.code-add').forEach(button => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault()
+      const code = button.getAttribute('data-code')
+      const textarea = document.getElementById("{{ widget.attrs.id }}")
+      const val = textarea.value
+      let start = textarea.selectionStart
+      let end = textarea.selectionEnd
+      if (start === end) {
+        // Check if empty object
+        if (val.charAt(start) === '{' && val.charAt(start + 1) === '}') end += 2
+        if (val.charAt(start) === '}' && val.charAt(start - 1) === '{') {
+          start -= 1
+          end += 1
+        }
+        if (val.charAt(start - 1) === '}' && val.charAt(start - 2) === '{') start -= 2
+      }
+      textarea.value = val.slice(0, start) + code + val.slice(end)
+      cleanupCode()
+    })
+  })
+</script>
