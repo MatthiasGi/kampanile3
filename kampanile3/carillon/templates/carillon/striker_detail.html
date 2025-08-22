@@ -1,0 +1,82 @@
+{% extends "frontend/base.html" %}
+{% load i18n static %}
+
+{% block content %}
+  {% url "carillon:strikers:update" striker.pk as url %}
+  {% include "frontend/includes/update_button.html" with label=_("Update striker") %}
+
+  <dl class="row mt-3">
+    <dt class="col-sm-3">{% trans "Carillon" %}</dt>
+    <dd class="col-sm-9">
+      <a href="{{ striker.carillon.get_absolute_url }}">{{ striker.carillon.name }}</a>
+    </dd>
+    <dt class="col-sm-3">{% trans "Priority" %}</dt>
+    <dd class="col-sm-9">{{ striker.priority }}</dd>
+  </dl>
+
+  <h2 class="mb-3">{% trans "Rules" %}</h2>
+  {% url "carillon:strikers:add_rule" striker.pk as url %}
+  {% include "frontend/includes/add_button.html" with label=_("Add rule") %}
+
+  {% if rule_list %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="w-50">{% translate "Name" %}</th>
+          <th scope="col" class="w-50">{% translate "Song" %}</th>
+          <th scope="col">
+            <span class="mdi mdi-stop-circle-outline" title="{% translate "Cancel following rules" %}" data-bs-toggle="tooltip"></span>
+          </th>
+          <th scope="col">
+            <span class="mdi mdi-exclamation-thick" title="{% translate "Priority" %}" data-bs-toggle="tooltip"></span>
+          </th>
+          <th scope="col">
+            <span class="mdi mdi-repeat-variant" title="{% translate "Repeat" %}" data-bs-toggle="tooltip"></span>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for rule in rule_list %}
+          <tr>
+            <th scope="row"><a href="{{ rule.get_absolute_url }}">{{ rule.name }}</a></th>
+            <td>{{ rule.song.name }}</td>
+            <td class="text-nowrap">
+              {% if rule.cancel_following %}
+                <span class="mdi mdi-check" title="{% translate "Cancel following rules" %}" data-bs-toggle="tooltip"></span>
+              {% else %}
+                <span class="mdi mdi-close" title="{% translate "Do not cancel following rules" %}" data-bs-toggle="tooltip"></span>
+              {% endif %}
+            </td>
+            <td class="text-nowrap">{{ rule.priority }}</td>
+            <td class="text-nowrap">
+              {% if rule.repeat == "o" %}
+                {% include "carillon/includes/rule_repeat_icon.html" with icon="circle-outline" %}
+              {% elif rule.repeat == "h12" %}
+                {% include "carillon/includes/rule_repeat_icon.html" with icon="hours-12" %}
+              {% elif rule.repeat == "h24" %}
+                {% include "carillon/includes/rule_repeat_icon.html" with icon="hours-24" %}
+              {% elif rule.repeat == "m15" %}
+                {% include "carillon/includes/rule_repeat_icon.html" with icon="clock-time-three-outline" %}
+              {% elif rule.repeat == "m30" %}
+                {% include "carillon/includes/rule_repeat_icon.html" with icon="clock-time-six-outline" %}
+              {% else %}
+                {% include "carillon/includes/rule_repeat_icon.html" %}
+              {% endif %}
+            </td>
+            <td class="text-nowrap">
+              {% url "carillon:rules:update" rule.pk as update_url %}
+              {% url "carillon:rules:delete" rule.pk as delete_url %}
+              {% include "frontend/includes/table_btn_group.html" with view_url=rule.get_absolute_url %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="lead">
+      {% blocktranslate %}There are no rules for this striker yet.{% endblocktranslate %}
+    </p>
+  {% endif %}
+
+{% endblock %}

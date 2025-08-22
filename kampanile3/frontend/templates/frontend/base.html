@@ -30,13 +30,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link{% if menu_active == "song" %} active{% endif %}" href="{% url 'carillon:songs:list' %}">
-                  {% trans "Songs" %}
+                <a class="nav-link{% if menu_active == "striker" %} active{% endif %}" href="{% url 'carillon:strikers:list' %}">
+                  {% trans "Strikers" %}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link{% if menu_active == "rule" %} active{% endif %}" href="{% url 'carillon:rules:list' %}">
-                  {% trans "Rules" %}
+                <a class="nav-link{% if menu_active == "song" %} active{% endif %}" href="{% url 'carillon:songs:list' %}">
+                  {% trans "Songs" %}
                 </a>
               </li>
             </ul>

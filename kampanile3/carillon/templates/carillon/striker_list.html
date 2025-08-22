@@ -1,0 +1,38 @@
+{% extends "frontend/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  {% url "carillon:strikers:add" as url %}
+  {% include "frontend/includes/add_button.html" with label=_("Add striker") %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="w-50">{% translate "Name" %}</th>
+        <th scope="col" class="w-50">{% translate "Carillon" %}</th>
+        <th scope="col">
+          <span class="mdi mdi-exclamation-thick" title="{% translate "Priority" %}" data-bs-toggle="tooltip"></span>
+        </th>
+        <th scope="col">
+          <span class="mdi mdi-format-list-checkbox" title="{% translate "Number of rules" %}" data-bs-toggle="tooltip"></span>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for striker in striker_list %}
+        <tr>
+          <th scope="row"><a href="{{ striker.get_absolute_url }}">{{ striker.name }}</a></th>
+          <td><a href="{{ striker.carillon.get_absolute_url }}">{{ striker.carillon.name }}</a></td>
+          <td class="text-nowrap">{{ striker.priority }}</td>
+          <td class="text-nowrap">{{ striker.rules.count }}</td>
+          <td class="text-nowrap">
+            {% url "carillon:strikers:update" striker.pk as update_url %}
+            {% url "carillon:strikers:delete" striker.pk as delete_url %}
+            {% include "frontend/includes/table_btn_group.html" with view_url=striker.get_absolute_url %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

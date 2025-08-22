@@ -5,7 +5,7 @@ from django import forms
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
-from .models import Carillon, Rule, Song
+from .models import Carillon, Rule, Song, Striker
 from .widgets import RuleConditionWidget
 
 
@@ -66,6 +66,29 @@ class CarillonForm(forms.ModelForm):
         )
 
 
+class StrikerForm(forms.ModelForm):
+    class Meta:
+        model = Striker
+        fields = ["name", "carillon", "priority"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = "form-horizontal"
+        self.helper.label_class = "col-sm-2"
+        self.helper.field_class = "col-sm-10"
+        if self.instance.pk:
+            url = self.instance.get_absolute_url()
+        else:
+            url = reverse("carillon:strikers:list")
+        self.helper.layout = Layout(
+            Field("name"),
+            Field("carillon"),
+            Field("priority"),
+            FormAction(cancel_url=url),
+        )
+
+
 class SongForm(forms.ModelForm):
     """Form for creating or updating a song."""
 
@@ -96,12 +119,22 @@ class SongForm(forms.ModelForm):
 class RuleForm(forms.ModelForm):
     class Meta:
         model = Rule
-        fields = ["name", "priority", "cancel_following", "condition", "song", "repeat"]
+        fields = [
+            "striker",
+            "name",
+            "priority",
+            "cancel_following",
+            "condition",
+            "song",
+            "repeat",
+        ]
         widgets = {
             "condition": RuleConditionWidget(),
+            "striker": forms.HiddenInput(),
         }
 
     def __init__(self, *args, **kwargs):
+        striker = kwargs.pop("striker", None)
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_class = "form-horizontal"
@@ -110,8 +143,9 @@ class RuleForm(forms.ModelForm):
         if self.instance.pk:
             url = self.instance.get_absolute_url()
         else:
-            url = reverse("carillon:rules:list")
+            url = striker.get_absolute_url()
         self.helper.layout = Layout(
+            Field("striker"),
             Field("name"),
             Field("priority"),
             Field("cancel_following"),

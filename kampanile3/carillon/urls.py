@@ -1,6 +1,6 @@
 from django.urls import include, path
 
-from .views import carillon, rule, song
+from .views import carillon, song, striker
 
 app_name = "carillon"
 urlpatterns = [
@@ -39,25 +39,13 @@ urlpatterns = [
             (
                 [
                     path("", song.SongListView.as_view(), name="list"),
+                    path("add/", song.SongCreateView.as_view(), name="add"),
+                    path("<int:pk>/", song.SongDetailView.as_view(), name="detail"),
                     path(
-                        "add/",
-                        song.SongCreateView.as_view(),
-                        name="add",
+                        "<int:pk>/update/", song.SongUpdateView.as_view(), name="update"
                     ),
                     path(
-                        "<int:pk>/",
-                        song.SongDetailView.as_view(),
-                        name="detail",
-                    ),
-                    path(
-                        "<int:pk>/update/",
-                        song.SongUpdateView.as_view(),
-                        name="update",
-                    ),
-                    path(
-                        "<int:pk>/delete/",
-                        song.SongDeleteView.as_view(),
-                        name="delete",
+                        "<int:pk>/delete/", song.SongDeleteView.as_view(), name="delete"
                     ),
                     path("<int:pk>/play/", song.play_view, name="play"),
                 ],
@@ -66,18 +54,54 @@ urlpatterns = [
         ),
     ),
     path(
-        "rules/",
+        "strikers/",
         include(
             (
                 [
-                    path("", rule.RuleListView.as_view(), name="list"),
-                    path("add/", rule.RuleCreateView.as_view(), name="add"),
-                    path("<int:pk>/", rule.RuleDetailView.as_view(), name="detail"),
+                    path("", striker.StrikerListView.as_view(), name="list"),
+                    path("add/", striker.StrikerCreateView.as_view(), name="add"),
                     path(
-                        "<int:pk>/update/", rule.RuleUpdateView.as_view(), name="update"
+                        "<int:pk>/", striker.StrikerDetailView.as_view(), name="detail"
                     ),
                     path(
-                        "<int:pk>/delete/", rule.RuleDeleteView.as_view(), name="delete"
+                        "<int:pk>/update/",
+                        striker.StrikerUpdateView.as_view(),
+                        name="update",
+                    ),
+                    path(
+                        "<int:pk>/delete/",
+                        striker.StrikerDeleteView.as_view(),
+                        name="delete",
+                    ),
+                    path(
+                        "<int:pk>/add-rule/",
+                        striker.StrikerRuleCreateView.as_view(),
+                        name="add_rule",
+                    ),
+                ],
+                "strikers",
+            ),
+        ),
+    ),
+    path(
+        "strikers/rules/",
+        include(
+            (
+                [
+                    path(
+                        "<int:pk>/",
+                        striker.StrikerRuleDetailView.as_view(),
+                        name="detail",
+                    ),
+                    path(
+                        "<int:pk>/update/",
+                        striker.StrikerRuleUpdateView.as_view(),
+                        name="update",
+                    ),
+                    path(
+                        "<int:pk>/delete/",
+                        striker.StrikerRuleDeleteView.as_view(),
+                        name="delete",
                     ),
                 ],
                 "rules",

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-21 10:45+0200\n"
+"POT-Creation-Date: 2025-08-22 11:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\carillon\apps.py:8 .\carillon\models\carillon.py:116
+#: .\carillon\models\striker.py:24
+#: .\carillon\templates\carillon\striker_detail.html:9
+#: .\carillon\templates\carillon\striker_list.html:12
 msgid "Carillon"
 msgstr "Carillon"
 
@@ -28,11 +31,13 @@ msgstr "Abbrechen"
 msgid "Save"
 msgstr "Speichern"
 
-#: .\carillon\models\carillon.py:35 .\carillon\models\rule.py:23
-#: .\carillon\models\song.py:10
+#: .\carillon\models\carillon.py:35 .\carillon\models\rule.py:24
+#: .\carillon\models\song.py:10 .\carillon\models\striker.py:16
 #: .\carillon\templates\carillon\carillon_list.html:11
 #: .\carillon\templates\carillon\rule_list.html:11
 #: .\carillon\templates\carillon\song_list.html:11
+#: .\carillon\templates\carillon\striker_detail.html:25
+#: .\carillon\templates\carillon\striker_list.html:11
 msgid "Name"
 msgstr "Name"
 
@@ -51,45 +56,58 @@ msgstr ""
 msgid "Carillons"
 msgstr "Carillons"
 
-#: .\carillon\models\rule.py:17
+#: .\carillon\models\rule.py:18
 msgid "Off"
 msgstr "Aus"
 
-#: .\carillon\models\rule.py:18
+#: .\carillon\models\rule.py:19
 msgid "For every hour once 12-based"
 msgstr "Für jede volle Stunde (12-Stunden-Format)"
 
-#: .\carillon\models\rule.py:19
+#: .\carillon\models\rule.py:20
 msgid "For every hour once 24-based"
 msgstr "Für jede volle Stunde (24-Stunden-Format)"
 
-#: .\carillon\models\rule.py:20
+#: .\carillon\models\rule.py:21
 msgid "For every 15 minutes"
 msgstr "Für jede Viertelstunde"
 
-#: .\carillon\models\rule.py:21
+#: .\carillon\models\rule.py:22
 msgid "For every 30 minutes"
 msgstr "Für jede halbe Stunde"
 
-#: .\carillon\models\rule.py:28
+#: .\carillon\models\rule.py:30 .\carillon\models\striker.py:44
+msgid "Striker"
+msgstr "Schlagwerk"
+
+#: .\carillon\models\rule.py:31
+msgid "The striker that checks, if the rule applies."
+msgstr "Das Schlagwerk, das prüft, ob die Regel zutrifft."
+
+#: .\carillon\models\rule.py:38 .\carillon\models\striker.py:30
 #: .\carillon\templates\carillon\rule_detail.html:9
 #: .\carillon\templates\carillon\rule_list.html:17
+#: .\carillon\templates\carillon\striker_detail.html:13
+#: .\carillon\templates\carillon\striker_detail.html:31
+#: .\carillon\templates\carillon\striker_list.html:14
 msgid "Priority"
 msgstr "Priorität"
 
-#: .\carillon\models\rule.py:29
+#: .\carillon\models\rule.py:39
 msgid "The priority of the rule. Higher values means firstly evaluated."
 msgstr ""
 "Die Priorität der Regel. Höhere Werte bedeuten eine frühere Auswertung."
 
-#: .\carillon\models\rule.py:35
+#: .\carillon\models\rule.py:45
 #: .\carillon\templates\carillon\rule_detail.html:11
 #: .\carillon\templates\carillon\rule_list.html:14
 #: .\carillon\templates\carillon\rule_list.html:32
+#: .\carillon\templates\carillon\striker_detail.html:28
+#: .\carillon\templates\carillon\striker_detail.html:46
 msgid "Cancel following rules"
 msgstr "Abbrechen nachfolgender Regeln"
 
-#: .\carillon\models\rule.py:37
+#: .\carillon\models\rule.py:47
 msgid ""
 "If checked, no following rule with smaller priority will be executed if this "
 "rule applies."
@@ -97,41 +115,44 @@ msgstr ""
 "Wenn aktiviert, werden keine nachfolgenden Regeln mit niedrigerer Priorität "
 "ausgeführt, wenn diese Regel zutrifft."
 
-#: .\carillon\models\rule.py:43
+#: .\carillon\models\rule.py:53
 #: .\carillon\templates\carillon\rule_detail.html:21
 msgid "Condition"
 msgstr "Bedingung"
 
-#: .\carillon\models\rule.py:44
+#: .\carillon\models\rule.py:54
 msgid "A JSON object actually defining the condition."
 msgstr "Ein JSON-Objekt, das die Bedingung definiert."
 
-#: .\carillon\models\rule.py:54 .\carillon\models\song.py:85
+#: .\carillon\models\rule.py:64 .\carillon\models\song.py:85
 #: .\carillon\templates\carillon\rule_detail.html:13
 #: .\carillon\templates\carillon\rule_list.html:12
+#: .\carillon\templates\carillon\striker_detail.html:26
 msgid "Song"
 msgstr "Stück"
 
-#: .\carillon\models\rule.py:55
+#: .\carillon\models\rule.py:65
 msgid "The song to play when the rule applies."
 msgstr "Das zu spielende Stück, wenn die Regel zutrifft."
 
-#: .\carillon\models\rule.py:66
+#: .\carillon\models\rule.py:76
 #: .\carillon\templates\carillon\rule_detail.html:17
 #: .\carillon\templates\carillon\rule_list.html:20
+#: .\carillon\templates\carillon\striker_detail.html:34
 msgid "Repeat"
 msgstr "Wiederholen"
 
-#: .\carillon\models\rule.py:68
+#: .\carillon\models\rule.py:78
 msgid "How often the played song should be repeated if the rule applies."
 msgstr ""
 "Wie oft das gespielte Stück wiederholt werden soll, wenn die Regel zutrifft."
 
-#: .\carillon\models\rule.py:86
+#: .\carillon\models\rule.py:96
 msgid "Rule"
 msgstr "Regel"
 
-#: .\carillon\models\rule.py:87 .\carillon\views\rule.py:19
+#: .\carillon\models\rule.py:97
+#: .\carillon\templates\carillon\striker_detail.html:17
 msgid "Rules"
 msgstr "Regeln"
 
@@ -176,6 +197,18 @@ msgstr ""
 msgid "Songs"
 msgstr "Stücke"
 
+#: .\carillon\models\striker.py:32
+msgid ""
+"The priority of this striker, used to determine if it should abort other "
+"strikers' songs."
+msgstr ""
+"Die Priorität des Schlagwerks, die verwendet wird, um zu bestimmen, ob es "
+"die Stücke anderer Schlagwerke abbrechen soll."
+
+#: .\carillon\models\striker.py:45 .\carillon\views\striker.py:19
+msgid "Strikers"
+msgstr "Schlagwerke"
+
 #: .\carillon\templates\carillon\carillon_detail.html:6
 #, python-format
 msgid "The carillon is connected to port <code>%(port)s</code>."
@@ -209,6 +242,10 @@ msgstr "Carillon hinzufügen"
 msgid "Confirm deletion"
 msgstr "Löschen bestätigen"
 
+#: .\carillon\templates\carillon\includes\rule_condition_render.html:26
+msgid "Empty condition"
+msgstr "Leere Bedingung"
+
 #: .\carillon\templates\carillon\rule_detail.html:6
 msgid "Update rule"
 msgstr "Regel bearbeiten"
@@ -218,10 +255,12 @@ msgid "Yes,No"
 msgstr "Ja,Nein"
 
 #: .\carillon\templates\carillon\rule_list.html:6
+#: .\carillon\templates\carillon\striker_detail.html:19
 msgid "Add rule"
 msgstr "Regel hinzufügen"
 
 #: .\carillon\templates\carillon\rule_list.html:34
+#: .\carillon\templates\carillon\striker_detail.html:48
 msgid "Do not cancel following rules"
 msgstr "Folgende Regeln nicht abbrechen"
 
@@ -274,6 +313,23 @@ msgstr "Fehler beim Stoppen des Stücks: ${ data.error }"
 #: .\carillon\templates\carillon\song_list.html:6
 msgid "Add song"
 msgstr "Stück hinzufügen"
+
+#: .\carillon\templates\carillon\striker_detail.html:6
+#: .\carillon\views\striker.py:71
+msgid "Update striker"
+msgstr "Schlagwerk bearbeiten"
+
+#: .\carillon\templates\carillon\striker_detail.html:78
+msgid "There are no rules for this striker yet."
+msgstr "Es gibt keine Regeln für dieses Schlagwerk."
+
+#: .\carillon\templates\carillon\striker_list.html:6
+msgid "Add striker"
+msgstr "Schlagwerk hinzufügen"
+
+#: .\carillon\templates\carillon\striker_list.html:17
+msgid "Number of rules"
+msgstr "Anzahl von Regeln"
 
 #: .\carillon\templates\carillon\widgets\rule_condition.html:5
 msgid "Cleanup code"
@@ -330,39 +386,14 @@ msgstr "Carillon bearbeiten"
 msgid "Modify the settings of the carillon: %(name)s"
 msgstr "Einstellungen des Carillons ändern: %(name)s"
 
-#: .\carillon\views\carillon.py:94
+#: .\carillon\views\carillon.py:95
 msgid "Delete carillon"
 msgstr "Carillon löschen"
 
-#: .\carillon\views\carillon.py:95
+#: .\carillon\views\carillon.py:96
 #, python-format
 msgid "Are you sure you want to delete carillon %(name)s?"
 msgstr "Sind Sie sicher, dass Sie das Carillon %(name)s löschen möchten?"
-
-#: .\carillon\views\rule.py:20
-msgid "The following rules are configured in the system:"
-msgstr "Die folgenden Regeln sind im System konfiguriert:"
-
-#: .\carillon\views\rule.py:52
-msgid "Create rule"
-msgstr "Regel erstellen"
-
-#: .\carillon\views\rule.py:53
-msgid "Add a rule for automatically playing songs."
-msgstr "Eine Regel zum automatischen Abspielen von Stücken hinzufügen."
-
-#: .\carillon\views\rule.py:70
-msgid "Update a rule"
-msgstr "Regel bearbeiten"
-
-#: .\carillon\views\rule.py:87
-msgid "Delete rule"
-msgstr "Regel löschen"
-
-#: .\carillon\views\rule.py:88
-#, python-format
-msgid "Are you sure you want to delete the rule \"%(name)s\"?"
-msgstr "Sind Sie sicher, dass Sie die Regel %(name)s löschen möchten?"
 
 #: .\carillon\views\song.py:27
 msgid "The following songs are available in the carillon to play:"
@@ -376,11 +407,56 @@ msgstr "Stück erstellen"
 msgid "Add a song to the carillon."
 msgstr "Stück zum System hinzufügen."
 
-#: .\carillon\views\song.py:96
+#: .\carillon\views\song.py:97
 msgid "Delete song"
 msgstr "Stück löschen"
 
-#: .\carillon\views\song.py:97
+#: .\carillon\views\song.py:98
 #, python-format
 msgid "Are you sure you want to delete the song: %(name)s?"
-msgstr "Sind Sie sicher, dass Sie das Stück %(name)s löschen möchten?"
+msgstr "Sind Sie sicher, dass Sie das Stück „%(name)s“ löschen möchten?"
+
+#: .\carillon\views\striker.py:20
+msgid "The following strikers are configured in the system:"
+msgstr "Die folgenden Schlagwerke sind im System konfiguriert:"
+
+#: .\carillon\views\striker.py:53
+msgid "Create striker"
+msgstr "Schlagwerk erstellen"
+
+#: .\carillon\views\striker.py:54
+msgid "Add a striker as a container for rules."
+msgstr "Ein Schlagwerk als Container für Regeln hinzufügen."
+
+#: .\carillon\views\striker.py:89
+msgid "Delete striker"
+msgstr "Schlagwerk löschen"
+
+#: .\carillon\views\striker.py:91
+#, python-format
+msgid "Are you sure you want to delete the striker \"%(name)s\"?"
+msgstr "Sind Sie sicher, dass Sie das Schlagwerk „%(name)s“ löschen möchten?"
+
+#: .\carillon\views\striker.py:140
+msgid "Create rule"
+msgstr "Regel erstellen"
+
+#: .\carillon\views\striker.py:142
+#, python-format
+msgid "Add a rule for automatically playing songs on striker \"%(name)s\"."
+msgstr ""
+"Eine Regel zum automatischen Abspielen von Stücken auf Schlagwerk „%(name)s“ "
+"hinzufügen."
+
+#: .\carillon\views\striker.py:161
+msgid "Update a rule"
+msgstr "Regel bearbeiten"
+
+#: .\carillon\views\striker.py:181
+msgid "Delete rule"
+msgstr "Regel löschen"
+
+#: .\carillon\views\striker.py:182
+#, python-format
+msgid "Are you sure you want to delete the rule \"%(name)s\"?"
+msgstr "Sind Sie sicher, dass Sie die Regel „%(name)s“ löschen möchten?"

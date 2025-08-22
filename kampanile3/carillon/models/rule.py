@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 from ..conditions import build_condition
 from .song import Song
+from .striker import Striker
 
 
 def validate_rule_condition(value):
@@ -22,6 +23,15 @@ class Rule(models.Model):
 
     name = models.CharField(max_length=255, verbose_name=_("Name"))
     """The name of the rule for a friendly display."""
+
+    striker = models.ForeignKey(
+        Striker,
+        on_delete=models.CASCADE,
+        verbose_name=_("Striker"),
+        help_text=_("The striker that checks, if the rule applies."),
+        related_name="rules",
+    )
+    """The striker that checks if the rule applies."""
 
     priority = models.PositiveSmallIntegerField(
         default=0,

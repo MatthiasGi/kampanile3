@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, ListView
@@ -86,6 +86,7 @@ class SongUpdateView(LoginRequiredMixin, UpdateView):
 class SongDeleteView(LoginRequiredMixin, DeleteView):
     model = Song
     template_name = "carillon/confirm_delete.html"
+    success_url = reverse_lazy("carillon:songs:list")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -1,23 +1,29 @@
-{% load type_checks %}
+{% load type_checks i18n %}
 
 <ul class="list-group mt-2">
-  <li class="list-group-item list-group-item-primary">
-    <strong>type:</strong> {{ condition.type }}
-  </li>
-  {% for key, value in condition.items %}
-    {% if key != "type" %}
-      <li class="list-group-item">
-        <strong>{{ key }}:</strong>
-          {% if value.items %}
-            {% include "./rule_condition_render.html" with condition=value %}
-          {% elif value|is_list %}
-            {% for c in value %}
-              {% include "./rule_condition_render.html" with condition=c %}
-            {% endfor %}
-          {% else %}
-            {{ value }}
-          {% endif %}
-      </li>
-    {% endif %}
-  {% endfor %}
+  {% if condition %}
+    <li class="list-group-item list-group-item-primary">
+      <strong>type:</strong> {{ condition.type }}
+    </li>
+    {% for key, value in condition.items %}
+      {% if key != "type" %}
+        <li class="list-group-item">
+          <strong>{{ key }}:</strong>
+            {% if value.items %}
+              {% include "./rule_condition_render.html" with condition=value %}
+            {% elif value|is_list %}
+              {% for c in value %}
+                {% include "./rule_condition_render.html" with condition=c %}
+              {% endfor %}
+            {% else %}
+              {{ value }}
+            {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <li class="list-group-item list-group-item-secondary">
+      <em>{% trans "Empty condition" %}</em>
+    </li>
+  {% endif %}
 </ul>
