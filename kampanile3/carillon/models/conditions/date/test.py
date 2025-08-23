@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 
 from django.test import TestCase
 
@@ -116,3 +116,47 @@ class ConditionTestCase(TestCase):
         self.assertFalse(build_condition(data).is_valid())
         data["remainder"] = "a"
         self.assertFalse(build_condition(data).is_valid())
+
+    def test_build_date_condition(self):
+        data = {"type": "date", "comparator": "eq"}
+        self.assertFalse(build_condition(data).is_valid())
+        data["day"] = 1
+        self.assertFalse(build_condition(data).is_valid())
+        data["month"] = 1
+        self.assertTrue(build_condition(data).is_valid())
+        data["day"] = 32
+        self.assertFalse(build_condition(data).is_valid())
+        data["day"] = 0
+        self.assertFalse(build_condition(data).is_valid())
+        data["day"] = "a"
+        self.assertFalse(build_condition(data).is_valid())
+        data["day"] = 1
+        data["month"] = 13
+        self.assertFalse(build_condition(data).is_valid())
+        data["month"] = 0
+        self.assertFalse(build_condition(data).is_valid())
+        data["month"] = "a"
+        self.assertFalse(build_condition(data).is_valid())
+
+    def test_date_condition_is_met(self):
+        today = date.today()
+        data = {
+            "type": "date",
+            "day": today.day,
+            "month": today.month,
+            "comparator": "eq",
+        }
+        condition = build_condition(data)
+        self.assertTrue(condition.is_met())
+        data["comparator"] = "gt"
+        condition = build_condition(data)
+        self.assertFalse(condition.is_met())
+        data["comparator"] = "lt"
+        condition = build_condition(data)
+        self.assertFalse(condition.is_met())
+        data["comparator"] = "gte"
+        condition = build_condition(data)
+        self.assertTrue(condition.is_met())
+        data["comparator"] = "lte"
+        condition = build_condition(data)
+        self.assertTrue(condition.is_met())
