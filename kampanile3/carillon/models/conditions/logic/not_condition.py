@@ -1,4 +1,4 @@
-from .condition import Condition
+from ..condition import Condition
 
 
 class NotCondition(Condition):
@@ -6,7 +6,7 @@ class NotCondition(Condition):
 
     @property
     def condition(self) -> Condition:
-        from . import build_condition
+        from .. import build_condition
 
         return build_condition(self.data.get("condition"))
 

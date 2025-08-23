@@ -1,4 +1,4 @@
-from .condition import Condition
+from ..condition import Condition
 
 
 class OrCondition(Condition):
@@ -6,7 +6,7 @@ class OrCondition(Condition):
 
     @property
     def conditions(self) -> list[Condition]:
-        from . import build_condition
+        from .. import build_condition
 
         return [build_condition(c) for c in self.data.get("conditions", [])]
 

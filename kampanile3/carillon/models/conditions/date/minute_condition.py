@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from .condition import Condition
+from ..condition import Condition
 
 
 class MinuteCondition(Condition):

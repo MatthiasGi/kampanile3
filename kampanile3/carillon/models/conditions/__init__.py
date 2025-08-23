@@ -1,24 +1,20 @@
-from .and_condition import AndCondition
+from . import date, logic
 from .condition import Condition
-from .minute_condition import MinuteCondition
-from .not_condition import NotCondition
-from .or_condition import OrCondition
-from .time_condition import TimeCondition
 
 
 def build_condition(data: dict[str, object]) -> Condition:
     condition_type = data.get("type")
     match condition_type:
         case "time":
-            return TimeCondition(data)
+            return date.TimeCondition(data)
         case "minute":
-            return MinuteCondition(data)
+            return date.MinuteCondition(data)
         case "not":
-            return NotCondition(data)
+            return logic.NotCondition(data)
         case "and":
-            return AndCondition(data)
+            return logic.AndCondition(data)
         case "or":
-            return OrCondition(data)
+            return logic.OrCondition(data)
         case _:
             raise ValueError(f"Unsupported condition type: {condition_type}")
 
