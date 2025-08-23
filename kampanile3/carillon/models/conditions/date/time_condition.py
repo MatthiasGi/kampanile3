@@ -1,10 +1,20 @@
 from datetime import datetime
 
-from .minute_condition import MinuteCondition
+from ..comparator_condition import ComparatorCondition
 
 
-class TimeCondition(MinuteCondition):
+class TimeCondition(ComparatorCondition):
     """A condition that comparse the current time with a specific hour and minute."""
+
+    @property
+    def minute(self) -> int | None:
+        try:
+            minute = int(self.data.get("minute"))
+        except (TypeError, ValueError):
+            return None
+        if minute < 0 or minute > 59:
+            return None
+        return minute
 
     @property
     def hour(self) -> int | None:
@@ -16,30 +26,19 @@ class TimeCondition(MinuteCondition):
             return None
         return hour
 
+    @property
+    def left_operand(self) -> datetime:
+        now = datetime.now()
+        return datetime(now.year, now.month, now.day, now.hour, now.minute)
+
+    @property
+    def right_operand(self) -> datetime:
+        now = datetime.now()
+        return datetime(now.year, now.month, now.day, self.hour, self.minute)
+
     def validate(self):
         super().validate()
+        if self.minute is None:
+            raise ValueError("Invalid minute value")
         if self.hour is None:
             raise ValueError("Invalid hour value")
-        if self.data.get("comparator") not in ("gt", "gte", "lt", "lte", "eq", "neq"):
-            raise ValueError("Invalid comparator value")
-
-    def is_met(self) -> bool:
-        now = datetime.now()
-        target = datetime(now.year, now.month, now.day, self.hour, self.minute)
-        now = datetime(now.year, now.month, now.day, now.hour, now.minute)
-        comparator = self.data.get("comparator")
-        match comparator:
-            case "gt":
-                return now > target
-            case "gte":
-                return now >= target
-            case "lt":
-                return now < target
-            case "lte":
-                return now <= target
-            case "eq":
-                return now == target
-            case "neq":
-                return now != target
-            case _:
-                raise ValueError(f"Invalid comparator: {comparator}")

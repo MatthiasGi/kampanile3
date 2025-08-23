@@ -56,3 +56,63 @@ class ConditionTestCase(TestCase):
         self.assertFalse(build_condition(data).is_valid())
         data["minute"] = datetime.now().minute
         self.assertTrue(build_condition(data).is_valid())
+
+    def test_modulo_minute_condition_is_met(self):
+        minute = datetime.now().minute
+        data = {"type": "minute_modulo", "modulo": 5, "remainder": minute % 5}
+        condition = build_condition(data)
+        self.assertTrue(condition.is_met())
+        data["remainder"] = (minute + 1) % 5
+        condition = build_condition(data)
+        self.assertFalse(condition.is_met())
+
+    def test_build_minute_modulo_condition(self):
+        data = {"type": "minute_modulo"}
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = 5
+        self.assertFalse(build_condition(data).is_valid())
+        data["remainder"] = 0
+        self.assertTrue(build_condition(data).is_valid())
+        data["modulo"] = -1
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = 0
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = "a"
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = 5
+        data["remainder"] = -1
+        self.assertFalse(build_condition(data).is_valid())
+        data["remainder"] = 60
+        self.assertFalse(build_condition(data).is_valid())
+        data["remainder"] = "a"
+        self.assertFalse(build_condition(data).is_valid())
+
+    def test_modulo_hour_condition_is_met(self):
+        hour = datetime.now().hour
+        data = {"type": "hour_modulo", "modulo": 5, "remainder": hour % 5}
+        condition = build_condition(data)
+        self.assertTrue(condition.is_met())
+        data["remainder"] = (hour + 1) % 5
+        condition = build_condition(data)
+        self.assertFalse(condition.is_met())
+
+    def test_build_hour_modulo_condition(self):
+        data = {"type": "hour_modulo"}
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = 5
+        self.assertFalse(build_condition(data).is_valid())
+        data["remainder"] = 0
+        self.assertTrue(build_condition(data).is_valid())
+        data["modulo"] = -1
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = 0
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = "a"
+        self.assertFalse(build_condition(data).is_valid())
+        data["modulo"] = 5
+        data["remainder"] = -1
+        self.assertFalse(build_condition(data).is_valid())
+        data["remainder"] = 24
+        self.assertFalse(build_condition(data).is_valid())
+        data["remainder"] = "a"
+        self.assertFalse(build_condition(data).is_valid())
