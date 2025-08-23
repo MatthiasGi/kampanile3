@@ -18,11 +18,34 @@
     </button>
   </div>
   <div class="btn-group me-2">
-    <button class="btn btn-outline-primary code-add" title="{% trans "Minute condition" %}" data-bs-toggle="tooltip" data-code='{"type": "minute", "minute": 0}'>
-      <span class="mdi mdi-timelapse"></span>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Date condition" %}" data-bs-toggle="tooltip" data-code='{"type": "date", "comparator": "eq", "day": 1, "month": 1}'>
+      <span class="mdi mdi-calendar"></span>
     </button>
     <button class="btn btn-outline-primary code-add" title="{% trans "Time condition" %}" data-bs-toggle="tooltip" data-code='{"type": "time", "comparator": "eq", "hour": 0, "minute": 0}'>
       <span class="mdi mdi-clock"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Minute condition" %}" data-bs-toggle="tooltip" data-code='{"type": "minute", "minute": 0}'>
+      <span class="mdi mdi-timelapse"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Hour modulo condition" %}" data-bs-toggle="tooltip" data-code='{"type": "hour_modulo", "modulo": 2, "remainder": 0}'>
+      <span class="mdi mdi-alarm"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Minute modulo condition" %}" data-bs-toggle="tooltip" data-code='{"type": "minute_modulo", "modulo": 2, "remainder": 0}'>
+      <span class="mdi mdi-alarm-multiple"></span>
+    </button>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-outline-primary code-add" title="{% trans "Easter offset condition" %}" data-bs-toggle="tooltip" data-code='{"type": "easter_offset", "offset": 0, "comparator": "eq"}'>
+      <span class="mdi mdi-rabbit-variant-outline"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Event rank condition" %}" data-bs-toggle="tooltip" data-code='{"type": "event_rank", "comparator": "eq", "rank": "SOLEMNITY"}'>
+      <span class="mdi mdi-calendar-filter-outline"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Event title condition" %}" data-bs-toggle="tooltip" data-code='{"type": "event_title", "title": ""}'>
+      <span class="mdi mdi-calendar-search-outline"></span>
+    </button>
+    <button class="btn btn-outline-primary code-add" title="{% trans "Season condition" %}" data-bs-toggle="tooltip" data-code='{"type": "season", "season": "ORDINARY"}'>
+      <span class="mdi mdi-calendar-range-outline"></span>
     </button>
   </div>
 </div>

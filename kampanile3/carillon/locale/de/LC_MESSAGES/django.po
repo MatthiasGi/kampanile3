@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:55+0200\n"
+"POT-Creation-Date: 2025-08-23 14:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -348,14 +348,42 @@ msgid "Or condition"
 msgstr "Oder-Bedingung"
 
 #: .\carillon\templates\carillon\widgets\rule_condition.html:21
-msgid "Minute condition"
-msgstr "Minuten-Bedingung"
+msgid "Date condition"
+msgstr "Datums-Bedingung"
 
 #: .\carillon\templates\carillon\widgets\rule_condition.html:24
 msgid "Time condition"
 msgstr "Zeit-Bedingung"
 
-#: .\carillon\templates\carillon\widgets\rule_condition.html:43
+#: .\carillon\templates\carillon\widgets\rule_condition.html:27
+msgid "Minute condition"
+msgstr "Minuten-Bedingung"
+
+#: .\carillon\templates\carillon\widgets\rule_condition.html:30
+msgid "Hour modulo condition"
+msgstr "Stunden-Modulo-Bedingung"
+
+#: .\carillon\templates\carillon\widgets\rule_condition.html:33
+msgid "Minute modulo condition"
+msgstr "Minuten-Modulo-Bedingung"
+
+#: .\carillon\templates\carillon\widgets\rule_condition.html:38
+msgid "Easter offset condition"
+msgstr "Ostern-Offset-Bedingung"
+
+#: .\carillon\templates\carillon\widgets\rule_condition.html:41
+msgid "Event rank condition"
+msgstr "Festrang-Bedingung"
+
+#: .\carillon\templates\carillon\widgets\rule_condition.html:44
+msgid "Event title condition"
+msgstr "Festnamen-Bedingung"
+
+#: .\carillon\templates\carillon\widgets\rule_condition.html:47
+msgid "Season condition"
+msgstr "Liturgische-Jahreszeiten-Bedingung"
+
+#: .\carillon\templates\carillon\widgets\rule_condition.html:66
 #, python-brace-format
 msgid "Invalid JSON format: ${e.message}"
 msgstr "Ungültiges JSON-Format: ${e.message}"
