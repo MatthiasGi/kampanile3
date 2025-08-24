@@ -1,0 +1,157 @@
+---
+- model: carillon.carillon
+  pk: 1
+  fields:
+    name: Default Carillon
+    port_name: ''
+- model: carillon.song
+  pk: 1
+  fields:
+    name: Westminster Quarter 1
+    slug: westminster_1
+    file: carillon/songs/westminster_1.mid
+    transpose: -24
+- model: carillon.song
+  pk: 2
+  fields:
+    name: Westminster Quarter 2
+    slug: westminster_2
+    file: carillon/songs/westminster_2.mid
+    transpose: -24
+- model: carillon.song
+  pk: 3
+  fields:
+    name: Westminster Quarter 3
+    slug: westminster_3
+    file: carillon/songs/westminster_3.mid
+    transpose: -24
+- model: carillon.song
+  pk: 4
+  fields:
+    name: Westminster Quarter 4
+    slug: westminster_4
+    file: carillon/songs/westminster_4.mid
+    transpose: -24
+- model: carillon.song
+  pk: 5
+  fields:
+    name: Westminster Hour
+    slug: westminster_hour
+    file: carillon/songs/westminster_h.mid
+    transpose: -24
+- model: carillon.song
+  pk: 6
+  fields:
+    name: Mehrerau Quarter
+    slug: mehrerau_quarter
+    file: carillon/songs/mehrerau_quarter.mid
+- model: carillon.song
+  pk: 7
+  fields:
+    name: Mehrerau Hour
+    slug: mehrerau_hour
+    file: carillon/songs/mehrerau_hour.mid
+- model: carillon.song
+  pk: 8
+  fields:
+    name: Simple Quarter
+    slug: simple_quarter
+    file: carillon/songs/simple_quarter.mid
+- model: carillon.song
+  pk: 9
+  fields:
+    name: Alma Redemptoris Mater
+    slug: alma_redemptoris_mater
+    file: carillon/songs/alma_redemptoris_mater.mid
+- model: carillon.song
+  pk: 10
+  fields:
+    name: Ave Regina Caelorum
+    slug: ave_regina_caelorum
+    file: carillon/songs/ave_regina_caelorum.mid
+- model: carillon.song
+  pk: 11
+  fields:
+    name: Regina Caeli Laetare
+    slug: regina_caeli_laetare
+    file: carillon/songs/regina_caeli_laetare.mid
+- model: carillon.song
+  pk: 12
+  fields:
+    name: Salve Regina
+    slug: salve_regina
+    file: carillon/songs/salve_regina.mid
+- model: carillon.song
+  pk: 13
+  fields:
+    name: Lourdes Hymn
+    slug: lourdes
+    file: carillon/songs/lourdes.mid
+    transpose: -12
+- model: carillon.striker
+  pk: 1
+  fields:
+    name: Westminster Carillon
+    carillon: 1
+    priority: 0
+    check_type: q
+- model: carillon.rule
+  pk: 1
+  fields:
+    name: First quarter
+    striker: 1
+    priority: 0
+    cancel_following: false
+    condition:
+      type: minute
+      minute: 15
+    song: 1
+    repeat: o
+- model: carillon.rule
+  pk: 2
+  fields:
+    name: Second quarter
+    striker: 1
+    priority: 0
+    cancel_following: false
+    condition:
+      type: minute
+      minute: 30
+    song: 2
+    repeat: o
+- model: carillon.rule
+  pk: 3
+  fields:
+    name: Third quarter
+    striker: 1
+    priority: 0
+    cancel_following: false
+    condition:
+      type: minute
+      minute: 45
+    song: 3
+    repeat: o
+- model: carillon.rule
+  pk: 4
+  fields:
+    name: Fourth quarter
+    striker: 1
+    priority: 0
+    cancel_following: false
+    condition:
+      type: minute
+      minute: 0
+    song: 4
+    repeat: o
+- model: carillon.rule
+  pk: 5
+  fields:
+    name: Hour
+    striker: 1
+    priority: 0
+    cancel_following: false
+    condition:
+      type: minute
+      minute: 0
+    song: 5
+    repeat: h12

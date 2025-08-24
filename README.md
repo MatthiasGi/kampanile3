@@ -19,6 +19,7 @@ pre-commit install
 cd kampanile3
 python manage.py migrate
 python manage.py createsuperuser
+python manage.py loaddata sample
 
 npm install
 python manage.py collectstatic --noinput

@@ -66,7 +66,7 @@ class Song(models.Model):
         The returned list has already transposed notes and adjusted timing.
         """
         messages: list[mido.Message] = []
-        tempo = self.fileTempo * self.tempo_multiplier
+        tempo = self.fileTempo / self.tempo_multiplier
         for msg in self.midiFile.tracks[0]:
             if msg.type not in ("note_on", "note_off"):
                 continue

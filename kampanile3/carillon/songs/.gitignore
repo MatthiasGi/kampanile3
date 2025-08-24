@@ -1,2 +1,13 @@
 *
 !.gitignore
+
+# Initial files as sample data
+!westminster_[1234h].mid
+!mehrerau_quarter.mid
+!mehrerau_hour.mid
+!simple_quarter.mid
+!alma_redemptoris_mater.mid
+!ave_regina_caelorum.mid
+!lourdes.mid
+!regina_caeli_laetare.mid
+!salve_regina.mid
