@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-23 14:11+0200\n"
+"POT-Creation-Date: 2025-08-24 09:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\carillon\apps.py:8 .\carillon\models\carillon.py:116
-#: .\carillon\models\striker.py:24
+#: .\carillon\models\striker.py:34
 #: .\carillon\templates\carillon\striker_detail.html:9
 #: .\carillon\templates\carillon\striker_list.html:12
 msgid "Carillon"
@@ -31,8 +31,8 @@ msgstr "Abbrechen"
 msgid "Save"
 msgstr "Speichern"
 
-#: .\carillon\models\carillon.py:35 .\carillon\models\rule.py:24
-#: .\carillon\models\song.py:10 .\carillon\models\striker.py:16
+#: .\carillon\models\carillon.py:35 .\carillon\models\rule.py:28
+#: .\carillon\models\song.py:10 .\carillon\models\striker.py:26
 #: .\carillon\templates\carillon\carillon_list.html:11
 #: .\carillon\templates\carillon\rule_list.html:11
 #: .\carillon\templates\carillon\song_list.html:11
@@ -56,35 +56,35 @@ msgstr ""
 msgid "Carillons"
 msgstr "Carillons"
 
-#: .\carillon\models\rule.py:18
+#: .\carillon\models\rule.py:22
 msgid "Off"
 msgstr "Aus"
 
-#: .\carillon\models\rule.py:19
+#: .\carillon\models\rule.py:23
 msgid "For every hour once 12-based"
 msgstr "Für jede volle Stunde (12-Stunden-Format)"
 
-#: .\carillon\models\rule.py:20
+#: .\carillon\models\rule.py:24
 msgid "For every hour once 24-based"
 msgstr "Für jede volle Stunde (24-Stunden-Format)"
 
-#: .\carillon\models\rule.py:21
+#: .\carillon\models\rule.py:25
 msgid "For every 15 minutes"
 msgstr "Für jede Viertelstunde"
 
-#: .\carillon\models\rule.py:22
+#: .\carillon\models\rule.py:26
 msgid "For every 30 minutes"
 msgstr "Für jede halbe Stunde"
 
-#: .\carillon\models\rule.py:30 .\carillon\models\striker.py:44
+#: .\carillon\models\rule.py:34 .\carillon\models\striker.py:96
 msgid "Striker"
 msgstr "Schlagwerk"
 
-#: .\carillon\models\rule.py:31
+#: .\carillon\models\rule.py:35
 msgid "The striker that checks, if the rule applies."
 msgstr "Das Schlagwerk, das prüft, ob die Regel zutrifft."
 
-#: .\carillon\models\rule.py:38 .\carillon\models\striker.py:30
+#: .\carillon\models\rule.py:42 .\carillon\models\striker.py:40
 #: .\carillon\templates\carillon\rule_detail.html:9
 #: .\carillon\templates\carillon\rule_list.html:17
 #: .\carillon\templates\carillon\striker_detail.html:13
@@ -93,12 +93,12 @@ msgstr "Das Schlagwerk, das prüft, ob die Regel zutrifft."
 msgid "Priority"
 msgstr "Priorität"
 
-#: .\carillon\models\rule.py:39
+#: .\carillon\models\rule.py:43
 msgid "The priority of the rule. Higher values means firstly evaluated."
 msgstr ""
 "Die Priorität der Regel. Höhere Werte bedeuten eine frühere Auswertung."
 
-#: .\carillon\models\rule.py:45
+#: .\carillon\models\rule.py:49
 #: .\carillon\templates\carillon\rule_detail.html:11
 #: .\carillon\templates\carillon\rule_list.html:14
 #: .\carillon\templates\carillon\rule_list.html:32
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Cancel following rules"
 msgstr "Abbrechen nachfolgender Regeln"
 
-#: .\carillon\models\rule.py:47
+#: .\carillon\models\rule.py:51
 msgid ""
 "If checked, no following rule with smaller priority will be executed if this "
 "rule applies."
@@ -115,43 +115,43 @@ msgstr ""
 "Wenn aktiviert, werden keine nachfolgenden Regeln mit niedrigerer Priorität "
 "ausgeführt, wenn diese Regel zutrifft."
 
-#: .\carillon\models\rule.py:53
+#: .\carillon\models\rule.py:57
 #: .\carillon\templates\carillon\rule_detail.html:21
 msgid "Condition"
 msgstr "Bedingung"
 
-#: .\carillon\models\rule.py:54
+#: .\carillon\models\rule.py:58
 msgid "A JSON object actually defining the condition."
 msgstr "Ein JSON-Objekt, das die Bedingung definiert."
 
-#: .\carillon\models\rule.py:64 .\carillon\models\song.py:85
+#: .\carillon\models\rule.py:68 .\carillon\models\song.py:85
 #: .\carillon\templates\carillon\rule_detail.html:13
 #: .\carillon\templates\carillon\rule_list.html:12
 #: .\carillon\templates\carillon\striker_detail.html:26
 msgid "Song"
 msgstr "Stück"
 
-#: .\carillon\models\rule.py:65
+#: .\carillon\models\rule.py:69
 msgid "The song to play when the rule applies."
 msgstr "Das zu spielende Stück, wenn die Regel zutrifft."
 
-#: .\carillon\models\rule.py:76
+#: .\carillon\models\rule.py:80
 #: .\carillon\templates\carillon\rule_detail.html:17
 #: .\carillon\templates\carillon\rule_list.html:20
 #: .\carillon\templates\carillon\striker_detail.html:34
 msgid "Repeat"
 msgstr "Wiederholen"
 
-#: .\carillon\models\rule.py:78
+#: .\carillon\models\rule.py:82
 msgid "How often the played song should be repeated if the rule applies."
 msgstr ""
 "Wie oft das gespielte Stück wiederholt werden soll, wenn die Regel zutrifft."
 
-#: .\carillon\models\rule.py:96
+#: .\carillon\models\rule.py:125
 msgid "Rule"
 msgstr "Regel"
 
-#: .\carillon\models\rule.py:97
+#: .\carillon\models\rule.py:126
 #: .\carillon\templates\carillon\striker_detail.html:17
 msgid "Rules"
 msgstr "Regeln"
@@ -197,7 +197,27 @@ msgstr ""
 msgid "Songs"
 msgstr "Stücke"
 
-#: .\carillon\models\striker.py:32
+#: .\carillon\models\striker.py:18
+msgid "Check manually, no automatic checks"
+msgstr "Manuell prüfen, keine automatischen Prüfungen"
+
+#: .\carillon\models\striker.py:19
+msgid "Check every minute"
+msgstr "Jede Minute prüfen"
+
+#: .\carillon\models\striker.py:20
+msgid "Check every quarter hour"
+msgstr "Jede Viertelstunde prüfen"
+
+#: .\carillon\models\striker.py:21
+msgid "Check every half hour"
+msgstr "Jede halbe Stunde prüfen"
+
+#: .\carillon\models\striker.py:22
+msgid "Check every hour"
+msgstr "Jede volle Stunde prüfen"
+
+#: .\carillon\models\striker.py:42
 msgid ""
 "The priority of this striker, used to determine if it should abort other "
 "strikers' songs."
@@ -205,7 +225,15 @@ msgstr ""
 "Die Priorität des Schlagwerks, die verwendet wird, um zu bestimmen, ob es "
 "die Stücke anderer Schlagwerke abbrechen soll."
 
-#: .\carillon\models\striker.py:45 .\carillon\views\striker.py:19
+#: .\carillon\models\striker.py:51
+msgid "Check type"
+msgstr "Prüfungsart"
+
+#: .\carillon\models\striker.py:52
+msgid "The type of check condition or interval."
+msgstr "Der Typ der Prüfung bzw. des Intervalls."
+
+#: .\carillon\models\striker.py:97 .\carillon\views\striker.py:19
 msgid "Strikers"
 msgstr "Schlagwerke"
 

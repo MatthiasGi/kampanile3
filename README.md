@@ -25,3 +25,6 @@ python manage.py collectstatic --noinput
 
 python manage.py runserver
 ```
+
+In a runtime, the command `python manage.py checkstrikers` should be run every
+minute, e.g. via cron or systemd timer.

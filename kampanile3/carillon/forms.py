@@ -69,7 +69,7 @@ class CarillonForm(forms.ModelForm):
 class StrikerForm(forms.ModelForm):
     class Meta:
         model = Striker
-        fields = ["name", "carillon", "priority"]
+        fields = ["name", "carillon", "priority", "check_type"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -83,6 +83,7 @@ class StrikerForm(forms.ModelForm):
             url = reverse("carillon:strikers:list")
         self.helper.layout = Layout(
             Field("name"),
+            Field("check_type"),
             Field("carillon"),
             Field("priority"),
             FormAction(cancel_url=url),
