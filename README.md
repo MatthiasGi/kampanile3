@@ -24,6 +24,12 @@ python manage.py loaddata sample
 npm install
 python manage.py collectstatic --noinput
 
+cd kampanile3/settings/local.py.example kampanile3/settings/local.py
+```
+
+Then adjust `kampanile3/settings/local.py` to your needs and run the server:
+
+```bash
 python manage.py runserver
 ```
 

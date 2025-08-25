@@ -4,9 +4,10 @@ version = "0.0.1a1.dev1"
 description = "A customizable chime with web interface."
 keywords = ["kampanile", "chime", "bell", "ring", "midi"]
 dependencies = [
-  "django",
   "mido",
   "python-rtmidi",
+  "django",
+  "django-split-settings",
   "django-npm",
   "django-crispy-forms",
   "crispy-bootstrap5",
