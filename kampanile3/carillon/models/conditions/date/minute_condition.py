@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from django.utils.translation import gettext_lazy as _
+
 from ..condition import Condition
 
 
@@ -20,5 +22,13 @@ class MinuteCondition(Condition):
         if self.minute is None:
             raise ValueError("Invalid minute value")
 
+    @property
     def is_met(self) -> bool:
         return datetime.now().minute == self.minute
+
+    class Meta:
+        type = "minute"
+        label = _("Minute condition")
+        icon = "mdi mdi-timelapse"
+        sample_data = {"minute": 0}
+        documentation = _("Checks if the current minute matches the specified value.")

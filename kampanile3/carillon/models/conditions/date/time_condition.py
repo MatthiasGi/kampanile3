@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from django.utils.translation import gettext_lazy as _
+
 from ..comparator_condition import ComparatorCondition
 
 
@@ -42,3 +44,12 @@ class TimeCondition(ComparatorCondition):
             raise ValueError("Invalid minute value")
         if self.hour is None:
             raise ValueError("Invalid hour value")
+
+    class Meta:
+        type = "time"
+        label = _("Time condition")
+        icon = "mdi mdi-clock"
+        sample_data = {"comparator": "eq", "hour": 0, "minute": 0}
+        documentation = _(
+            "Compares the current time with a specified hour and minute. Available comparators are: gt, gte, lt, lte, eq, and neq."
+        )

@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from django.utils.translation import gettext_lazy as _
+
 from ..condition import Condition
 
 
@@ -33,5 +35,15 @@ class MinuteModuloCondition(Condition):
         if self.remainder is None:
             raise ValueError("Invalid remainder value")
 
+    @property
     def is_met(self) -> bool:
         return datetime.now().minute % self.modulo == self.remainder
+
+    class Meta:
+        type = "minute_modulo"
+        label = _("Minute modulo condition")
+        icon = "mdi mdi-alarm-multiple"
+        sample_data = {"modulo": 2, "remainder": 0}
+        documentation = _(
+            "Checks if the current minute divided by the specified modulo has the specified remainder."
+        )

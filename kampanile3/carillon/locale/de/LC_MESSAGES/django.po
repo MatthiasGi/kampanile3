@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-24 09:06+0200\n"
+"POT-Creation-Date: 2025-08-26 11:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,6 +55,143 @@ msgstr ""
 #: .\carillon\models\carillon.py:117 .\carillon\views\carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
+
+#: .\carillon\models\conditions\date\date_condition.py:36
+msgid "Date condition"
+msgstr "Datums-Bedingung"
+
+#: .\carillon\models\conditions\date\date_condition.py:40
+msgid ""
+"Compares the current date with a specified date. Available comparators are: "
+"gt, gte, lt, lte, eq, and neq."
+msgstr ""
+"Vergleicht das aktuelle Datum mit einem angegebenen Datum. Verfügbare "
+"Vergleichsoperatoren „comparator“ sind: gt, gte, lt, lte, eq und neq."
+
+#: .\carillon\models\conditions\date\hour_modulo_condition.py:24
+msgid "Hour modulo condition"
+msgstr "Stunden-Modulo-Bedingung"
+
+#: .\carillon\models\conditions\date\hour_modulo_condition.py:28
+msgid ""
+"Checks if the current hour divided by the specified modulo has the specified "
+"remainder."
+msgstr ""
+"Prüft, ob die aktuelle Stunde, geteilt durch das angegebene Modulo, den "
+"angegebenen Rest ergibt."
+
+#: .\carillon\models\conditions\date\minute_condition.py:31
+msgid "Minute condition"
+msgstr "Minuten-Bedingung"
+
+#: .\carillon\models\conditions\date\minute_condition.py:34
+msgid "Checks if the current minute matches the specified value."
+msgstr "Prüft, ob die aktuelle Minute dem angegebenen Wert entspricht."
+
+#: .\carillon\models\conditions\date\minute_modulo_condition.py:44
+msgid "Minute modulo condition"
+msgstr "Minuten-Modulo-Bedingung"
+
+#: .\carillon\models\conditions\date\minute_modulo_condition.py:48
+msgid ""
+"Checks if the current minute divided by the specified modulo has the "
+"specified remainder."
+msgstr ""
+"Prüft, ob die aktuelle Minute, geteilt durch das angegebene Modulo, den "
+"angegebenen Rest ergibt."
+
+#: .\carillon\models\conditions\date\time_condition.py:50
+msgid "Time condition"
+msgstr "Zeit-Bedingung"
+
+#: .\carillon\models\conditions\date\time_condition.py:54
+msgid ""
+"Compares the current time with a specified hour and minute. Available "
+"comparators are: gt, gte, lt, lte, eq, and neq."
+msgstr ""
+"Vergleicht die aktuelle Uhrzeit mit einer angegebenen Stunde und Minute. "
+"Verfügbare Vergleichsoperatoren „comparator“ sind: gt, gte, lt, lte, eq und "
+"neq."
+
+#: .\carillon\models\conditions\directorium\easter_offset_condition.py:35
+msgid "Easter offset condition"
+msgstr "Ostern-Offset-Bedingung"
+
+#: .\carillon\models\conditions\directorium\easter_offset_condition.py:39
+msgid ""
+"Compares the current date with a date offset from Easter using a comparator. "
+"Available comparators are: gt, gte, lt, lte, eq, and neq."
+msgstr ""
+"Vergleicht das aktuelle Datum mit einem von Ostern um die angegebene Anzahl "
+"an Tagen abweichendem Datum unter Verwendung eines Vergleichsoperators. "
+"Verfügbare Vergleichsoperatoren „comparator“ sind: gt, gte, lt, lte, eq und "
+"neq."
+
+#: .\carillon\models\conditions\directorium\event_rank_condition.py:33
+msgid "Event rank condition"
+msgstr "Festrang-Bedingung"
+
+#: .\carillon\models\conditions\directorium\event_rank_condition.py:37
+msgid ""
+"Compares the current liturgical event's rank with a specified rank using a "
+"comparator. Available ranks in ascending importance are: NONE, "
+"COMMEMORATION, OPTIONAL_MEMORIAL, MEMORIAL, FEAST, and SOLEMNITY. Available "
+"comparators are: gt, gte, lt, lte, eq, and neq."
+msgstr ""
+"Vergleicht den Rang des aktuellen liturgischen Festes mit einem angegebenen "
+"Rang unter Verwendung eines Vergleichsoperators. Verfügbare Ränge „rank“ in "
+"aufsteigender Wichtigkeit sind: NONE, COMMEMORATION, OPTIONAL_MEMORIAL, "
+"MEMORIAL, FEAST und SOLEMNITY. Verfügbare Vergleichsoperatoren „comparator“ "
+"sind: gt, gte, lt, lte, eq und neq."
+
+#: .\carillon\models\conditions\directorium\event_title_condition.py:23
+msgid "Event title condition"
+msgstr "Festnamen-Bedingung"
+
+#: .\carillon\models\conditions\directorium\event_title_condition.py:27
+msgid ""
+"Checks if the current event title matches a specified value (case-"
+"insensitive)."
+msgstr ""
+"Prüft, ob der Name des aktuellen Festes mit einem angegebenen Wert (ohne "
+"Berücksichtigung der Groß-/Kleinschreibung) übereinstimmt."
+
+#: .\carillon\models\conditions\directorium\season_condition.py:27
+msgid "Season condition"
+msgstr "Liturgische-Jahreszeiten-Bedingung"
+
+#: .\carillon\models\conditions\directorium\season_condition.py:31
+msgid ""
+"Checks if the current date is in the specified liturgical season. Available "
+"seasons are: ORDINARY, CHRISTMAS, LENT, and EASTER."
+msgstr ""
+"Prüft, ob das aktuelle Datum in der angegebenen liturgischen Jahreszeit "
+"liegt. Verfügbare Jahreszeiten „season“ sind: ORDINARY, CHRISTMAS, LENT und "
+"EASTER."
+
+#: .\carillon\models\conditions\logic\and_condition.py:15
+msgid "And condition"
+msgstr "Und-Bedingung"
+
+#: .\carillon\models\conditions\logic\and_condition.py:18
+msgid "Checks if all sub-conditions are met."
+msgstr "Prüft, ob alle Unterbedingungen erfüllt sind."
+
+#: .\carillon\models\conditions\logic\not_condition.py:24
+msgid "Not condition"
+msgstr "Nicht-Bedingung"
+
+#: .\carillon\models\conditions\logic\not_condition.py:27
+msgid "A condition that negates another condition."
+msgstr "Prüft, ob eine andere Bedingung nicht erfüllt ist."
+
+#: .\carillon\models\conditions\logic\or_condition.py:27
+msgid "Or condition"
+msgstr "Oder-Bedingung"
+
+#: .\carillon\models\conditions\logic\or_condition.py:30
+msgid "Checks if at least one sub-condition is met."
+msgstr "Prüft, ob mindestens eine Unterbedingung erfüllt ist."
 
 #: .\carillon\models\rule.py:22
 msgid "Off"
@@ -270,7 +407,7 @@ msgstr "Carillon hinzufügen"
 msgid "Confirm deletion"
 msgstr "Löschen bestätigen"
 
-#: .\carillon\templates\carillon\includes\rule_condition_render.html:26
+#: .\carillon\templates\carillon\includes\rule_condition_render.html:28
 msgid "Empty condition"
 msgstr "Leere Bedingung"
 
@@ -363,55 +500,15 @@ msgstr "Anzahl von Regeln"
 msgid "Cleanup code"
 msgstr "Code aufräumen"
 
-#: .\carillon\templates\carillon\widgets\rule_condition.html:10
-msgid "Not condition"
-msgstr "Nicht-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:13
-msgid "And condition"
-msgstr "Und-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:16
-msgid "Or condition"
-msgstr "Oder-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:21
-msgid "Date condition"
-msgstr "Datums-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:24
-msgid "Time condition"
-msgstr "Zeit-Bedingung"
+#: .\carillon\templates\carillon\widgets\rule_condition.html:5
+msgid "Formats the JSON code to be more readable."
+msgstr "Formatiert den JSON-Code, um ihn lesbarer zu machen."
 
 #: .\carillon\templates\carillon\widgets\rule_condition.html:27
-msgid "Minute condition"
-msgstr "Minuten-Bedingung"
+msgid "Documentation"
+msgstr "Dokumentation"
 
-#: .\carillon\templates\carillon\widgets\rule_condition.html:30
-msgid "Hour modulo condition"
-msgstr "Stunden-Modulo-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:33
-msgid "Minute modulo condition"
-msgstr "Minuten-Modulo-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:38
-msgid "Easter offset condition"
-msgstr "Ostern-Offset-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:41
-msgid "Event rank condition"
-msgstr "Festrang-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:44
-msgid "Event title condition"
-msgstr "Festnamen-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:47
-msgid "Season condition"
-msgstr "Liturgische-Jahreszeiten-Bedingung"
-
-#: .\carillon\templates\carillon\widgets\rule_condition.html:66
+#: .\carillon\templates\carillon\widgets\rule_condition.html:54
 #, python-brace-format
 msgid "Invalid JSON format: ${e.message}"
 msgstr "Ungültiges JSON-Format: ${e.message}"

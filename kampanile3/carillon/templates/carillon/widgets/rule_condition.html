@@ -2,58 +2,46 @@
 
 <div class="btn-toolbar mb-2" id="toolbar-{{ widget.attrs.id }}">
   <div class="btn-group me-2">
-    <button class="btn btn-outline-primary code-cleanup" title="{% trans "Cleanup code" %}" data-bs-toggle="tooltip">
+    <button class="btn btn-outline-primary code-cleanup" title="{% trans "Cleanup code" %}" data-bs-toggle="tooltip" data-name="{% trans "Cleanup code" %}" data-documentation="{% trans "Formats the JSON code to be more readable." %}">
       <span class="mdi mdi-magic-staff"></span>
     </button>
   </div>
-  <div class="btn-group me-2">
-    <button class="btn btn-outline-primary code-add" title="{% trans "Not condition" %}" data-bs-toggle="tooltip" data-code='{"type": "not", "condition": {}}'>
-      <span class="mdi mdi-exclamation"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "And condition" %}" data-bs-toggle="tooltip" data-code='{"type": "and", "conditions": []}'>
-      <span class="mdi mdi-ampersand"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Or condition" %}" data-bs-toggle="tooltip" data-code='{"type": "or", "conditions": []}'>
-      <span class="mdi mdi-math-norm"></span>
-    </button>
+
+  {% for condition_group in condition_groups %}
+    <div class="btn-group{% if not forloop.last %} me-2{% endif %}">
+      {% for condition in condition_group %}
+        <button class="btn btn-outline-primary code-add" title="{{ condition.label }}" data-bs-toggle="tooltip" data-code='{{ condition.sample }}' data-type="{{ condition.type }}" data-name="{{ condition.label }}" data-documentation="{{ condition.documentation }}">
+          <span class="{{ condition.icon }}"></span>
+        </button>
+      {% endfor %}
+      </div>
+  {% endfor %}
+</div>
+<div class="row">
+  <div class="col-12 col-lg-7">
+    <textarea name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>{% if widget.value %}{{ widget.value }}{% endif %}</textarea>
   </div>
-  <div class="btn-group me-2">
-    <button class="btn btn-outline-primary code-add" title="{% trans "Date condition" %}" data-bs-toggle="tooltip" data-code='{"type": "date", "comparator": "eq", "day": 1, "month": 1}'>
-      <span class="mdi mdi-calendar"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Time condition" %}" data-bs-toggle="tooltip" data-code='{"type": "time", "comparator": "eq", "hour": 0, "minute": 0}'>
-      <span class="mdi mdi-clock"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Minute condition" %}" data-bs-toggle="tooltip" data-code='{"type": "minute", "minute": 0}'>
-      <span class="mdi mdi-timelapse"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Hour modulo condition" %}" data-bs-toggle="tooltip" data-code='{"type": "hour_modulo", "modulo": 2, "remainder": 0}'>
-      <span class="mdi mdi-alarm"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Minute modulo condition" %}" data-bs-toggle="tooltip" data-code='{"type": "minute_modulo", "modulo": 2, "remainder": 0}'>
-      <span class="mdi mdi-alarm-multiple"></span>
-    </button>
-  </div>
-  <div class="btn-group">
-    <button class="btn btn-outline-primary code-add" title="{% trans "Easter offset condition" %}" data-bs-toggle="tooltip" data-code='{"type": "easter_offset", "offset": 0, "comparator": "eq"}'>
-      <span class="mdi mdi-rabbit-variant-outline"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Event rank condition" %}" data-bs-toggle="tooltip" data-code='{"type": "event_rank", "comparator": "eq", "rank": "SOLEMNITY"}'>
-      <span class="mdi mdi-calendar-filter-outline"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Event title condition" %}" data-bs-toggle="tooltip" data-code='{"type": "event_title", "title": ""}'>
-      <span class="mdi mdi-calendar-search-outline"></span>
-    </button>
-    <button class="btn btn-outline-primary code-add" title="{% trans "Season condition" %}" data-bs-toggle="tooltip" data-code='{"type": "season", "season": "ORDINARY"}'>
-      <span class="mdi mdi-calendar-range-outline"></span>
-    </button>
+  <div class="col-12 col-lg-5 order-first order-lg-last mb-2 mb-lg-0">
+    <div class="card">
+      <div class="card-header">
+        {% trans "Documentation" %}
+      </div>
+      <div class="card-body"  id="documentation-{{ widget.attrs.id }}">
+        <h5 class="card-title"></h5>
+        <div class="card-text"></div>
+      </div>
+    </div>
   </div>
 </div>
-<textarea name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>{% if widget.value %}{{ widget.value }}{% endif %}</textarea>
 <div class="alert-placeholder my-1">
 </div>
 
 <script>
+  const toolbar = document.getElementById("toolbar-{{ widget.attrs.id }}")
+  const docContainer = document.getElementById("documentation-{{ widget.attrs.id }}")
+  const docTitle = docContainer.querySelector(".card-title")
+  const docText = docContainer.querySelector(".card-text")
+
   function cleanupCode() {
     const alertPlaceholder = document.querySelector('.alert-placeholder')
     const errors = alertPlaceholder.querySelectorAll('.cleanup-error').forEach(el => el.remove())
@@ -68,13 +56,13 @@
       alertPlaceholder.appendChild(alert)
     }
   }
-
   cleanupCode()
-  const toolbar = document.getElementById("toolbar-{{ widget.attrs.id }}")
+
   toolbar.querySelector('.code-cleanup').addEventListener("click", (e) => {
     e.preventDefault()
     cleanupCode()
   })
+
   toolbar.querySelectorAll('.code-add').forEach(button => {
     button.addEventListener("click", (e) => {
       e.preventDefault()
@@ -96,4 +84,17 @@
       cleanupCode()
     })
   })
+
+  toolbar.querySelectorAll('button[data-documentation]').forEach(button => {
+    button.addEventListener("mouseover", (e) => {
+      docTitle.textContent = button.getAttribute('data-name')
+      docText.innerHTML = button.getAttribute('data-documentation')
+      if (button.getAttribute('data-code')) {
+        let data = JSON.parse(button.getAttribute('data-code') || "{}")
+        let code = JSON.stringify(data, null, 2)
+        docText.innerHTML += `<pre class="mt-2">${code}</pre>`
+      }
+    })
+  })
+
 </script>

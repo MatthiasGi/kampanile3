@@ -27,6 +27,7 @@ class ComparatorCondition(Condition):
     def right_operand(self) -> any:
         pass
 
+    @property
     def is_met(self) -> bool:
         match self.comparator:
             case "gt":

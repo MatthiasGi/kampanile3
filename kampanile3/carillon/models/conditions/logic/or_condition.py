@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+
 from ..condition import Condition
 
 
@@ -16,5 +18,13 @@ class OrCondition(Condition):
         for condition in self.conditions:
             condition.validate()
 
+    @property
     def is_met(self) -> bool:
-        return any(condition.is_met() for condition in self.conditions)
+        return any(condition.is_met for condition in self.conditions)
+
+    class Meta:
+        type = "or"
+        label = _("Or condition")
+        icon = "mdi mdi-math-norm"
+        sample_data = {"conditions": []}
+        documentation = _("Checks if at least one sub-condition is met.")

@@ -14,9 +14,9 @@ class ConditionTestCase(TestCase):
                 "minute": "20",
             },
         }
-        self.assertTrue(build_condition(data).is_valid())
+        self.assertTrue(build_condition(data).is_valid)
         data["condition"]["type"] = "invalid"
-        self.assertFalse(build_condition(data).is_valid())
+        self.assertFalse(build_condition(data).is_valid)
 
     def test_not_condition_is_met(self):
         data = {
@@ -26,9 +26,9 @@ class ConditionTestCase(TestCase):
                 "minute": datetime.now().minute,
             },
         }
-        self.assertFalse(build_condition(data).is_met())
+        self.assertFalse(build_condition(data).is_met)
         data["condition"]["minute"] = (datetime.now().minute + 1) % 60
-        self.assertTrue(build_condition(data).is_met())
+        self.assertTrue(build_condition(data).is_met)
 
     def test_and_condition_is_met(self):
         data = {
@@ -43,9 +43,9 @@ class ConditionTestCase(TestCase):
                 },
             ],
         }
-        self.assertTrue(build_condition(data).is_met())
+        self.assertTrue(build_condition(data).is_met)
         data["conditions"][0]["minute"] = (datetime.now().minute + 1) % 60
-        self.assertFalse(build_condition(data).is_met())
+        self.assertFalse(build_condition(data).is_met)
 
     def test_or_condition_is_met(self):
         data = {
@@ -60,8 +60,8 @@ class ConditionTestCase(TestCase):
                 },
             ],
         }
-        self.assertTrue(build_condition(data).is_met())
+        self.assertTrue(build_condition(data).is_met)
         data["conditions"][0]["minute"] = (datetime.now().minute + 1) % 60
-        self.assertTrue(build_condition(data).is_met())
+        self.assertTrue(build_condition(data).is_met)
         data["conditions"][1]["comparator"] = "lt"
-        self.assertFalse(build_condition(data).is_met())
+        self.assertFalse(build_condition(data).is_met)

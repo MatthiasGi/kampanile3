@@ -1,9 +1,11 @@
-{% load type_checks i18n %}
+{% load type_checks conditions i18n %}
 
 <ul class="list-group mt-2">
   {% if condition %}
     <li class="list-group-item list-group-item-primary">
-      <strong>type:</strong> {{ condition.type }}
+      <span class="{{ condition.type|type_to_icon }}"></span>
+      <strong class="ms-1">{{ condition.type|type_to_name }}</strong>
+      <small class="text-secondary ms-2">(<strong class="fw-medium">type:</strong> {{ condition.type }})</small>
     </li>
     {% for key, value in condition.items %}
       {% if key != "type" %}
