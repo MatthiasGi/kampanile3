@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "carillon.apps.CarillonConfig",
     "frontend.apps.FrontendConfig",
+    "mqtt.apps.MqttConfig",
 ]
 
 MIDDLEWARE = [

@@ -6,6 +6,7 @@ keywords = ["kampanile", "chime", "bell", "ring", "midi"]
 dependencies = [
   "mido",
   "python-rtmidi",
+  "paho-mqtt",
   "django",
   "django-split-settings",
   "django-npm",
