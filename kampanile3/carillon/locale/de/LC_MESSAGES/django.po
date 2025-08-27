@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 11:05+0200\n"
+"POT-Creation-Date: 2025-08-27 19:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\carillon\apps.py:8 .\carillon\models\carillon.py:116
+#: .\carillon\apps.py:8 .\carillon\models\carillon.py:136
 #: .\carillon\models\striker.py:34
 #: .\carillon\templates\carillon\striker_detail.html:9
 #: .\carillon\templates\carillon\striker_list.html:12
@@ -52,7 +52,21 @@ msgstr ""
 "Der Name des seriellen Ports, der zum Verbinden mit dem Carillon verwendet "
 "wird."
 
-#: .\carillon\models\carillon.py:117 .\carillon\views\carillon.py:25
+#: .\carillon\models\carillon.py:50
+msgid "Default"
+msgstr "Standard"
+
+#: .\carillon\models\carillon.py:52
+msgid ""
+"Whether this carillon is the default carillon. Only one carillon can be the "
+"default. If activated here, another carillon that was the default will loose "
+"that status."
+msgstr ""
+"Ob dieses Carillon das Standard-Carillon ist. Es kann nur ein Carillon die "
+"Eigenschaft Standard haben. Wenn es hier aktiviert wird, verliert ein "
+"anderes Carillon, das zuvor das Standard-Carillon war, diesen Status."
+
+#: .\carillon\models\carillon.py:137 .\carillon\views\carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
 

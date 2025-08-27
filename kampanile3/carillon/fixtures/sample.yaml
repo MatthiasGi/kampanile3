@@ -4,6 +4,7 @@
   fields:
     name: Default Carillon
     port_name: ''
+    default: true
 - model: carillon.song
   pk: 1
   fields:

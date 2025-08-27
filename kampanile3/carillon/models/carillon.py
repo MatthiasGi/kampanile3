@@ -45,6 +45,15 @@ class Carillon(models.Model):
     )
     """The name of the serial port that should be used for the output."""
 
+    default = models.BooleanField(
+        default=False,
+        verbose_name=_("Default"),
+        help_text=_(
+            "Whether this carillon is the default carillon. Only one carillon can be the default. If activated here, another carillon that was the default will loose that status."
+        ),
+    )
+    """Whether this carillon is the default carillon."""
+
     @property
     def _singleton_data(self) -> SingletonData:
         """Get the singleton data for this carillon."""
@@ -60,6 +69,11 @@ class Carillon(models.Model):
                 self.port_name if self.port_name else None
             )
         return self._singleton_data.port
+
+    @staticmethod
+    def get_default() -> "Carillon":
+        """Get the default carillon."""
+        return Carillon.objects.filter(default=True).first()
 
     def hit(self, note: int):
         """Hit a note on the carillon."""
@@ -105,6 +119,12 @@ class Carillon(models.Model):
         data.thread.join()
         data.stopped = False
         data.port.reset()
+
+    def save(self, *args, **kwargs):
+        """Override save to ensure only one carillon is default."""
+        if self.default:
+            Carillon.objects.filter(default=True).update(default=False)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("carillon:carillons:detail", kwargs={"pk": self.pk})
