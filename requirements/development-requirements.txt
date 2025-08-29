@@ -73,7 +73,7 @@ requests==2.32.4
     # via directorium
 sqlparse==0.5.3
     # via django
-typing-extensions==4.14.1
+typing-extensions==4.15.0
     # via
     #   directorium
     #   pydantic
