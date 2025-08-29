@@ -33,5 +33,12 @@ Then adjust `kampanile3/settings/local.py` to your needs and run the server:
 python manage.py runserver
 ```
 
+If you want to use MQTT, set the environment variable `MQTT` before starting the
+server:
+
+```bash
+MQTT=true python manage.py runserver
+```
+
 In a runtime, the command `python manage.py checkstrikers` should be run every
 minute, e.g. via cron or systemd timer.

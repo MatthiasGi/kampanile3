@@ -8,6 +8,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+from ..signals import carillon_play, carillon_stop
+
 CARILLON_SINGLETON_DATA = {}
 
 
@@ -97,6 +99,7 @@ class Carillon(models.Model):
         data.priority = priority
         data.thread = Thread(target=self._threaded_play, args=(messages,))
         data.thread.start()
+        carillon_play.send(sender=self.__class__, carillon=self, priority=priority)
         return True
 
     def _threaded_play(self, messages: list[mido.Message]):
@@ -109,6 +112,7 @@ class Carillon(models.Model):
                 return
             if msg.type == "note_on" and msg.velocity != 0:
                 self.hit(msg.note)
+        carillon_stop.send(sender=self.__class__, carillon=self)
 
     def stop(self):
         """Stop the current song playing on the carillon."""
@@ -119,6 +123,7 @@ class Carillon(models.Model):
         data.thread.join()
         data.stopped = False
         data.port.reset()
+        carillon_stop.send(sender=self.__class__, carillon=self)
 
     def save(self, *args, **kwargs):
         """Override save to ensure only one carillon is default."""

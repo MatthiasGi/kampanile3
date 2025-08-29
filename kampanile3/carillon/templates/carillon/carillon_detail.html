@@ -7,6 +7,9 @@
   {% else %}
     {% blocktranslate %}The carillon is connected to the default port.{% endblocktranslate %}
   {% endif %}
+  {% if carillon.default %}
+    {% blocktranslate %}This is the default carillon.{% endblocktranslate %}
+  {% endif %}
 {% endblock %}
 
 {% block content %}

@@ -1,5 +1,4 @@
 from directorium import Directorium
-from mqtt.lib import MQTTClient
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-sze7ee3p!19w+$k8^8m64*8l@*+pr59gk+!mpus143_^94y&x1"
@@ -14,11 +13,10 @@ TIME_ZONE = "Europe/Berlin"
 DIRECTORIUM = Directorium.from_cache()
 
 # MQTT-Settings
-MQTT = MQTTClient(
-    client_id="kampanile",
-    broker="localhost",
-    port=1883,
-    username=None,
-    password=None,
-    basetopic="kampanile",
-)
+MQTT_HOST = "localhost"
+MQTT_PORT = 1883
+MQTT_USERNAME = None
+MQTT_PASSWORD = None
+
+MQTT_DEVICE_NAME = "Kampanile"
+MQTT_DEVICE_IDENTIFIERS = "kampanile"

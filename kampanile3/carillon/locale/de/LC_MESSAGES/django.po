@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 19:12+0200\n"
+"POT-Creation-Date: 2025-08-29 19:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\carillon\apps.py:8 .\carillon\models\carillon.py:136
+#: .\carillon\apps.py:8 .\carillon\models\carillon.py:141
 #: .\carillon\models\striker.py:34
 #: .\carillon\templates\carillon\striker_detail.html:9
 #: .\carillon\templates\carillon\striker_list.html:12
@@ -31,7 +31,7 @@ msgstr "Abbrechen"
 msgid "Save"
 msgstr "Speichern"
 
-#: .\carillon\models\carillon.py:35 .\carillon\models\rule.py:28
+#: .\carillon\models\carillon.py:37 .\carillon\models\rule.py:28
 #: .\carillon\models\song.py:10 .\carillon\models\striker.py:26
 #: .\carillon\templates\carillon\carillon_list.html:11
 #: .\carillon\templates\carillon\rule_list.html:11
@@ -41,22 +41,22 @@ msgstr "Speichern"
 msgid "Name"
 msgstr "Name"
 
-#: .\carillon\models\carillon.py:41
+#: .\carillon\models\carillon.py:43
 #: .\carillon\templates\carillon\carillon_list.html:12
 msgid "Port Name"
 msgstr "Portname"
 
-#: .\carillon\models\carillon.py:42
+#: .\carillon\models\carillon.py:44
 msgid "The name of the serial port used to connect to the carillon."
 msgstr ""
 "Der Name des seriellen Ports, der zum Verbinden mit dem Carillon verwendet "
 "wird."
 
-#: .\carillon\models\carillon.py:50
+#: .\carillon\models\carillon.py:52
 msgid "Default"
 msgstr "Standard"
 
-#: .\carillon\models\carillon.py:52
+#: .\carillon\models\carillon.py:54
 msgid ""
 "Whether this carillon is the default carillon. Only one carillon can be the "
 "default. If activated here, another carillon that was the default will loose "
@@ -66,7 +66,7 @@ msgstr ""
 "Eigenschaft Standard haben. Wenn es hier aktiviert wird, verliert ein "
 "anderes Carillon, das zuvor das Standard-Carillon war, diesen Status."
 
-#: .\carillon\models\carillon.py:137 .\carillon\views\carillon.py:25
+#: .\carillon\models\carillon.py:142 .\carillon\views\carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
 
@@ -397,19 +397,23 @@ msgstr "Das Carillon ist mit dem Port <code>%(port)s</code> verbunden."
 msgid "The carillon is connected to the default port."
 msgstr "Das Carillon ist mit dem Standardport verbunden."
 
-#: .\carillon\templates\carillon\carillon_detail.html:14
+#: .\carillon\templates\carillon\carillon_detail.html:11
+msgid "This is the default carillon."
+msgstr "Das ist das Standard-Carillon."
+
+#: .\carillon\templates\carillon\carillon_detail.html:17
 msgid "Update carillon"
 msgstr "Carillon bearbeiten"
 
-#: .\carillon\templates\carillon\carillon_detail.html:16
+#: .\carillon\templates\carillon\carillon_detail.html:19
 msgid "Test playing notes"
 msgstr "Noten testen"
 
-#: .\carillon\templates\carillon\carillon_detail.html:45
+#: .\carillon\templates\carillon\carillon_detail.html:48
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:47
+#: .\carillon\templates\carillon\carillon_detail.html:50
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
 
