@@ -3,7 +3,7 @@ from ha_mqtt_discoverable import DeviceInfo, Settings
 
 from .jukebox import Jukebox
 from .module import Module
-from .state_sensor import StateSensor
+from .state_sensors import StateSensors
 
 mqtt_settings = Settings.MQTT(
     host=settings.MQTT_HOST,
@@ -17,4 +17,4 @@ device_info = DeviceInfo(
     identifiers=settings.MQTT_DEVICE_IDENTIFIERS,
 )
 
-__all__ = ["mqtt_settings", "device_info", "Jukebox", "Module", "StateSensor"]
+__all__ = ["mqtt_settings", "device_info", "Jukebox", "Module", "StateSensors"]

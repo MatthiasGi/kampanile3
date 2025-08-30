@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-30 11:10+0200\n"
+"POT-Creation-Date: 2025-08-30 20:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,10 @@ msgstr "Carillon stoppen"
 msgid "Play priority"
 msgstr "Wiedergabepriorität"
 
-#: .\mqtt\lib\mqtt\state_sensor.py:14
+#: .\mqtt\lib\mqtt\state_sensors.py:25
 msgid "Carillon playing"
 msgstr "Carillon spielt"
+
+#: .\mqtt\lib\mqtt\state_sensors.py:44
+msgid "Carillon active"
+msgstr "Carillon aktiv"

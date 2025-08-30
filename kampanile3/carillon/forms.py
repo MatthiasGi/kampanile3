@@ -47,7 +47,7 @@ class CarillonForm(forms.ModelForm):
 
     class Meta:
         model = Carillon
-        fields = ["name", "port_name", "default"]
+        fields = ["name", "port_name", "active", "default"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -62,6 +62,7 @@ class CarillonForm(forms.ModelForm):
         self.helper.layout = Layout(
             Field("name"),
             Field("port_name"),
+            Field("active"),
             Field("default"),
             FormAction(cancel_url=url),
         )

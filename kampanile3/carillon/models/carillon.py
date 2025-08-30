@@ -56,6 +56,15 @@ class Carillon(models.Model):
     )
     """Whether this carillon is the default carillon."""
 
+    active = models.BooleanField(
+        default=True,
+        verbose_name=_("Active"),
+        help_text=_(
+            "Whether this carillon is active and can be used. May be deactivated to mute all songs."
+        ),
+    )
+    """Whether this carillon is active and can be used. If it is not active, no songs will be played."""
+
     @property
     def _singleton_data(self) -> SingletonData:
         """Get the singleton data for this carillon."""
@@ -89,6 +98,8 @@ class Carillon(models.Model):
         current song's priority. Returns if the song was started or not.
         """
 
+        if not self.active:
+            return False
         data = self._singleton_data
         if data.thread and data.thread.is_alive():
             if data.priority > priority:

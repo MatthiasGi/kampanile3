@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-29 19:08+0200\n"
+"POT-Creation-Date: 2025-08-30 20:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\carillon\apps.py:8 .\carillon\models\carillon.py:141
+#: .\carillon\apps.py:8 .\carillon\models\carillon.py:152
 #: .\carillon\models\striker.py:34
 #: .\carillon\templates\carillon\striker_detail.html:9
 #: .\carillon\templates\carillon\striker_list.html:12
@@ -66,7 +66,19 @@ msgstr ""
 "Eigenschaft Standard haben. Wenn es hier aktiviert wird, verliert ein "
 "anderes Carillon, das zuvor das Standard-Carillon war, diesen Status."
 
-#: .\carillon\models\carillon.py:142 .\carillon\views\carillon.py:25
+#: .\carillon\models\carillon.py:61
+msgid "Active"
+msgstr "Aktiv"
+
+#: .\carillon\models\carillon.py:63
+msgid ""
+"Whether this carillon is active and can be used. May be deactivated to mute "
+"all songs."
+msgstr ""
+"Ob dieses Carillon aktiv ist und verwendet werden kann. Kann deaktiviert "
+"werden, sodass keine Stücke abgespielt werden."
+
+#: .\carillon\models\carillon.py:153 .\carillon\views\carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
 
