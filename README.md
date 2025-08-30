@@ -23,6 +23,7 @@ python manage.py loaddata sample
 
 npm install
 python manage.py collectstatic --noinput
+python manage.py compilemessages
 
 cd kampanile3/settings/local.example.py kampanile3/settings/local.py
 ```
