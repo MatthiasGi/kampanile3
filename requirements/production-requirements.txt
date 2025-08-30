@@ -53,7 +53,7 @@ python-rtmidi==1.5.8
     # via kampanile3 (pyproject.toml)
 pyyaml==6.0.2
     # via pyaml
-requests==2.32.4
+requests==2.32.5
     # via directorium
 sqlparse==0.5.3
     # via django
