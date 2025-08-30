@@ -8,6 +8,12 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col" title="{% translate "The default carillon?" %}" data-bs-toggle="tooltip">
+          <span class="mdi mdi-star-outline"></span>
+        </th>
+        <th scope="col" title="{% translate "Is the carillon active?" %}" data-bs-toggle="tooltip">
+          <span class="mdi mdi-bell-outline"></span>
+        </th>
         <th scope="col" class="w-50">{% translate "Name" %}</th>
         <th scope="col" class="w-50">{% translate "Port Name" %}</th>
         <th scope="col"></th>
@@ -16,6 +22,18 @@
     <tbody>
       {% for carillon in carillon_list %}
         <tr>
+          <td>
+            {% if carillon.default %}
+              <span class="mdi mdi-star" title="{% translate "This is the default carillon." %}" data-bs-toggle="tooltip"></span>
+            {% endif %}
+          </td>
+          <td>
+            {% if carillon.active %}
+              <span class="mdi mdi-bell" title="{% translate "The carillon is active." %}" data-bs-toggle="tooltip"></span>
+            {% else %}
+              <span class="mdi mdi-bell-off" title="{% translate "The carillon is not active." %}" data-bs-toggle="tooltip"></span>
+            {% endif %}
+          </td>
           <th scope="row">
             <a href="{{ carillon.get_absolute_url }}">
               {{ carillon.name }}

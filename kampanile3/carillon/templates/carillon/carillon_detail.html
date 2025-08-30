@@ -7,14 +7,24 @@
   {% else %}
     {% blocktranslate %}The carillon is connected to the default port.{% endblocktranslate %}
   {% endif %}
-  {% if carillon.default %}
-    {% blocktranslate %}This is the default carillon.{% endblocktranslate %}
-  {% endif %}
 {% endblock %}
 
 {% block content %}
   {% url "carillon:carillons:update" carillon.pk as url %}
   {% include "frontend/includes/update_button.html" with label=_("Update carillon") %}
+
+  {% if carillon.default %}
+    <p class="lead">
+      {% blocktranslate %}This is the default carillon.{% endblocktranslate %}
+    </p>
+  {% endif %}
+  <p class="lead">
+    {% if carillon.active %}
+      {% blocktranslate %}The carillon is active.{% endblocktranslate %}
+    {% else %}
+      {% blocktranslate %}The carillon is currently <strong>not</strong> active.{% endblocktranslate %}
+    {% endif %}
+  </p>
 
   <h2>{% trans "Test playing notes" %}</h2>
   <div class="piano-container mb-3">

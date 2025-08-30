@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-30 20:10+0200\n"
+"POT-Creation-Date: 2025-08-30 20:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr "Speichern"
 
 #: .\carillon\models\carillon.py:37 .\carillon\models\rule.py:28
 #: .\carillon\models\song.py:10 .\carillon\models\striker.py:26
-#: .\carillon\templates\carillon\carillon_list.html:11
+#: .\carillon\templates\carillon\carillon_list.html:17
 #: .\carillon\templates\carillon\rule_list.html:11
 #: .\carillon\templates\carillon\song_list.html:11
 #: .\carillon\templates\carillon\striker_detail.html:25
@@ -42,7 +42,7 @@ msgid "Name"
 msgstr "Name"
 
 #: .\carillon\models\carillon.py:43
-#: .\carillon\templates\carillon\carillon_list.html:12
+#: .\carillon\templates\carillon\carillon_list.html:18
 msgid "Port Name"
 msgstr "Portname"
 
@@ -409,29 +409,51 @@ msgstr "Das Carillon ist mit dem Port <code>%(port)s</code> verbunden."
 msgid "The carillon is connected to the default port."
 msgstr "Das Carillon ist mit dem Standardport verbunden."
 
-#: .\carillon\templates\carillon\carillon_detail.html:11
-msgid "This is the default carillon."
-msgstr "Das ist das Standard-Carillon."
-
-#: .\carillon\templates\carillon\carillon_detail.html:17
+#: .\carillon\templates\carillon\carillon_detail.html:14
 msgid "Update carillon"
 msgstr "Carillon bearbeiten"
 
-#: .\carillon\templates\carillon\carillon_detail.html:19
+#: .\carillon\templates\carillon\carillon_detail.html:18
+#: .\carillon\templates\carillon\carillon_list.html:27
+msgid "This is the default carillon."
+msgstr "Das ist das Standard-Carillon."
+
+#: .\carillon\templates\carillon\carillon_detail.html:23
+#: .\carillon\templates\carillon\carillon_list.html:32
+msgid "The carillon is active."
+msgstr "Das Carillon ist aktiv."
+
+#: .\carillon\templates\carillon\carillon_detail.html:25
+msgid "The carillon is currently <strong>not</strong> active."
+msgstr "Das Carillon ist derzeit <strong>nicht</strong> aktiv."
+
+#: .\carillon\templates\carillon\carillon_detail.html:29
 msgid "Test playing notes"
 msgstr "Noten testen"
 
-#: .\carillon\templates\carillon\carillon_detail.html:48
+#: .\carillon\templates\carillon\carillon_detail.html:58
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:50
+#: .\carillon\templates\carillon\carillon_detail.html:60
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
 
 #: .\carillon\templates\carillon\carillon_list.html:6
 msgid "Add carillon"
 msgstr "Carillon hinzufügen"
+
+#: .\carillon\templates\carillon\carillon_list.html:11
+msgid "The default carillon?"
+msgstr "Das Standard-Carillon?"
+
+#: .\carillon\templates\carillon\carillon_list.html:14
+msgid "Is the carillon active?"
+msgstr "Ist das Carillon aktiv?"
+
+#: .\carillon\templates\carillon\carillon_list.html:34
+msgid "The carillon is not active."
+msgstr "Das Carillon ist nicht aktiv."
 
 #: .\carillon\templates\carillon\confirm_delete.html:12
 msgid "Confirm deletion"
