@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 class Song(models.Model):
     """Model to store a MIDI-file based song."""
 
-    name = models.CharField(max_length=255, verbose_name=_("Name"))
+    name = models.CharField(max_length=255, verbose_name=_("Name"), unique=True)
     """The name of the song for a friendly display."""
 
     slug = models.SlugField(

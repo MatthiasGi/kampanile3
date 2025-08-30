@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-29 19:23+0200\n"
+"POT-Creation-Date: 2025-08-30 11:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\mqtt\apps.py:33
+#: .\mqtt\lib\mqtt\jukebox.py:45
+msgid "Song"
+msgstr "Stück"
+
+#: .\mqtt\lib\mqtt\jukebox.py:69
+msgid "Play selected song"
+msgstr "Ausgewähltes Stück spielen"
+
+#: .\mqtt\lib\mqtt\jukebox.py:88
+msgid "Stop carillon"
+msgstr "Carillon stoppen"
+
+#: .\mqtt\lib\mqtt\jukebox.py:105
+msgid "Play priority"
+msgstr "Wiedergabepriorität"
+
+#: .\mqtt\lib\mqtt\state_sensor.py:14
 msgid "Carillon playing"
 msgstr "Carillon spielt"
