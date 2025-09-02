@@ -47,7 +47,7 @@ pyaml==25.5.0
     # via ha-mqtt-discoverable
 pydantic==2.11.7
     # via ha-mqtt-discoverable
-pydantic-core==2.33.2
+pydantic-core==2.39.0
     # via pydantic
 python-rtmidi==1.5.8
     # via kampanile3 (pyproject.toml)
