@@ -133,3 +133,25 @@ def stop_view(request, pk):
         return JsonResponse({"success": True, "carillon_id": pk})
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+
+@login_required
+@csrf_exempt
+def set_volume_view(request, pk):
+    """Simple view to set the volume on a specific carillon."""
+    if request.method != "POST":
+        return JsonResponse({"error": "Only POST method allowed"}, status=405)
+
+    try:
+        carillon = get_object_or_404(Carillon, pk=pk)
+        volume = int(json.loads(request.body).get("volume"))
+        if volume is None:
+            return JsonResponse({"error": "Volume parameter is required"}, status=400)
+        if not (0 <= volume <= 127):
+            return JsonResponse(
+                {"error": "Volume must be between 0 and 127"}, status=400
+            )
+        carillon.set_volume(volume)
+        return JsonResponse({"success": True, "carillon_id": pk, "volume": volume})
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)

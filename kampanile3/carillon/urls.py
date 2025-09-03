@@ -28,6 +28,11 @@ urlpatterns = [
                     ),
                     path("<int:pk>/hit/", carillon.hit_note_view, name="hit_note"),
                     path("<int:pk>/stop/", carillon.stop_view, name="stop"),
+                    path(
+                        "<int:pk>/set-volume/",
+                        carillon.set_volume_view,
+                        name="set_volume",
+                    ),
                 ],
                 "carillons",
             )

@@ -7,6 +7,8 @@ from ha_mqtt_discoverable import Settings
 from ha_mqtt_discoverable.sensors import (
     BinarySensor,
     BinarySensorInfo,
+    Number,
+    NumberInfo,
     Switch,
     SwitchInfo,
 )
@@ -19,13 +21,14 @@ class StateSensors(Module):
     def init_sensors(self):
         self._init_playing_sensor()
         self._init_active_switch()
+        self._init_volume_number()
 
     def _init_playing_sensor(self):
         info = BinarySensorInfo(
-            name=gettext("Carillon playing"),
+            name=gettext("Playing"),
             device_class="running",
             device=self.device,
-            unique_id="carillon_playing",
+            unique_id="playing",
         )
         settings = Settings(mqtt=self.mqtt_settings, entity=info)
 
@@ -41,9 +44,9 @@ class StateSensors(Module):
 
     def _init_active_switch(self):
         info = SwitchInfo(
-            name=gettext("Carillon active"),
+            name=gettext("Active"),
             device=self.device,
-            unique_id="carillon_active",
+            unique_id="active",
         )
         settings = Settings(mqtt=self.mqtt_settings, entity=info)
 
@@ -62,7 +65,7 @@ class StateSensors(Module):
             payload = message.payload.decode().lower()
             active = payload in ("1", "true", "on", "yes")
             try:
-                carillon = Carillon.objects.get(default=True)
+                carillon = Carillon.get_default()
                 carillon.active = active
                 carillon.save()
                 publish_state()
@@ -80,3 +83,26 @@ class StateSensors(Module):
             publish_state()
 
         post_save.connect(update_active_switch)
+
+    def _init_volume_number(self):
+        info = NumberInfo(
+            name=gettext("Volume"),
+            device=self.device,
+            unique_id="volume",
+            min=0,
+            max=127,
+            step=1,
+        )
+        settings = Settings(mqtt=self.mqtt_settings, entity=info)
+
+        def on_change(client: Client, userdata, message: MQTTMessage):
+            from carillon.models import Carillon
+
+            try:
+                volume = int(message.payload.decode())
+                Carillon.get_default().set_volume(volume)
+            except (Carillon.DoesNotExist, ValueError):
+                pass
+
+        self.volume_number = Number(settings, on_change)
+        self.volume_number.write_config()

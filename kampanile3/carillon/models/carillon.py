@@ -97,7 +97,6 @@ class Carillon(models.Model):
         playing, it will be aborted if the priority is equal or higher than the
         current song's priority. Returns if the song was started or not.
         """
-
         if not self.active:
             return False
         data = self._singleton_data
@@ -112,6 +111,11 @@ class Carillon(models.Model):
         data.thread.start()
         carillon_play.send(sender=self.__class__, carillon=self, priority=priority)
         return True
+
+    def set_volume(self, volume: int):
+        """Sends a MIDI-message to set the volume of the carillon."""
+        volume = max(0, min(127, volume))  # Clamp the volume to 0-127
+        self.port.send(mido.Message("control_change", control=7, value=volume))
 
     def _threaded_play(self, messages: list[mido.Message]):
         """Internal method to play MIDI messages in a separate thread."""

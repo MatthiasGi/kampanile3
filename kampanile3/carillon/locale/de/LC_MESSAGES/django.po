@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-30 20:29+0200\n"
+"POT-Creation-Date: 2025-09-03 15:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\carillon\apps.py:8 .\carillon\models\carillon.py:152
+#: .\carillon\apps.py:8 .\carillon\models\carillon.py:156
 #: .\carillon\models\striker.py:34
 #: .\carillon\templates\carillon\striker_detail.html:9
 #: .\carillon\templates\carillon\striker_list.html:12
@@ -78,7 +78,7 @@ msgstr ""
 "Ob dieses Carillon aktiv ist und verwendet werden kann. Kann deaktiviert "
 "werden, sodass keine Stücke abgespielt werden."
 
-#: .\carillon\models\carillon.py:153 .\carillon\views\carillon.py:25
+#: .\carillon\models\carillon.py:157 .\carillon\views\carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
 
@@ -428,16 +428,56 @@ msgid "The carillon is currently <strong>not</strong> active."
 msgstr "Das Carillon ist derzeit <strong>nicht</strong> aktiv."
 
 #: .\carillon\templates\carillon\carillon_detail.html:29
-msgid "Test playing notes"
-msgstr "Noten testen"
+msgid "Test sending MIDI-signals"
+msgstr "Senden von MIDI-Signalen testen"
 
-#: .\carillon\templates\carillon\carillon_detail.html:58
+#: .\carillon\templates\carillon\carillon_detail.html:32
+msgid "C2"
+msgstr "C2"
+
+#: .\carillon\templates\carillon\carillon_detail.html:33
+msgid "C3"
+msgstr "C3"
+
+#: .\carillon\templates\carillon\carillon_detail.html:34
+msgid "C4"
+msgstr "C4"
+
+#: .\carillon\templates\carillon\carillon_detail.html:35
+msgid "C5"
+msgstr "C5"
+
+#: .\carillon\templates\carillon\carillon_detail.html:36
+msgid "C6"
+msgstr "C6"
+
+#: .\carillon\templates\carillon\carillon_detail.html:40
+msgid "Volume 0"
+msgstr "Lautstärke 0"
+
+#: .\carillon\templates\carillon\carillon_detail.html:41
+msgid "Volume 63"
+msgstr "Lautstärke 63"
+
+#: .\carillon\templates\carillon\carillon_detail.html:42
+msgid "Volume 127"
+msgstr "Lautstärke 127"
+
+#: .\carillon\templates\carillon\carillon_detail.html:64
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:60
+#: .\carillon\templates\carillon\carillon_detail.html:66
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
+
+#: .\carillon\templates\carillon\carillon_detail.html:85
+msgid "Volume set successfully!"
+msgstr "Lautstärke erfolgreich eingestellt!"
+
+#: .\carillon\templates\carillon\carillon_detail.html:87
+msgid "Error setting volume: ${ data.error }"
+msgstr "Fehler beim Einstellen der Lautstärke: ${ data.error }"
 
 #: .\carillon\templates\carillon\carillon_list.html:6
 msgid "Add carillon"

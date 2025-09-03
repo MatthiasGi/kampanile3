@@ -26,16 +26,24 @@
     {% endif %}
   </p>
 
-  <h2>{% trans "Test playing notes" %}</h2>
-  <div class="piano-container mb-3">
-    <button type="button" class="btn btn-outline-primary" data-note="36">C2</button>
-    <button type="button" class="btn btn-outline-primary" data-note="48">C3</button>
-    <button type="button" class="btn btn-outline-primary" data-note="60">C4</button>
-    <button type="button" class="btn btn-outline-primary" data-note="72">C5</button>
-    <button type="button" class="btn btn-outline-primary" data-note="84">C6</button>
+  <h2>{% trans "Test sending MIDI-signals" %}</h2>
+  <div class="btn-toolbar">
+    <div class="piano-container btn-group me-2">
+      <button type="button" class="btn btn-outline-primary" data-note="36">{% trans "C2" %}</button>
+      <button type="button" class="btn btn-outline-primary" data-note="48">{% trans "C3" %}</button>
+      <button type="button" class="btn btn-outline-primary" data-note="60">{% trans "C4" %}</button>
+      <button type="button" class="btn btn-outline-primary" data-note="72">{% trans "C5" %}</button>
+      <button type="button" class="btn btn-outline-primary" data-note="84">{% trans "C6" %}</button>
+    </div>
+
+    <div class="volume-container btn-group">
+      <button type="button" class="btn btn-outline-secondary" data-volume="0">{% trans "Volume 0" %}</button>
+      <button type="button" class="btn btn-outline-secondary" data-volume="63">{% trans "Volume 63" %}</button>
+      <button type="button" class="btn btn-outline-secondary" data-volume="127">{% trans "Volume 127" %}</button>
+    </div>
   </div>
 
-  <div class="alert-placeholder"></div>
+  <div class="alert-placeholder mt-3"></div>
 {% endblock %}
 
 {% block extra_body %}
@@ -46,9 +54,7 @@ document.querySelectorAll('.piano-container button').forEach(button => {
     const note = this.getAttribute('data-note');
     fetch(`{% url 'carillon:carillons:hit_note' carillon.pk %}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({note: note})
     })
     .then(response => response.json())
@@ -58,6 +64,27 @@ document.querySelectorAll('.piano-container button').forEach(button => {
         alert = generateAlert("{% blocktranslate %}Note played successfully!{% endblocktranslate %}", "success", 3000)
       } else {
         alert = generateAlert(`{% blocktranslate with error=data.error %}Error playing note: ${ data.error }{% endblocktranslate %}`, "success", 3000)
+      }
+      document.querySelector('.alert-placeholder').appendChild(alert);
+    })
+  });
+});
+
+document.querySelectorAll('.volume-container button').forEach(button => {
+  button.addEventListener('click', function() {
+    const volume = this.getAttribute('data-volume');
+    fetch(`{% url 'carillon:carillons:set_volume' carillon.pk %}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({volume: volume})
+    })
+    .then(response => response.json())
+    .then(data => {
+      let alert;
+      if (data.success) {
+        alert = generateAlert("{% blocktranslate %}Volume set successfully!{% endblocktranslate %}", "success", 3000)
+      } else {
+        alert = generateAlert(`{% blocktranslate with error=data.error %}Error setting volume: ${ data.error }{% endblocktranslate %}`, "success", 3000)
       }
       document.querySelector('.alert-placeholder').appendChild(alert);
     })

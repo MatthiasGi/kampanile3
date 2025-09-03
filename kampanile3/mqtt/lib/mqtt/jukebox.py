@@ -85,7 +85,7 @@ class Jukebox(Module):
 
     def _init_stop_button(self):
         info = ButtonInfo(
-            name=gettext("Stop carillon"),
+            name=gettext("Stop"),
             device=self.device,
             unique_id="stop_playing_song",
         )
