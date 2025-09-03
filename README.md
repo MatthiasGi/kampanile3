@@ -2,6 +2,12 @@
 
 A customizable chime with web interface.
 
+## Carillon
+
+To use the carillon via [GrandOrgue](https://github.com/GrandOrgue/grandorgue),
+see the [additional information](carillon/README.md) provided in the `carillon`
+subdirectory.
+
 ## Development
 
 To start development, run the following commands:
