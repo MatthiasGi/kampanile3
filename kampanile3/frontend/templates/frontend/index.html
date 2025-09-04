@@ -1,5 +1,227 @@
-{% extends "frontend/base.html" %}
+{% extends "./base.html" %}
+{% load i18n static %}
 
 {% block content %}
-  <h1>Hello World!</h1>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="mdi mdi-chart-box-outline"></span>
+            {% trans "Statistics" %}
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {% trans "Your setup in numbers" %}
+          </h6>
+          <p class="card-text">
+            {% blocktranslate %}The main parameters of your carillon are summarized here.{% endblocktranslate %}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <span class="mdi mdi-bell-ring-outline"></span>
+            {% blocktrans count num=carillons.count %}{{ num }} carillon{% plural %}{{ num }} carillons{% endblocktrans %}
+          </li>
+          <li class="list-group-item">
+            <span class="mdi mdi-alarm-multiple"></span>
+            {% blocktrans count num=num_strikers %}{{ num }} striker{% plural %}{{ num }} strikers{% endblocktrans %}
+          </li>
+          <li class="list-group-item">
+            <span class="mdi mdi-list-status"></span>
+            {% blocktrans count num=num_rules %}{{ num }} rule{% plural %}{{ num }} rules{% endblocktrans %}
+          </li>
+          <li class="list-group-item">
+            <span class="mdi mdi-music"></span>
+            {% blocktrans count num=num_songs %}{{ num }} song{% plural %}{{ num }} songs{% endblocktrans %}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="mdi mdi-file-music-outline"></span>
+            {% trans "Songs" %}
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {% trans "Your most recent songs" %}
+          </h6>
+          <p class="card-text">
+            {% blocktranslate %}A quick way to play your most recent additions to your song library:{% endblocktranslate %}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush" id="songs-list">
+          {% for song in sample_songs %}
+            <li class="list-group-item">
+              <button class="btn btn-outline-primary btn-sm me-2" title="{% trans "Play song now" %}" data-bs-toggle="tooltip" data-action="play" data-song="{{ song.id }}">
+                <span class="mdi mdi-play"></span>
+              </button>
+              <span>{{ song.name }}</span>
+              <a href="{% url 'carillon:songs:detail' song.id %}" class="btn btn-outline-secondary btn-sm float-end" title="{% trans "View details" %}" data-bs-toggle="tooltip">
+                <span class="mdi mdi-arrow-right"></span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="mdi mdi-bell-outline"></span>
+            {% trans "Carillons" %}
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {% trans "Summary of all your carillons" %}
+          </h6>
+          <p class="card-text">
+            {% blocktranslate %}The most important settings about your carillons:{% endblocktranslate %}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush" id="carillons-list">
+          {% for carillon in carillons %}
+            <li class="list-group-item">
+              <div class="btn-group btn-group-sm me-2">
+                <button class="btn btn-outline-primary" title="{% trans "Set as default carillon" %}" data-bs-toggle="tooltip" data-action="default" data-carillon="{{ carillon.id }}">
+                  <span class="mdi mdi-star{% if not carillon.default %}-outline{% endif %}"></span>
+                </button>
+                <button class="btn btn-outline-primary" title="{% trans "Toggle activation of carillon" %}" data-bs-toggle="tooltip" data-action="active" data-carillon="{{ carillon.id }}">
+                  <span class="mdi mdi-bell{% if not carillon.active %}-off-outline{% endif %}"></span>
+                </button>
+              </div>
+              <span>{{ carillon.name }}</span>
+              <a href="{% url 'carillon:carillons:detail' carillon.id %}" class="btn btn-outline-secondary btn-sm float-end" title="{% trans "View details" %}" data-bs-toggle="tooltip">
+                <span class="mdi mdi-arrow-right"></span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="mdi mdi-bell-cog-outline"></span>
+            {% trans "Main settings" %}
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {% trans "Controlling the default carillon" %}
+          </h6>
+          <p class="card-text">
+            {% blocktranslate %}Here you are able to control the main parameters of the default carillon:{% endblocktranslate %}
+          </p>
+          <div class="row">
+            <div class="col">
+              <label for="volume-range" class="form-label">
+                {% trans "Volume" %}
+                <span class="text-muted">{% trans "(initially unknown)" %}</span>
+              </label>
+              <input type="range" class="form-range" id="volume-range" min="0" max="127" step="1" value="127">
+            </div>
+            <div class="col-auto d-flex align-items-center">
+              <button class="btn btn-outline-primary" title="{% trans "Stop playing" %}" data-bs-toggle="tooltip" id="stop-button">
+                <span class="mdi mdi-stop"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="alert-placeholder"></div>
+  </div>
+{% endblock %}
+
+{% block extra_body %}
+{{ block.super }}
+<script src="{% static "frontend/alert_helper.js" %}"></script>
+<script>
+document.getElementById("carillons-list").querySelectorAll("button").forEach(button => {
+  button.addEventListener('click', event => {
+    const carillonId = button.getAttribute('data-carillon')
+    const action = button.getAttribute('data-action')
+    button.disabled = true
+    let url = action === 'default' ?
+      `{% url "carillon:carillons:set_default" 1234 %}` :
+      `{% url "carillon:carillons:toggle_active" 1234 %}`
+    url = url.replace('1234', carillonId)
+    fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) window.location.reload()
+      else {
+        document.getElementById('alert-placeholder').appendChild(
+          generateAlert(`{% blocktranslate %}Error: ${ data.error }{% endblocktranslate %}`, "danger")
+        )
+        button.disabled = false
+      }
+    })
+  })
+})
+
+document.getElementById("songs-list").querySelectorAll("button").forEach(button => {
+  button.addEventListener('click', event => {
+    const songId = button.getAttribute('data-song')
+    button.disabled = true
+    fetch(`{% url "carillon:songs:play" 1234 %}`.replace("1234", songId), {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ carillon_id: {{ default_carillon.id }} }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (!data.success) {
+        document.getElementById('alert-placeholder').appendChild(
+          generateAlert(`{% blocktranslate %}Error: ${ data.error }{% endblocktranslate %}`, "danger")
+        )
+      }
+      button.disabled = false
+    })
+  })
+})
+
+document.getElementById("volume-range").addEventListener('change', event => {
+  const volume = parseInt(event.target.value)
+  fetch(`{% url "carillon:carillons:set_volume" 1234 %}`.replace("1234", {{ default_carillon.id }}), {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ volume: volume }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (!data.success) {
+      document.getElementById('alert-placeholder').appendChild(
+        generateAlert(`{% blocktranslate %}Error: ${ data.error }{% endblocktranslate %}`, "danger")
+      )
+    }
+  })
+})
+
+document.getElementById("stop-button").addEventListener('click', event => {
+  fetch(`{% url "carillon:carillons:stop" 1234 %}`.replace("1234", {{ default_carillon.id }}), {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (!data.success) {
+      document.getElementById('alert-placeholder').appendChild(
+        generateAlert(`{% blocktranslate %}Error: ${ data.error }{% endblocktranslate %}`, "danger")
+      )
+    }
+  })
+})
+</script>
 {% endblock %}

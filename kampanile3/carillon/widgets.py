@@ -27,4 +27,4 @@ class RuleConditionWidget(Textarea):
         return context
 
     class Media:
-        js = ["carillon/alert_helper.js"]
+        js = ["frontend/alert_helper.js"]

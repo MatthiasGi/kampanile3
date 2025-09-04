@@ -155,3 +155,37 @@ def set_volume_view(request, pk):
         return JsonResponse({"success": True, "carillon_id": pk, "volume": volume})
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+
+@login_required
+@csrf_exempt
+def set_default_view(request, pk):
+    """Simple view to set a carillon as the default carillon."""
+    if request.method != "POST":
+        return JsonResponse({"error": "Only POST method allowed"}, status=405)
+
+    try:
+        carillon = get_object_or_404(Carillon, pk=pk)
+        carillon.default = True
+        carillon.save()
+        return JsonResponse({"success": True, "carillon_id": pk})
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+
+@login_required
+@csrf_exempt
+def toggle_active_view(request, pk):
+    """Simple view to toggle the active state of a carillon."""
+    if request.method != "POST":
+        return JsonResponse({"error": "Only POST method allowed"}, status=405)
+
+    try:
+        carillon = get_object_or_404(Carillon, pk=pk)
+        carillon.active = not carillon.active
+        carillon.save()
+        return JsonResponse(
+            {"success": True, "carillon_id": pk, "active": carillon.active}
+        )
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)

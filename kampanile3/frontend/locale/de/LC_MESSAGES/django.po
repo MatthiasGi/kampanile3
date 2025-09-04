@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:55+0200\n"
+"POT-Creation-Date: 2025-09-04 20:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\frontend\templates\frontend\base.html:29
+#: .\frontend\templates\frontend\index.html:77
 msgid "Carillons"
 msgstr "Carillons"
 
@@ -25,6 +26,7 @@ msgid "Strikers"
 msgstr "Schlagwerke"
 
 #: .\frontend\templates\frontend\base.html:39
+#: .\frontend\templates\frontend\index.html:47
 msgid "Songs"
 msgstr "Stücke"
 
@@ -52,6 +54,115 @@ msgstr "Bearbeiten"
 msgid "Delete"
 msgstr "Löschen"
 
+#: .\frontend\templates\frontend\index.html:12
+msgid "Statistics"
+msgstr "Statistiken"
+
+#: .\frontend\templates\frontend\index.html:15
+msgid "Your setup in numbers"
+msgstr "Das Setup in Zahlen"
+
+#: .\frontend\templates\frontend\index.html:18
+msgid "The main parameters of your carillon are summarized here."
+msgstr "Die wichtigsten Parameter Ihres Carillons sind hier zusammengefasst."
+
+#: .\frontend\templates\frontend\index.html:24
+#, python-format
+msgid "%(num)s carillon"
+msgid_plural "%(num)s carillons"
+msgstr[0] "%(num)s Carillon"
+msgstr[1] "%(num)s Carillons"
+
+#: .\frontend\templates\frontend\index.html:28
+#, python-format
+msgid "%(num)s striker"
+msgid_plural "%(num)s strikers"
+msgstr[0] "%(num)s Schlagwerk"
+msgstr[1] "%(num)s Schlagwerke"
+
+#: .\frontend\templates\frontend\index.html:32
+#, python-format
+msgid "%(num)s rule"
+msgid_plural "%(num)s rules"
+msgstr[0] "%(num)s Regel"
+msgstr[1] "%(num)s Regeln"
+
+#: .\frontend\templates\frontend\index.html:36
+#, python-format
+msgid "%(num)s song"
+msgid_plural "%(num)s songs"
+msgstr[0] "%(num)s Stück"
+msgstr[1] "%(num)s Stücke"
+
+#: .\frontend\templates\frontend\index.html:50
+msgid "Your most recent songs"
+msgstr "Die letzten Stücke"
+
+#: .\frontend\templates\frontend\index.html:53
+msgid "A quick way to play your most recent additions to your song library:"
+msgstr ""
+"Eine schnelle Möglichkeit, die neuesten Stücke aus der Bibliothek "
+"abzuspielen:"
+
+#: .\frontend\templates\frontend\index.html:59
+msgid "Play song now"
+msgstr "Stück jetzt spielen"
+
+#: .\frontend\templates\frontend\index.html:63
+#: .\frontend\templates\frontend\index.html:98
+msgid "View details"
+msgstr "Details anzeigen"
+
+#: .\frontend\templates\frontend\index.html:80
+msgid "Summary of all your carillons"
+msgstr "Zusammenfassung aller Carillons"
+
+#: .\frontend\templates\frontend\index.html:83
+msgid "The most important settings about your carillons:"
+msgstr "Die relevantesten Einstellungen der Carillons:"
+
+#: .\frontend\templates\frontend\index.html:90
+msgid "Set as default carillon"
+msgstr "Als Standard-Carillon festlegen"
+
+#: .\frontend\templates\frontend\index.html:93
+msgid "Toggle activation of carillon"
+msgstr "Aktivität des Carillons umschalten"
+
+#: .\frontend\templates\frontend\index.html:111
+msgid "Main settings"
+msgstr "Haupteinstellungen"
+
+#: .\frontend\templates\frontend\index.html:114
+msgid "Controlling the default carillon"
+msgstr "Steuerung des Standard-Carillons"
+
+#: .\frontend\templates\frontend\index.html:117
+msgid ""
+"Here you are able to control the main parameters of the default carillon:"
+msgstr ""
+"Hier können die wesentlichsten Einstellungen des Standard-Carillons "
+"vorgenommen werden:"
+
+#: .\frontend\templates\frontend\index.html:122
+msgid "Volume"
+msgstr "Lautstärke"
+
+#: .\frontend\templates\frontend\index.html:123
+msgid "(initially unknown)"
+msgstr "(zunächst unbekannt)"
+
+#: .\frontend\templates\frontend\index.html:128
+msgid "Stop playing"
+msgstr "Wiedergabe stoppen"
+
+#: .\frontend\templates\frontend\index.html:166
+#: .\frontend\templates\frontend\index.html:187
+#: .\frontend\templates\frontend\index.html:206
+#: .\frontend\templates\frontend\index.html:221
+msgid "Error: ${ data.error }"
+msgstr "Fehler: ${ data.error }"
+
 #: .\frontend\templates\registration\login.html:7
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
@@ -73,3 +184,11 @@ msgstr "Bitte melden Sie sich an, um diese Seite zu sehen."
 #: .\frontend\templates\registration\login.html:24
 msgid "Login"
 msgstr "Einloggen"
+
+#: .\frontend\views.py:14
+msgid "Overview"
+msgstr "Übersicht"
+
+#: .\frontend\views.py:15
+msgid "Welcome to your carillon management interface!"
+msgstr "Willkommen zur Verwaltungsoberfläche des Carillons!"

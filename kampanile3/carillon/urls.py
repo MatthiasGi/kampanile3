@@ -33,6 +33,16 @@ urlpatterns = [
                         carillon.set_volume_view,
                         name="set_volume",
                     ),
+                    path(
+                        "<int:pk>/set-default/",
+                        carillon.set_default_view,
+                        name="set_default",
+                    ),
+                    path(
+                        "<int:pk>/toggle-active/",
+                        carillon.toggle_active_view,
+                        name="toggle_active",
+                    ),
                 ],
                 "carillons",
             )

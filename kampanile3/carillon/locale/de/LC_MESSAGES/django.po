@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-03 15:45+0200\n"
+"POT-Creation-Date: 2025-09-04 20:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -463,19 +463,19 @@ msgstr "Lautstärke 63"
 msgid "Volume 127"
 msgstr "Lautstärke 127"
 
-#: .\carillon\templates\carillon\carillon_detail.html:64
+#: .\carillon\templates\carillon\carillon_detail.html:65
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:66
+#: .\carillon\templates\carillon\carillon_detail.html:67
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
 
-#: .\carillon\templates\carillon\carillon_detail.html:85
+#: .\carillon\templates\carillon\carillon_detail.html:86
 msgid "Volume set successfully!"
 msgstr "Lautstärke erfolgreich eingestellt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:87
+#: .\carillon\templates\carillon\carillon_detail.html:88
 msgid "Error setting volume: ${ data.error }"
 msgstr "Fehler beim Einstellen der Lautstärke: ${ data.error }"
 

@@ -47,7 +47,8 @@
 {% endblock %}
 
 {% block extra_body %}
-<script src="{% static "carillon/alert_helper.js" %}"></script>
+{{ block.super }}
+<script src="{% static "frontend/alert_helper.js" %}"></script>
 <script>
 document.querySelectorAll('.piano-container button').forEach(button => {
   button.addEventListener('click', function() {
