@@ -31,7 +31,7 @@ npm install
 python manage.py collectstatic --noinput
 python manage.py compilemessages
 
-cd kampanile3/settings/local.example.py kampanile3/settings/local.py
+cp kampanile3/settings/local.example.py kampanile3/settings/local.py
 ```
 
 Then adjust `kampanile3/settings/local.py` to your needs and run the server:

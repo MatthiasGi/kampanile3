@@ -1,6 +1,5 @@
-import os
-
 from django.apps import AppConfig
+from django.conf import settings
 
 
 class MqttConfig(AppConfig):
@@ -8,7 +7,7 @@ class MqttConfig(AppConfig):
     name = "mqtt"
 
     def ready(self):
-        if os.environ.get("MQTT"):
+        if settings.MQTT:
             self._setup_mqtt()
 
     def _setup_mqtt(self):

@@ -59,3 +59,23 @@ class Condition(metaclass=ConditionMeta):
     def is_met(self) -> bool:
         """Check if the condition is met."""
         raise NotImplementedError
+
+
+class EmptyCondition(Condition):
+    """A condition that is always met."""
+
+    class Meta:
+        type = None
+        icon = None
+        label = None
+        sample_data = {}
+        documentation = "A condition that is always met."
+
+    def validate(self):
+        """An empty condition is always valid."""
+        pass
+
+    @property
+    def is_met(self) -> bool:
+        """An empty condition is always met."""
+        return True
