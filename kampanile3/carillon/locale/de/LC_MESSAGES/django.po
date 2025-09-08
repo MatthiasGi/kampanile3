@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-04 20:45+0200\n"
+"POT-Creation-Date: 2025-09-08 19:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,47 +16,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\carillon\apps.py:8 .\carillon\models\carillon.py:156
-#: .\carillon\models\striker.py:34
-#: .\carillon\templates\carillon\striker_detail.html:9
-#: .\carillon\templates\carillon\striker_list.html:12
+#: carillon/apps.py:8 carillon/models/carillon.py:156
+#: carillon/models/striker.py:34
+#: carillon/templates/carillon/striker_detail.html:9
+#: carillon/templates/carillon/striker_list.html:12
 msgid "Carillon"
 msgstr "Carillon"
 
-#: .\carillon\forms.py:14 .\carillon\templates\carillon\confirm_delete.html:10
+#: carillon/forms.py:14 carillon/templates/carillon/confirm_delete.html:10
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: .\carillon\forms.py:14
+#: carillon/forms.py:14
 msgid "Save"
 msgstr "Speichern"
 
-#: .\carillon\models\carillon.py:37 .\carillon\models\rule.py:28
-#: .\carillon\models\song.py:10 .\carillon\models\striker.py:26
-#: .\carillon\templates\carillon\carillon_list.html:17
-#: .\carillon\templates\carillon\rule_list.html:11
-#: .\carillon\templates\carillon\song_list.html:11
-#: .\carillon\templates\carillon\striker_detail.html:25
-#: .\carillon\templates\carillon\striker_list.html:11
+#: carillon/models/carillon.py:37 carillon/models/rule.py:28
+#: carillon/models/song.py:10 carillon/models/striker.py:26
+#: carillon/templates/carillon/carillon_list.html:17
+#: carillon/templates/carillon/rule_list.html:11
+#: carillon/templates/carillon/song_list.html:11
+#: carillon/templates/carillon/striker_detail.html:25
+#: carillon/templates/carillon/striker_list.html:11
 msgid "Name"
 msgstr "Name"
 
-#: .\carillon\models\carillon.py:43
-#: .\carillon\templates\carillon\carillon_list.html:18
+#: carillon/models/carillon.py:43
+#: carillon/templates/carillon/carillon_list.html:18
 msgid "Port Name"
 msgstr "Portname"
 
-#: .\carillon\models\carillon.py:44
+#: carillon/models/carillon.py:44
 msgid "The name of the serial port used to connect to the carillon."
 msgstr ""
 "Der Name des seriellen Ports, der zum Verbinden mit dem Carillon verwendet "
 "wird."
 
-#: .\carillon\models\carillon.py:52
+#: carillon/models/carillon.py:52
 msgid "Default"
 msgstr "Standard"
 
-#: .\carillon\models\carillon.py:54
+#: carillon/models/carillon.py:54
 msgid ""
 "Whether this carillon is the default carillon. Only one carillon can be the "
 "default. If activated here, another carillon that was the default will loose "
@@ -66,11 +66,11 @@ msgstr ""
 "Eigenschaft Standard haben. Wenn es hier aktiviert wird, verliert ein "
 "anderes Carillon, das zuvor das Standard-Carillon war, diesen Status."
 
-#: .\carillon\models\carillon.py:61
+#: carillon/models/carillon.py:61
 msgid "Active"
 msgstr "Aktiv"
 
-#: .\carillon\models\carillon.py:63
+#: carillon/models/carillon.py:63
 msgid ""
 "Whether this carillon is active and can be used. May be deactivated to mute "
 "all songs."
@@ -78,15 +78,15 @@ msgstr ""
 "Ob dieses Carillon aktiv ist und verwendet werden kann. Kann deaktiviert "
 "werden, sodass keine Stücke abgespielt werden."
 
-#: .\carillon\models\carillon.py:157 .\carillon\views\carillon.py:25
+#: carillon/models/carillon.py:157 carillon/views/carillon.py:25
 msgid "Carillons"
 msgstr "Carillons"
 
-#: .\carillon\models\conditions\date\date_condition.py:36
+#: carillon/models/conditions/date/date_condition.py:36
 msgid "Date condition"
 msgstr "Datums-Bedingung"
 
-#: .\carillon\models\conditions\date\date_condition.py:40
+#: carillon/models/conditions/date/date_condition.py:40
 msgid ""
 "Compares the current date with a specified date. Available comparators are: "
 "gt, gte, lt, lte, eq, and neq."
@@ -94,11 +94,11 @@ msgstr ""
 "Vergleicht das aktuelle Datum mit einem angegebenen Datum. Verfügbare "
 "Vergleichsoperatoren „comparator“ sind: gt, gte, lt, lte, eq und neq."
 
-#: .\carillon\models\conditions\date\hour_modulo_condition.py:24
+#: carillon/models/conditions/date/hour_modulo_condition.py:24
 msgid "Hour modulo condition"
 msgstr "Stunden-Modulo-Bedingung"
 
-#: .\carillon\models\conditions\date\hour_modulo_condition.py:28
+#: carillon/models/conditions/date/hour_modulo_condition.py:28
 msgid ""
 "Checks if the current hour divided by the specified modulo has the specified "
 "remainder."
@@ -106,19 +106,19 @@ msgstr ""
 "Prüft, ob die aktuelle Stunde, geteilt durch das angegebene Modulo, den "
 "angegebenen Rest ergibt."
 
-#: .\carillon\models\conditions\date\minute_condition.py:31
+#: carillon/models/conditions/date/minute_condition.py:31
 msgid "Minute condition"
 msgstr "Minuten-Bedingung"
 
-#: .\carillon\models\conditions\date\minute_condition.py:34
+#: carillon/models/conditions/date/minute_condition.py:34
 msgid "Checks if the current minute matches the specified value."
 msgstr "Prüft, ob die aktuelle Minute dem angegebenen Wert entspricht."
 
-#: .\carillon\models\conditions\date\minute_modulo_condition.py:44
+#: carillon/models/conditions/date/minute_modulo_condition.py:44
 msgid "Minute modulo condition"
 msgstr "Minuten-Modulo-Bedingung"
 
-#: .\carillon\models\conditions\date\minute_modulo_condition.py:48
+#: carillon/models/conditions/date/minute_modulo_condition.py:48
 msgid ""
 "Checks if the current minute divided by the specified modulo has the "
 "specified remainder."
@@ -126,11 +126,11 @@ msgstr ""
 "Prüft, ob die aktuelle Minute, geteilt durch das angegebene Modulo, den "
 "angegebenen Rest ergibt."
 
-#: .\carillon\models\conditions\date\time_condition.py:50
+#: carillon/models/conditions/date/time_condition.py:50
 msgid "Time condition"
 msgstr "Zeit-Bedingung"
 
-#: .\carillon\models\conditions\date\time_condition.py:54
+#: carillon/models/conditions/date/time_condition.py:54
 msgid ""
 "Compares the current time with a specified hour and minute. Available "
 "comparators are: gt, gte, lt, lte, eq, and neq."
@@ -139,11 +139,11 @@ msgstr ""
 "Verfügbare Vergleichsoperatoren „comparator“ sind: gt, gte, lt, lte, eq und "
 "neq."
 
-#: .\carillon\models\conditions\directorium\easter_offset_condition.py:35
+#: carillon/models/conditions/directorium/easter_offset_condition.py:35
 msgid "Easter offset condition"
 msgstr "Ostern-Offset-Bedingung"
 
-#: .\carillon\models\conditions\directorium\easter_offset_condition.py:39
+#: carillon/models/conditions/directorium/easter_offset_condition.py:39
 msgid ""
 "Compares the current date with a date offset from Easter using a comparator. "
 "Available comparators are: gt, gte, lt, lte, eq, and neq."
@@ -153,11 +153,11 @@ msgstr ""
 "Verfügbare Vergleichsoperatoren „comparator“ sind: gt, gte, lt, lte, eq und "
 "neq."
 
-#: .\carillon\models\conditions\directorium\event_rank_condition.py:33
+#: carillon/models/conditions/directorium/event_rank_condition.py:33
 msgid "Event rank condition"
 msgstr "Festrang-Bedingung"
 
-#: .\carillon\models\conditions\directorium\event_rank_condition.py:37
+#: carillon/models/conditions/directorium/event_rank_condition.py:37
 msgid ""
 "Compares the current liturgical event's rank with a specified rank using a "
 "comparator. Available ranks in ascending importance are: NONE, "
@@ -170,11 +170,11 @@ msgstr ""
 "MEMORIAL, FEAST und SOLEMNITY. Verfügbare Vergleichsoperatoren „comparator“ "
 "sind: gt, gte, lt, lte, eq und neq."
 
-#: .\carillon\models\conditions\directorium\event_title_condition.py:23
+#: carillon/models/conditions/directorium/event_title_condition.py:23
 msgid "Event title condition"
 msgstr "Festnamen-Bedingung"
 
-#: .\carillon\models\conditions\directorium\event_title_condition.py:27
+#: carillon/models/conditions/directorium/event_title_condition.py:27
 msgid ""
 "Checks if the current event title matches a specified value (case-"
 "insensitive)."
@@ -182,11 +182,11 @@ msgstr ""
 "Prüft, ob der Name des aktuellen Festes mit einem angegebenen Wert (ohne "
 "Berücksichtigung der Groß-/Kleinschreibung) übereinstimmt."
 
-#: .\carillon\models\conditions\directorium\season_condition.py:27
+#: carillon/models/conditions/directorium/season_condition.py:27
 msgid "Season condition"
 msgstr "Liturgische-Jahreszeiten-Bedingung"
 
-#: .\carillon\models\conditions\directorium\season_condition.py:31
+#: carillon/models/conditions/directorium/season_condition.py:31
 msgid ""
 "Checks if the current date is in the specified liturgical season. Available "
 "seasons are: ORDINARY, CHRISTMAS, LENT, and EASTER."
@@ -195,82 +195,81 @@ msgstr ""
 "liegt. Verfügbare Jahreszeiten „season“ sind: ORDINARY, CHRISTMAS, LENT und "
 "EASTER."
 
-#: .\carillon\models\conditions\logic\and_condition.py:15
+#: carillon/models/conditions/logic/and_condition.py:15
 msgid "And condition"
 msgstr "Und-Bedingung"
 
-#: .\carillon\models\conditions\logic\and_condition.py:18
+#: carillon/models/conditions/logic/and_condition.py:18
 msgid "Checks if all sub-conditions are met."
 msgstr "Prüft, ob alle Unterbedingungen erfüllt sind."
 
-#: .\carillon\models\conditions\logic\not_condition.py:24
+#: carillon/models/conditions/logic/not_condition.py:24
 msgid "Not condition"
 msgstr "Nicht-Bedingung"
 
-#: .\carillon\models\conditions\logic\not_condition.py:27
+#: carillon/models/conditions/logic/not_condition.py:27
 msgid "A condition that negates another condition."
 msgstr "Prüft, ob eine andere Bedingung nicht erfüllt ist."
 
-#: .\carillon\models\conditions\logic\or_condition.py:27
+#: carillon/models/conditions/logic/or_condition.py:27
 msgid "Or condition"
 msgstr "Oder-Bedingung"
 
-#: .\carillon\models\conditions\logic\or_condition.py:30
+#: carillon/models/conditions/logic/or_condition.py:30
 msgid "Checks if at least one sub-condition is met."
 msgstr "Prüft, ob mindestens eine Unterbedingung erfüllt ist."
 
-#: .\carillon\models\rule.py:22
+#: carillon/models/rule.py:22
 msgid "Off"
 msgstr "Aus"
 
-#: .\carillon\models\rule.py:23
+#: carillon/models/rule.py:23
 msgid "For every hour once 12-based"
 msgstr "Für jede volle Stunde (12-Stunden-Format)"
 
-#: .\carillon\models\rule.py:24
+#: carillon/models/rule.py:24
 msgid "For every hour once 24-based"
 msgstr "Für jede volle Stunde (24-Stunden-Format)"
 
-#: .\carillon\models\rule.py:25
+#: carillon/models/rule.py:25
 msgid "For every 15 minutes"
 msgstr "Für jede Viertelstunde"
 
-#: .\carillon\models\rule.py:26
+#: carillon/models/rule.py:26
 msgid "For every 30 minutes"
 msgstr "Für jede halbe Stunde"
 
-#: .\carillon\models\rule.py:34 .\carillon\models\striker.py:96
+#: carillon/models/rule.py:34 carillon/models/striker.py:96
 msgid "Striker"
 msgstr "Schlagwerk"
 
-#: .\carillon\models\rule.py:35
+#: carillon/models/rule.py:35
 msgid "The striker that checks, if the rule applies."
 msgstr "Das Schlagwerk, das prüft, ob die Regel zutrifft."
 
-#: .\carillon\models\rule.py:42 .\carillon\models\striker.py:40
-#: .\carillon\templates\carillon\rule_detail.html:9
-#: .\carillon\templates\carillon\rule_list.html:17
-#: .\carillon\templates\carillon\striker_detail.html:13
-#: .\carillon\templates\carillon\striker_detail.html:31
-#: .\carillon\templates\carillon\striker_list.html:14
+#: carillon/models/rule.py:42 carillon/models/striker.py:40
+#: carillon/templates/carillon/rule_detail.html:9
+#: carillon/templates/carillon/rule_list.html:17
+#: carillon/templates/carillon/striker_detail.html:13
+#: carillon/templates/carillon/striker_detail.html:31
+#: carillon/templates/carillon/striker_list.html:14
 msgid "Priority"
 msgstr "Priorität"
 
-#: .\carillon\models\rule.py:43
+#: carillon/models/rule.py:43
 msgid "The priority of the rule. Higher values means firstly evaluated."
 msgstr ""
 "Die Priorität der Regel. Höhere Werte bedeuten eine frühere Auswertung."
 
-#: .\carillon\models\rule.py:49
-#: .\carillon\templates\carillon\rule_detail.html:11
-#: .\carillon\templates\carillon\rule_list.html:14
-#: .\carillon\templates\carillon\rule_list.html:32
-#: .\carillon\templates\carillon\striker_detail.html:28
-#: .\carillon\templates\carillon\striker_detail.html:46
+#: carillon/models/rule.py:49 carillon/templates/carillon/rule_detail.html:11
+#: carillon/templates/carillon/rule_list.html:14
+#: carillon/templates/carillon/rule_list.html:32
+#: carillon/templates/carillon/striker_detail.html:28
+#: carillon/templates/carillon/striker_detail.html:46
 msgid "Cancel following rules"
 msgstr "Abbrechen nachfolgender Regeln"
 
-#: .\carillon\models\rule.py:51
+#: carillon/models/rule.py:51
 msgid ""
 "If checked, no following rule with smaller priority will be executed if this "
 "rule applies."
@@ -278,77 +277,73 @@ msgstr ""
 "Wenn aktiviert, werden keine nachfolgenden Regeln mit niedrigerer Priorität "
 "ausgeführt, wenn diese Regel zutrifft."
 
-#: .\carillon\models\rule.py:57
-#: .\carillon\templates\carillon\rule_detail.html:21
+#: carillon/models/rule.py:57 carillon/templates/carillon/rule_detail.html:21
 msgid "Condition"
 msgstr "Bedingung"
 
-#: .\carillon\models\rule.py:58
+#: carillon/models/rule.py:58
 msgid "A JSON object actually defining the condition."
 msgstr "Ein JSON-Objekt, das die Bedingung definiert."
 
-#: .\carillon\models\rule.py:68 .\carillon\models\song.py:85
-#: .\carillon\templates\carillon\rule_detail.html:13
-#: .\carillon\templates\carillon\rule_list.html:12
-#: .\carillon\templates\carillon\striker_detail.html:26
+#: carillon/models/rule.py:68 carillon/models/song.py:85
+#: carillon/templates/carillon/rule_detail.html:13
+#: carillon/templates/carillon/rule_list.html:12
+#: carillon/templates/carillon/striker_detail.html:26
 msgid "Song"
 msgstr "Stück"
 
-#: .\carillon\models\rule.py:69
+#: carillon/models/rule.py:69
 msgid "The song to play when the rule applies."
 msgstr "Das zu spielende Stück, wenn die Regel zutrifft."
 
-#: .\carillon\models\rule.py:80
-#: .\carillon\templates\carillon\rule_detail.html:17
-#: .\carillon\templates\carillon\rule_list.html:20
-#: .\carillon\templates\carillon\striker_detail.html:34
+#: carillon/models/rule.py:80 carillon/templates/carillon/rule_detail.html:17
+#: carillon/templates/carillon/rule_list.html:20
+#: carillon/templates/carillon/striker_detail.html:34
 msgid "Repeat"
 msgstr "Wiederholen"
 
-#: .\carillon\models\rule.py:82
+#: carillon/models/rule.py:82
 msgid "How often the played song should be repeated if the rule applies."
 msgstr ""
 "Wie oft das gespielte Stück wiederholt werden soll, wenn die Regel zutrifft."
 
-#: .\carillon\models\rule.py:125
+#: carillon/models/rule.py:125
 msgid "Rule"
 msgstr "Regel"
 
-#: .\carillon\models\rule.py:126
-#: .\carillon\templates\carillon\striker_detail.html:17
+#: carillon/models/rule.py:126
+#: carillon/templates/carillon/striker_detail.html:17
 msgid "Rules"
 msgstr "Regeln"
 
-#: .\carillon\models\song.py:16
-#: .\carillon\templates\carillon\song_detail.html:9
-#: .\carillon\templates\carillon\song_list.html:12
+#: carillon/models/song.py:16 carillon/templates/carillon/song_detail.html:9
+#: carillon/templates/carillon/song_list.html:12
 msgid "Slug"
 msgstr "Codewort"
 
-#: .\carillon\models\song.py:17
+#: carillon/models/song.py:17
 msgid "Unique identifier for the song to e.g. access it via API."
 msgstr ""
 "Eindeutiger Bezeichner für das Lied, um es z.B. über die API zu erreichen."
 
-#: .\carillon\models\song.py:21
+#: carillon/models/song.py:21
 msgid "MIDI file"
 msgstr "MIDI-Datei"
 
-#: .\carillon\models\song.py:26
-#: .\carillon\templates\carillon\song_detail.html:13
-#: .\carillon\templates\carillon\song_list.html:13
+#: carillon/models/song.py:26 carillon/templates/carillon/song_detail.html:13
+#: carillon/templates/carillon/song_list.html:13
 msgid "Transpose"
 msgstr "Transponieren"
 
-#: .\carillon\models\song.py:27
+#: carillon/models/song.py:27
 msgid "Transposition in semitones, e.g. -12 for one octave down."
 msgstr "Transposition in Halbtönen, z.B. -12 für eine Oktave nach unten."
 
-#: .\carillon\models\song.py:33
+#: carillon/models/song.py:33
 msgid "Tempo Multiplier"
 msgstr "Tempo-Multiplikator"
 
-#: .\carillon\models\song.py:35
+#: carillon/models/song.py:35
 msgid ""
 "A multiplier for the tempo of the song. This can be used to speed up or slow "
 "down the song."
@@ -356,31 +351,31 @@ msgstr ""
 "Ein Multiplikator für das Tempo des Stücks. Er kann verwendet werden, um das "
 "Stück zu beschleunigen oder zu verlangsamen."
 
-#: .\carillon\models\song.py:86 .\carillon\views\song.py:25
+#: carillon/models/song.py:86 carillon/views/song.py:25
 msgid "Songs"
 msgstr "Stücke"
 
-#: .\carillon\models\striker.py:18
+#: carillon/models/striker.py:18
 msgid "Check manually, no automatic checks"
 msgstr "Manuell prüfen, keine automatischen Prüfungen"
 
-#: .\carillon\models\striker.py:19
+#: carillon/models/striker.py:19
 msgid "Check every minute"
 msgstr "Jede Minute prüfen"
 
-#: .\carillon\models\striker.py:20
+#: carillon/models/striker.py:20
 msgid "Check every quarter hour"
 msgstr "Jede Viertelstunde prüfen"
 
-#: .\carillon\models\striker.py:21
+#: carillon/models/striker.py:21
 msgid "Check every half hour"
 msgstr "Jede halbe Stunde prüfen"
 
-#: .\carillon\models\striker.py:22
+#: carillon/models/striker.py:22
 msgid "Check every hour"
 msgstr "Jede volle Stunde prüfen"
 
-#: .\carillon\models\striker.py:42
+#: carillon/models/striker.py:42
 msgid ""
 "The priority of this striker, used to determine if it should abort other "
 "strikers' songs."
@@ -388,320 +383,320 @@ msgstr ""
 "Die Priorität des Schlagwerks, die verwendet wird, um zu bestimmen, ob es "
 "die Stücke anderer Schlagwerke abbrechen soll."
 
-#: .\carillon\models\striker.py:51
+#: carillon/models/striker.py:51
 msgid "Check type"
 msgstr "Prüfungsart"
 
-#: .\carillon\models\striker.py:52
+#: carillon/models/striker.py:52
 msgid "The type of check condition or interval."
 msgstr "Der Typ der Prüfung bzw. des Intervalls."
 
-#: .\carillon\models\striker.py:97 .\carillon\views\striker.py:19
+#: carillon/models/striker.py:97 carillon/views/striker.py:19
 msgid "Strikers"
 msgstr "Schlagwerke"
 
-#: .\carillon\templates\carillon\carillon_detail.html:6
+#: carillon/templates/carillon/carillon_detail.html:6
 #, python-format
 msgid "The carillon is connected to port <code>%(port)s</code>."
 msgstr "Das Carillon ist mit dem Port <code>%(port)s</code> verbunden."
 
-#: .\carillon\templates\carillon\carillon_detail.html:8
+#: carillon/templates/carillon/carillon_detail.html:8
 msgid "The carillon is connected to the default port."
 msgstr "Das Carillon ist mit dem Standardport verbunden."
 
-#: .\carillon\templates\carillon\carillon_detail.html:14
+#: carillon/templates/carillon/carillon_detail.html:14
 msgid "Update carillon"
 msgstr "Carillon bearbeiten"
 
-#: .\carillon\templates\carillon\carillon_detail.html:18
-#: .\carillon\templates\carillon\carillon_list.html:27
+#: carillon/templates/carillon/carillon_detail.html:18
+#: carillon/templates/carillon/carillon_list.html:27
 msgid "This is the default carillon."
 msgstr "Das ist das Standard-Carillon."
 
-#: .\carillon\templates\carillon\carillon_detail.html:23
-#: .\carillon\templates\carillon\carillon_list.html:32
+#: carillon/templates/carillon/carillon_detail.html:23
+#: carillon/templates/carillon/carillon_list.html:32
 msgid "The carillon is active."
 msgstr "Das Carillon ist aktiv."
 
-#: .\carillon\templates\carillon\carillon_detail.html:25
+#: carillon/templates/carillon/carillon_detail.html:25
 msgid "The carillon is currently <strong>not</strong> active."
 msgstr "Das Carillon ist derzeit <strong>nicht</strong> aktiv."
 
-#: .\carillon\templates\carillon\carillon_detail.html:29
+#: carillon/templates/carillon/carillon_detail.html:29
 msgid "Test sending MIDI-signals"
 msgstr "Senden von MIDI-Signalen testen"
 
-#: .\carillon\templates\carillon\carillon_detail.html:32
+#: carillon/templates/carillon/carillon_detail.html:32
 msgid "C2"
 msgstr "C2"
 
-#: .\carillon\templates\carillon\carillon_detail.html:33
+#: carillon/templates/carillon/carillon_detail.html:33
 msgid "C3"
 msgstr "C3"
 
-#: .\carillon\templates\carillon\carillon_detail.html:34
+#: carillon/templates/carillon/carillon_detail.html:34
 msgid "C4"
 msgstr "C4"
 
-#: .\carillon\templates\carillon\carillon_detail.html:35
+#: carillon/templates/carillon/carillon_detail.html:35
 msgid "C5"
 msgstr "C5"
 
-#: .\carillon\templates\carillon\carillon_detail.html:36
+#: carillon/templates/carillon/carillon_detail.html:36
 msgid "C6"
 msgstr "C6"
 
-#: .\carillon\templates\carillon\carillon_detail.html:40
+#: carillon/templates/carillon/carillon_detail.html:40
 msgid "Volume 0"
 msgstr "Lautstärke 0"
 
-#: .\carillon\templates\carillon\carillon_detail.html:41
+#: carillon/templates/carillon/carillon_detail.html:41
 msgid "Volume 63"
 msgstr "Lautstärke 63"
 
-#: .\carillon\templates\carillon\carillon_detail.html:42
+#: carillon/templates/carillon/carillon_detail.html:42
 msgid "Volume 127"
 msgstr "Lautstärke 127"
 
-#: .\carillon\templates\carillon\carillon_detail.html:65
+#: carillon/templates/carillon/carillon_detail.html:65
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:67
+#: carillon/templates/carillon/carillon_detail.html:67
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
 
-#: .\carillon\templates\carillon\carillon_detail.html:86
+#: carillon/templates/carillon/carillon_detail.html:86
 msgid "Volume set successfully!"
 msgstr "Lautstärke erfolgreich eingestellt!"
 
-#: .\carillon\templates\carillon\carillon_detail.html:88
+#: carillon/templates/carillon/carillon_detail.html:88
 msgid "Error setting volume: ${ data.error }"
 msgstr "Fehler beim Einstellen der Lautstärke: ${ data.error }"
 
-#: .\carillon\templates\carillon\carillon_list.html:6
+#: carillon/templates/carillon/carillon_list.html:6
 msgid "Add carillon"
 msgstr "Carillon hinzufügen"
 
-#: .\carillon\templates\carillon\carillon_list.html:11
+#: carillon/templates/carillon/carillon_list.html:11
 msgid "The default carillon?"
 msgstr "Das Standard-Carillon?"
 
-#: .\carillon\templates\carillon\carillon_list.html:14
+#: carillon/templates/carillon/carillon_list.html:14
 msgid "Is the carillon active?"
 msgstr "Ist das Carillon aktiv?"
 
-#: .\carillon\templates\carillon\carillon_list.html:34
+#: carillon/templates/carillon/carillon_list.html:34
 msgid "The carillon is not active."
 msgstr "Das Carillon ist nicht aktiv."
 
-#: .\carillon\templates\carillon\confirm_delete.html:12
+#: carillon/templates/carillon/confirm_delete.html:12
 msgid "Confirm deletion"
 msgstr "Löschen bestätigen"
 
-#: .\carillon\templates\carillon\includes\rule_condition_render.html:28
+#: carillon/templates/carillon/includes/rule_condition_render.html:28
 msgid "Empty condition"
 msgstr "Leere Bedingung"
 
-#: .\carillon\templates\carillon\rule_detail.html:6
+#: carillon/templates/carillon/rule_detail.html:6
 msgid "Update rule"
 msgstr "Regel bearbeiten"
 
-#: .\carillon\templates\carillon\rule_detail.html:12
+#: carillon/templates/carillon/rule_detail.html:12
 msgid "Yes,No"
 msgstr "Ja,Nein"
 
-#: .\carillon\templates\carillon\rule_list.html:6
-#: .\carillon\templates\carillon\striker_detail.html:19
+#: carillon/templates/carillon/rule_list.html:6
+#: carillon/templates/carillon/striker_detail.html:19
 msgid "Add rule"
 msgstr "Regel hinzufügen"
 
-#: .\carillon\templates\carillon\rule_list.html:34
-#: .\carillon\templates\carillon\striker_detail.html:48
+#: carillon/templates/carillon/rule_list.html:34
+#: carillon/templates/carillon/striker_detail.html:48
 msgid "Do not cancel following rules"
 msgstr "Folgende Regeln nicht abbrechen"
 
-#: .\carillon\templates\carillon\song_detail.html:6 .\carillon\views\song.py:79
+#: carillon/templates/carillon/song_detail.html:6 carillon/views/song.py:79
 msgid "Update song"
 msgstr "Stück bearbeiten"
 
-#: .\carillon\templates\carillon\song_detail.html:11
+#: carillon/templates/carillon/song_detail.html:11
 msgid "File"
 msgstr "Datei"
 
-#: .\carillon\templates\carillon\song_detail.html:15
-#: .\carillon\templates\carillon\song_list.html:14
+#: carillon/templates/carillon/song_detail.html:15
+#: carillon/templates/carillon/song_list.html:14
 msgid "Tempo multiplier"
 msgstr "Tempo-Multiplikator"
 
-#: .\carillon\templates\carillon\song_detail.html:17
+#: carillon/templates/carillon/song_detail.html:17
 msgid "Base tempo"
 msgstr "Basistempo"
 
-#: .\carillon\templates\carillon\song_detail.html:19
+#: carillon/templates/carillon/song_detail.html:19
 #, python-format
 msgid "%(bpm)s bpm"
 msgstr "%(bpm)s bpm"
 
-#: .\carillon\templates\carillon\song_detail.html:23
+#: carillon/templates/carillon/song_detail.html:23
 msgid "Test play song on carillon"
 msgstr "Stück auf Carillon testen"
 
-#: .\carillon\templates\carillon\song_detail.html:27
+#: carillon/templates/carillon/song_detail.html:27
 msgid "Play on:"
 msgstr "Spielen auf:"
 
-#: .\carillon\templates\carillon\song_detail.html:74
+#: carillon/templates/carillon/song_detail.html:74
 msgid "Song is playing successfully!"
 msgstr "Stück wird erfolgreich abgespielt!"
 
-#: .\carillon\templates\carillon\song_detail.html:82
+#: carillon/templates/carillon/song_detail.html:82
 msgid "Error playing song: ${ data.error }"
 msgstr "Fehler beim Spielen des Stücks: ${ data.error }"
 
-#: .\carillon\templates\carillon\song_detail.html:105
+#: carillon/templates/carillon/song_detail.html:105
 msgid "Song stopped successfully!"
 msgstr "Stück erfolgreich gestoppt!"
 
-#: .\carillon\templates\carillon\song_detail.html:113
+#: carillon/templates/carillon/song_detail.html:113
 msgid "Error stopping song: ${ data.error }"
 msgstr "Fehler beim Stoppen des Stücks: ${ data.error }"
 
-#: .\carillon\templates\carillon\song_list.html:6
+#: carillon/templates/carillon/song_list.html:6
 msgid "Add song"
 msgstr "Stück hinzufügen"
 
-#: .\carillon\templates\carillon\striker_detail.html:6
-#: .\carillon\views\striker.py:71
+#: carillon/templates/carillon/striker_detail.html:6
+#: carillon/views/striker.py:71
 msgid "Update striker"
 msgstr "Schlagwerk bearbeiten"
 
-#: .\carillon\templates\carillon\striker_detail.html:78
+#: carillon/templates/carillon/striker_detail.html:78
 msgid "There are no rules for this striker yet."
 msgstr "Es gibt keine Regeln für dieses Schlagwerk."
 
-#: .\carillon\templates\carillon\striker_list.html:6
+#: carillon/templates/carillon/striker_list.html:6
 msgid "Add striker"
 msgstr "Schlagwerk hinzufügen"
 
-#: .\carillon\templates\carillon\striker_list.html:17
+#: carillon/templates/carillon/striker_list.html:17
 msgid "Number of rules"
 msgstr "Anzahl von Regeln"
 
-#: .\carillon\templates\carillon\widgets\rule_condition.html:5
+#: carillon/templates/carillon/widgets/rule_condition.html:5
 msgid "Cleanup code"
 msgstr "Code aufräumen"
 
-#: .\carillon\templates\carillon\widgets\rule_condition.html:5
+#: carillon/templates/carillon/widgets/rule_condition.html:5
 msgid "Formats the JSON code to be more readable."
 msgstr "Formatiert den JSON-Code, um ihn lesbarer zu machen."
 
-#: .\carillon\templates\carillon\widgets\rule_condition.html:27
+#: carillon/templates/carillon/widgets/rule_condition.html:27
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: .\carillon\templates\carillon\widgets\rule_condition.html:54
+#: carillon/templates/carillon/widgets/rule_condition.html:54
 #, python-brace-format
 msgid "Invalid JSON format: ${e.message}"
 msgstr "Ungültiges JSON-Format: ${e.message}"
 
-#: .\carillon\views\carillon.py:26
+#: carillon/views/carillon.py:26
 msgid "The following carillons are configured in the system:"
 msgstr "Die folgenden Stücke sind im System verfügbar:"
 
-#: .\carillon\views\carillon.py:41
+#: carillon/views/carillon.py:41
 #, python-format
 msgid "Carillon: %(name)s"
 msgstr "Carillon: %(name)s"
 
-#: .\carillon\views\carillon.py:58
+#: carillon/views/carillon.py:58
 msgid "Create carillon"
 msgstr "Carillon erstellen"
 
-#: .\carillon\views\carillon.py:59
+#: carillon/views/carillon.py:59
 msgid "Add a carillon to play notes on."
 msgstr "Ein Carillon hinzufügen, um Noten darauf zu spielen:"
 
-#: .\carillon\views\carillon.py:76
+#: carillon/views/carillon.py:76
 msgid "Modify carillon"
 msgstr "Carillon bearbeiten"
 
-#: .\carillon\views\carillon.py:77
+#: carillon/views/carillon.py:77
 #, python-format
 msgid "Modify the settings of the carillon: %(name)s"
 msgstr "Einstellungen des Carillons ändern: %(name)s"
 
-#: .\carillon\views\carillon.py:95
+#: carillon/views/carillon.py:95
 msgid "Delete carillon"
 msgstr "Carillon löschen"
 
-#: .\carillon\views\carillon.py:96
+#: carillon/views/carillon.py:96
 #, python-format
 msgid "Are you sure you want to delete carillon %(name)s?"
 msgstr "Sind Sie sicher, dass Sie das Carillon %(name)s löschen möchten?"
 
-#: .\carillon\views\song.py:27
+#: carillon/views/song.py:27
 msgid "The following songs are available in the carillon to play:"
 msgstr "Die folgenden Stücke sind im Carillon verfügbar, um sie zu spielen:"
 
-#: .\carillon\views\song.py:61
+#: carillon/views/song.py:61
 msgid "Create song"
 msgstr "Stück erstellen"
 
-#: .\carillon\views\song.py:62
+#: carillon/views/song.py:62
 msgid "Add a song to the carillon."
 msgstr "Stück zum System hinzufügen."
 
-#: .\carillon\views\song.py:97
+#: carillon/views/song.py:97
 msgid "Delete song"
 msgstr "Stück löschen"
 
-#: .\carillon\views\song.py:98
+#: carillon/views/song.py:98
 #, python-format
 msgid "Are you sure you want to delete the song: %(name)s?"
 msgstr "Sind Sie sicher, dass Sie das Stück „%(name)s“ löschen möchten?"
 
-#: .\carillon\views\striker.py:20
+#: carillon/views/striker.py:20
 msgid "The following strikers are configured in the system:"
 msgstr "Die folgenden Schlagwerke sind im System konfiguriert:"
 
-#: .\carillon\views\striker.py:53
+#: carillon/views/striker.py:53
 msgid "Create striker"
 msgstr "Schlagwerk erstellen"
 
-#: .\carillon\views\striker.py:54
+#: carillon/views/striker.py:54
 msgid "Add a striker as a container for rules."
 msgstr "Ein Schlagwerk als Container für Regeln hinzufügen."
 
-#: .\carillon\views\striker.py:89
+#: carillon/views/striker.py:89
 msgid "Delete striker"
 msgstr "Schlagwerk löschen"
 
-#: .\carillon\views\striker.py:91
+#: carillon/views/striker.py:91
 #, python-format
 msgid "Are you sure you want to delete the striker \"%(name)s\"?"
 msgstr "Sind Sie sicher, dass Sie das Schlagwerk „%(name)s“ löschen möchten?"
 
-#: .\carillon\views\striker.py:140
+#: carillon/views/striker.py:140
 msgid "Create rule"
 msgstr "Regel erstellen"
 
-#: .\carillon\views\striker.py:142
+#: carillon/views/striker.py:142
 #, python-format
 msgid "Add a rule for automatically playing songs on striker \"%(name)s\"."
 msgstr ""
 "Eine Regel zum automatischen Abspielen von Stücken auf Schlagwerk „%(name)s“ "
 "hinzufügen."
 
-#: .\carillon\views\striker.py:161
+#: carillon/views/striker.py:161
 msgid "Update a rule"
 msgstr "Regel bearbeiten"
 
-#: .\carillon\views\striker.py:181
+#: carillon/views/striker.py:181
 msgid "Delete rule"
 msgstr "Regel löschen"
 
-#: .\carillon\views\striker.py:182
+#: carillon/views/striker.py:182
 #, python-format
 msgid "Are you sure you want to delete the rule \"%(name)s\"?"
 msgstr "Sind Sie sicher, dass Sie die Regel „%(name)s“ löschen möchten?"
