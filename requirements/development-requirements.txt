@@ -86,7 +86,7 @@ platformdirs==4.3.8
     #   virtualenv
 pre-commit==4.3.0
     # via kampanile3 (pyproject.toml)
-pyaml==25.5.0
+pyaml==25.7.0
     # via ha-mqtt-discoverable
 pydantic==2.11.7
     # via ha-mqtt-discoverable
