@@ -80,7 +80,7 @@ packaging==25.0
     # via mido
 paho-mqtt==2.1.0
     # via ha-mqtt-discoverable
-platformdirs==4.3.8
+platformdirs==4.4.0
     # via
     #   directorium
     #   virtualenv
