@@ -1,0 +1,28 @@
+{% extends "frontend/base.html" %}
+{% load i18n static %}
+
+{% block subtitle %}
+  {% if input.pin %}
+    {% blocktranslate with pin=input.pin %}This input is connected to pin <code>{{ pin }}</code>.{% endblocktranslate %}
+  {% else %}
+    {% blocktranslate %}This input is not connected to a pin.{% endblocktranslate %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% url "gpio:inputs:update" input.pk as url %}
+  {% include "frontend/includes/update_button.html" with label=_("Update input") %}
+
+  <p class="lead">
+    {% if input.striker %}
+      {% url "carillon:strikers:detail" input.striker.pk as striker_url %}
+      {% blocktrans with name=input.striker.name link=striker_url %}This input is connected to striker <a href="{{ link }}">{{ name }}</a>.{% endblocktrans %}
+    {% else %}
+      {% blocktrans %}This input is not connected to a striker.{% endblocktrans %}
+    {% endif %}
+  </p>
+
+  <p class="lead">
+    {% blocktrans with behaviour=input.get_behaviour_display %}The input is configured to have the behaviour: <strong>{{ behaviour }}</strong>.{% endblocktrans %}
+  </p>
+{% endblock %}

@@ -50,7 +50,7 @@ class SongDetailView(LoginRequiredMixin, DetailView):
 class SongCreateView(LoginRequiredMixin, CreateView):
     model = Song
     form_class = SongForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -68,7 +68,7 @@ class SongCreateView(LoginRequiredMixin, CreateView):
 class SongUpdateView(LoginRequiredMixin, UpdateView):
     model = Song
     form_class = SongForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -85,7 +85,7 @@ class SongUpdateView(LoginRequiredMixin, UpdateView):
 
 class SongDeleteView(LoginRequiredMixin, DeleteView):
     model = Song
-    template_name = "carillon/confirm_delete.html"
+    template_name = "frontend/confirm_delete.html"
     success_url = reverse_lazy("carillon:songs:list")
 
     def get_context_data(self, **kwargs):

@@ -1,0 +1,46 @@
+{% extends "frontend/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  {% url "gpio:inputs:add" as url %}
+  {% include "frontend/includes/add_button.html" with label=_("Add input") %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="w-50">{% trans "Name" %}</th>
+        <th scope="col">{% trans "Pin" %}</th>
+        <th scope="col" class="w-25">{% trans "Striker" %}</th>
+        <th scope="col" class="w-25">{% trans "Behaviour" %}</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for input in input_list %}
+        <tr>
+          <th scope="row">
+            <a href="{{ input.get_absolute_url }}">
+              {{ input.name }}
+            </a>
+          </th>
+          <td><code>{{ input.pin }}</code></td>
+          <td>
+            {% if input.striker %}
+              <a href="{{ input.striker.get_absolute_url }}">
+                {{ input.striker.name }}
+              </a>
+            {% else %}
+              <span class="text-muted">{% trans "No striker assigned" %}</span>
+            {% endif %}
+          </td>
+          <td>{{ input.get_behaviour_display }}</td>
+          <td class="text-nowrap">
+            {% url "gpio:inputs:update" input.pk as update_url %}
+            {% url "gpio:inputs:delete" input.pk as delete_url %}
+            {% include "frontend/includes/table_btn_group.html" with view_url=input.get_absolute_url %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

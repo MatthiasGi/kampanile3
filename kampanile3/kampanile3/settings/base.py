@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     "carillon.apps.CarillonConfig",
     "frontend.apps.FrontendConfig",
     "mqtt.apps.MqttConfig",
+    "gpio.apps.GpioConfig",
 ]
 
 MIDDLEWARE = [

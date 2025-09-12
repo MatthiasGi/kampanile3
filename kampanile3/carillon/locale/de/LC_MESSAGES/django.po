@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-08 19:34+0200\n"
+"POT-Creation-Date: 2025-09-12 13:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,14 +22,6 @@ msgstr ""
 #: carillon/templates/carillon/striker_list.html:12
 msgid "Carillon"
 msgstr "Carillon"
-
-#: carillon/forms.py:14 carillon/templates/carillon/confirm_delete.html:10
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: carillon/forms.py:14
-msgid "Save"
-msgstr "Speichern"
 
 #: carillon/models/carillon.py:37 carillon/models/rule.py:28
 #: carillon/models/song.py:10 carillon/models/striker.py:26
@@ -489,10 +481,6 @@ msgstr "Ist das Carillon aktiv?"
 #: carillon/templates/carillon/carillon_list.html:34
 msgid "The carillon is not active."
 msgstr "Das Carillon ist nicht aktiv."
-
-#: carillon/templates/carillon/confirm_delete.html:12
-msgid "Confirm deletion"
-msgstr "Löschen bestätigen"
 
 #: carillon/templates/carillon/includes/rule_condition_render.html:28
 msgid "Empty condition"

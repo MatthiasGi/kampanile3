@@ -42,7 +42,7 @@ class StrikerDetailView(LoginRequiredMixin, DetailView):
 class StrikerCreateView(LoginRequiredMixin, CreateView):
     model = Striker
     form_class = StrikerForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -60,7 +60,7 @@ class StrikerCreateView(LoginRequiredMixin, CreateView):
 class StrikerUpdateView(LoginRequiredMixin, UpdateView):
     model = Striker
     form_class = StrikerForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -77,7 +77,7 @@ class StrikerUpdateView(LoginRequiredMixin, UpdateView):
 
 class StrikerDeleteView(LoginRequiredMixin, DeleteView):
     model = Striker
-    template_name = "carillon/confirm_delete.html"
+    template_name = "frontend/confirm_delete.html"
     success_url = reverse_lazy("carillon:strikers:list")
 
     def get_context_data(self, **kwargs):
@@ -114,7 +114,7 @@ class StrikerRuleDetailView(LoginRequiredMixin, DetailView):
 class StrikerRuleCreateView(LoginRequiredMixin, CreateView):
     model = Rule
     form_class = RuleForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     @property
     def _striker(self):
@@ -150,7 +150,7 @@ class StrikerRuleCreateView(LoginRequiredMixin, CreateView):
 class StrikerRuleUpdateView(LoginRequiredMixin, UpdateView):
     model = Rule
     form_class = RuleForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -167,7 +167,7 @@ class StrikerRuleUpdateView(LoginRequiredMixin, UpdateView):
 
 class StrikerRuleDeleteView(LoginRequiredMixin, DeleteView):
     model = Rule
-    template_name = "carillon/confirm_delete.html"
+    template_name = "frontend/confirm_delete.html"
 
     def get_success_url(self):
         return self.object.striker.get_absolute_url()

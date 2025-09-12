@@ -39,6 +39,11 @@
                   {% trans "Songs" %}
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link{% if menu_active == "input" %} active{% endif %}" href="{% url 'gpio:inputs:list' %}">
+                  {% trans "GPIO-Inputs" %}
+                </a>
+              </li>
             </ul>
           </div>
           <div class="dropdown">

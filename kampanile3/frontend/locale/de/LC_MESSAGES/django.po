@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-08 19:34+0200\n"
+"POT-Creation-Date: 2025-09-12 13:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: frontend/forms.py:7 frontend/templates/frontend/confirm_delete.html:10
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: frontend/forms.py:7
+msgid "Save"
+msgstr "Speichern"
 
 #: frontend/templates/frontend/base.html:29
 #: frontend/templates/frontend/index.html:77
@@ -30,17 +38,25 @@ msgstr "Schlagwerke"
 msgid "Songs"
 msgstr "Stücke"
 
-#: frontend/templates/frontend/base.html:53
+#: frontend/templates/frontend/base.html:44
+msgid "GPIO-Inputs"
+msgstr "GPIO-Eingänge"
+
+#: frontend/templates/frontend/base.html:58
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: frontend/templates/frontend/base.html:60
+#: frontend/templates/frontend/base.html:65
 msgid "Administration"
 msgstr "Administration"
 
-#: frontend/templates/frontend/base.html:70
+#: frontend/templates/frontend/base.html:75
 msgid "Logout"
 msgstr "Logout"
+
+#: frontend/templates/frontend/confirm_delete.html:12
+msgid "Confirm deletion"
+msgstr "Löschen bestätigen"
 
 #: frontend/templates/frontend/includes/table_btn_group.html:5
 msgid "View"

@@ -47,7 +47,7 @@ class CarillonDetailView(LoginRequiredMixin, DetailView):
 class CarillonCreateView(LoginRequiredMixin, CreateView):
     model = Carillon
     form_class = CarillonForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -65,7 +65,7 @@ class CarillonCreateView(LoginRequiredMixin, CreateView):
 class CarillonUpdateView(LoginRequiredMixin, UpdateView):
     model = Carillon
     form_class = CarillonForm
-    template_name = "carillon/simple_form.html"
+    template_name = "frontend/simple_form.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -83,7 +83,7 @@ class CarillonUpdateView(LoginRequiredMixin, UpdateView):
 
 class CarillonDeleteView(LoginRequiredMixin, DeleteView):
     model = Carillon
-    template_name = "carillon/confirm_delete.html"
+    template_name = "frontend/confirm_delete.html"
     success_url = reverse_lazy("carillon:carillons:list")
 
     def get_context_data(self, **kwargs):

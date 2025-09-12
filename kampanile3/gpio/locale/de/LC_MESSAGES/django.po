@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12 13:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: gpio/models.py:13
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: gpio/models.py:14
+msgid "On input state low"
+msgstr "Bei Eingangszustand Low"
+
+#: gpio/models.py:15
+msgid "On input state high"
+msgstr "Bei Eingangszustand High"
+
+#: gpio/models.py:16
+msgid "On change of input state"
+msgstr "Bei Änderung des Eingangszustands"
+
+#: gpio/models.py:20 gpio/templates/gpio/input_list.html:11
+msgid "Name"
+msgstr "Name"
+
+#: gpio/models.py:26
+msgid "I/O-Pin"
+msgstr "I/O-Pin"
+
+#: gpio/models.py:35 gpio/templates/gpio/input_list.html:13
+msgid "Striker"
+msgstr "Schlagwerk"
+
+#: gpio/models.py:44 gpio/templates/gpio/input_list.html:14
+msgid "Behaviour"
+msgstr "Verhalten"
+
+#: gpio/models.py:45
+msgid "Which trigger should call the striker?"
+msgstr "Welcher Auslöser soll das Schlagwerk betätigen?"
+
+#: gpio/models.py:57
+msgid "Input"
+msgstr "Eingang"
+
+#: gpio/models.py:58 gpio/views.py:19
+msgid "Inputs"
+msgstr "Eingänge"
+
+#: gpio/templates/gpio/input_detail.html:6
+#, python-format
+msgid "This input is connected to pin <code>%(pin)s</code>."
+msgstr "Dieser Eingang ist mit Pin <code>%(pin)s</code> verbunden."
+
+#: gpio/templates/gpio/input_detail.html:8
+msgid "This input is not connected to a pin."
+msgstr "Dieser Eingang ist mit keinem Pin verbunden."
+
+#: gpio/templates/gpio/input_detail.html:14
+msgid "Update input"
+msgstr "Eingang bearbeiten"
+
+#: gpio/templates/gpio/input_detail.html:19
+#, python-format
+msgid "This input is connected to striker <a href=\"%(link)s\">%(name)s</a>."
+msgstr ""
+"Dieser Eingang ist mit dem Schlagwerk <a href=\"%(link)s\">%(name)s</a> "
+"verbunden."
+
+#: gpio/templates/gpio/input_detail.html:21
+msgid "This input is not connected to a striker."
+msgstr "Dieser Eingang ist mit keinem Schlagwerk verbunden."
+
+#: gpio/templates/gpio/input_detail.html:26
+#, python-format
+msgid ""
+"The input is configured to have the behaviour: <strong>%(behaviour)s</"
+"strong>."
+msgstr ""
+"Der Eingang ist für folgendes Verhalten konfiguriert: <strong>%(behaviour)s</"
+"strong>"
+
+#: gpio/templates/gpio/input_list.html:6
+msgid "Add input"
+msgstr "Eingang hinzufügen"
+
+#: gpio/templates/gpio/input_list.html:12
+msgid "Pin"
+msgstr "Pin"
+
+#: gpio/templates/gpio/input_list.html:33
+msgid "No striker assigned"
+msgstr "Kein Schlagwerk zugewiesen"
+
+#: gpio/views.py:20
+msgid "The following inputs are configured for this board:"
+msgstr "Die folgenden Eingänge sind für dieses Board konfiguriert:"
+
+#: gpio/views.py:35
+#, python-format
+msgid "Input: %(name)s"
+msgstr "Eingang: %(name)s"
+
+#: gpio/views.py:52
+msgid "Create input"
+msgstr "Eingang erstellen"
+
+#: gpio/views.py:53
+msgid "Add a GPIO input to trigger a striker."
+msgstr "Einen GPIO-Eingang hinzufügen, um ein Schlagwerk auszulösen."
+
+#: gpio/views.py:70
+msgid "Update GPIO input"
+msgstr "GPIO-Eingang bearbeiten"
+
+#: gpio/views.py:90
+msgid "Delete GPIO input"
+msgstr "GPIO-Eingang löschen"
+
+#: gpio/views.py:92
+#, python-format
+msgid "Are you sure you want to delete the GPIO input \"%(name)s\"?"
+msgstr "Sind Sie sicher, dass Sie den GPIO-Eingang „%(name)s“ löschen möchten?"

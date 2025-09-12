@@ -23,4 +23,5 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", include("frontend.urls")),
     path("carillon/", include("carillon.urls")),
+    path("gpio/", include("gpio.urls")),
 ]
