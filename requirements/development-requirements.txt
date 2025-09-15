@@ -21,7 +21,7 @@ adafruit-circuitpython-connectionmanager==3.1.5
     # via adafruit-circuitpython-requests
 adafruit-circuitpython-requests==4.1.13
     # via adafruit-circuitpython-typing
-adafruit-circuitpython-typing==1.12.1
+adafruit-circuitpython-typing==1.12.2
     # via
     #   adafruit-blinka
     #   adafruit-circuitpython-busdevice
