@@ -74,7 +74,7 @@ platformdirs==4.4.0
     # via directorium
 pyaml==25.7.0
     # via ha-mqtt-discoverable
-pydantic==2.11.7
+pydantic==2.11.9
     # via ha-mqtt-discoverable
 pydantic-core==2.39.0
     # via pydantic
