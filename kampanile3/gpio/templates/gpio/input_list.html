@@ -8,8 +8,14 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">
+          <span class="mdi mdi-connection" title="{% trans "Input active?" %}" data-bs-toggle="tooltip"></span>
+        </th>
         <th scope="col" class="w-50">{% trans "Name" %}</th>
-        <th scope="col">{% trans "Pin" %}</th>
+        <th scope="col" colspan="2">{% trans "Pin" %}</th>
+        <th scope="col">
+          <span class="mdi mdi-resistor" title="{% trans "Pull resistor?" %}" data-bs-toggle="tooltip"></span>
+        </th>
         <th scope="col" class="w-25">{% trans "Striker" %}</th>
         <th scope="col" class="w-25">{% trans "Behaviour" %}</th>
         <th scope="col"></th>
@@ -18,17 +24,35 @@
     <tbody>
       {% for input in input_list %}
         <tr>
+          <td>
+            {% if input.active %}
+              <span class="mdi mdi-check" title="{% translate "Active" %}" data-bs-toggle="tooltip"></span>
+            {% else %}
+              <span class="mdi mdi-close" title="{% translate "Inactive" %}" data-bs-toggle="tooltip"></span>
+            {% endif %}
+          </td>
           <th scope="row">
-            <a href="{{ input.get_absolute_url }}">
-              {{ input.name }}
-            </a>
+            <a href="{{ input.get_absolute_url }}">{{ input.name }}</a>
+            {% if input.error %}
+              <span class="mdi mdi-alert-circle-outline text-danger" title="{{ input.error }}" data-bs-toggle="tooltip"></span>
+            {% endif %}
           </th>
           <td><code>{{ input.pin }}</code></td>
           <td>
+            {% if input.board_pin %}
+              <small class="text-muted">({{ input.board_pin.id }})</small>
+            {% endif %}
+          </td>
+          <td>
+            <span
+              class="mdi mdi-{% if input.pull == input.Pull.UP %}arrow-up-bold{% elif input.pull == input.Pull.DOWN %}arrow-down-bold{% else %}minus{% endif %}"
+              title="{{ input.get_pull_display }}"
+              data-bs-toggle="tooltip"
+            ></span>
+          </td>
+          <td>
             {% if input.striker %}
-              <a href="{{ input.striker.get_absolute_url }}">
-                {{ input.striker.name }}
-              </a>
+              <a href="{{ input.striker.get_absolute_url }}">{{ input.striker.name }}</a>
             {% else %}
               <span class="text-muted">{% trans "No striker assigned" %}</span>
             {% endif %}

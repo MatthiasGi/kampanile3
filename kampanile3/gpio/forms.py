@@ -1,6 +1,5 @@
-import re
-
 import board
+import microcontroller
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Field, Layout
 from django import forms
@@ -12,11 +11,9 @@ from .models import Input
 
 def get_board_pins():
     yield ("", "---------")
-
-    matcher = re.compile(r"^[A-Z][A-Z_]*[0-9]*$")
-    pins = sorted([pin for pin in dir(board) if matcher.match(pin)])
-    for pin in pins:
-        yield (pin, pin)
+    for pin in dir(board):
+        if isinstance(getattr(board, pin), microcontroller.Pin):
+            yield (pin, pin)
 
 
 class InputForm(forms.ModelForm):
@@ -30,7 +27,7 @@ class InputForm(forms.ModelForm):
 
     class Meta:
         model = Input
-        fields = ["name", "pin", "striker", "behaviour"]
+        fields = ["name", "pin", "active", "pull", "striker", "behaviour"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -45,6 +42,8 @@ class InputForm(forms.ModelForm):
         self.helper.layout = Layout(
             Field("name"),
             Field("pin"),
+            Field("active"),
+            Field("pull"),
             Field("striker"),
             Field("behaviour"),
             FormAction(cancel_url=url),

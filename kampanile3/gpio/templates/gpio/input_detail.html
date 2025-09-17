@@ -1,28 +1,51 @@
 {% extends "frontend/base.html" %}
 {% load i18n static %}
 
-{% block subtitle %}
-  {% if input.pin %}
-    {% blocktranslate with pin=input.pin %}This input is connected to pin <code>{{ pin }}</code>.{% endblocktranslate %}
-  {% else %}
-    {% blocktranslate %}This input is not connected to a pin.{% endblocktranslate %}
-  {% endif %}
-{% endblock %}
-
 {% block content %}
   {% url "gpio:inputs:update" input.pk as url %}
   {% include "frontend/includes/update_button.html" with label=_("Update input") %}
 
-  <p class="lead">
-    {% if input.striker %}
-      {% url "carillon:strikers:detail" input.striker.pk as striker_url %}
-      {% blocktrans with name=input.striker.name link=striker_url %}This input is connected to striker <a href="{{ link }}">{{ name }}</a>.{% endblocktrans %}
-    {% else %}
-      {% blocktrans %}This input is not connected to a striker.{% endblocktrans %}
-    {% endif %}
-  </p>
+  <dl class="row mt-3">
+    <dt class="col-sm-3">{% trans "Pin" %}</dt>
+    <dd class="col-sm-9">
+      {% if input.pin %}
+        <code>{{ input.pin }}</code> ({{ input.board_pin.id }})
+      {% else %}
+        <em>
+          {% blocktrans %}This input is not connected to a pin.{% endblocktrans %}
+        </em>
+      {% endif %}
+    </dd>
 
-  <p class="lead">
-    {% blocktrans with behaviour=input.get_behaviour_display %}The input is configured to have the behaviour: <strong>{{ behaviour }}</strong>.{% endblocktrans %}
-  </p>
+    <dt class="col-sm-3">{% trans "Active" %}</dt>
+    <dd class="col-sm-9">
+      {% if input.active %}
+        <span class="mdi mdi-check" title="{% translate "Active" %}" data-bs-toggle="tooltip"></span>
+      {% else %}
+        <span class="mdi mdi-close" title="{% translate "Inactive" %}" data-bs-toggle="tooltip"></span>
+      {% endif %}
+    </dd>
+
+    {% if input.error %}
+      <dt class="col-sm-3">{% trans "Error" %}</dt>
+      <dd class="col-sm-9 text-danger">{{ input.error }}</dd>
+    {% endif %}
+
+    <dt class="col-sm-3">{% trans "Pull resistor" %}</dt>
+    <dd class="col-sm-9">{{ input.get_pull_display }}</dd>
+
+    <dt class="col-sm-3">{% trans "Striker" %}</dt>
+    <dd class="col-sm-9">
+      {% if input.striker %}
+        <a href="{{ input.striker.get_absolute_url }}">{{ input.striker.name }}</a>
+      {% else %}
+        <em>
+          {% blocktrans %}This input is not connected to a striker.{% endblocktrans %}
+        </em>
+      {% endif %}
+    </dd>
+
+    <dt class="col-sm-3">{% trans "Behaviour" %}</dt>
+    <dd class="col-sm-9">{{ input.get_behaviour_display }}</dd>
+  </dl>
 {% endblock %}
