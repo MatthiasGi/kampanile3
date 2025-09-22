@@ -20,3 +20,6 @@ MQTT_PASSWORD = None
 
 MQTT_DEVICE_NAME = "Kampanile"
 MQTT_DEVICE_IDENTIFIERS = "kampanile"
+
+# Whether to enable GPIO functionality (e.g. on a raspberry pi)
+GPIO = False

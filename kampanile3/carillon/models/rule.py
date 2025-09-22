@@ -92,7 +92,7 @@ class Rule(models.Model):
     @property
     def is_met(self):
         """Check if the condition of this rule is met."""
-        return self.parsed_condition.is_met()
+        return self.parsed_condition.is_met
 
     @property
     def midi(self) -> list[mido.Message]:

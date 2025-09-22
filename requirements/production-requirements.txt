@@ -10,7 +10,9 @@ adafruit-blinka==8.66.0
     # via
     #   adafruit-circuitpython-busdevice
     #   adafruit-circuitpython-connectionmanager
+    #   adafruit-circuitpython-debouncer
     #   adafruit-circuitpython-requests
+    #   adafruit-circuitpython-ticks
     #   adafruit-circuitpython-typing
     #   kampanile3 (pyproject.toml)
 adafruit-blinka-raspberry-pi5-neopixel==1.0.0rc2
@@ -19,8 +21,12 @@ adafruit-circuitpython-busdevice==5.2.13
     # via adafruit-circuitpython-typing
 adafruit-circuitpython-connectionmanager==3.1.5
     # via adafruit-circuitpython-requests
+adafruit-circuitpython-debouncer==2.0.12
+    # via kampanile3 (pyproject.toml)
 adafruit-circuitpython-requests==4.1.13
     # via adafruit-circuitpython-typing
+adafruit-circuitpython-ticks==1.1.4
+    # via adafruit-circuitpython-debouncer
 adafruit-circuitpython-typing==1.12.2
     # via
     #   adafruit-blinka
@@ -72,11 +78,11 @@ paho-mqtt==2.1.0
     # via ha-mqtt-discoverable
 platformdirs==4.4.0
     # via directorium
-pyaml==25.7.0
+pyaml==25.5.0
     # via ha-mqtt-discoverable
-pydantic==2.11.9
+pydantic==2.11.7
     # via ha-mqtt-discoverable
-pydantic-core==2.39.0
+pydantic-core==2.33.2
     # via pydantic
 pyftdi==0.57.1
     # via adafruit-blinka
