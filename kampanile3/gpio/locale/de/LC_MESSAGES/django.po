@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 22:00+0200\n"
+"POT-Creation-Date: 2025-09-24 14:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,53 +17,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gpio/models.py:37
+#: gpio/lib/__init__.py:33
+msgid "The specified pin does not exist on this board."
+msgstr "Der angegebene Pin existiert nicht auf diesem Board."
+
+#: gpio/lib/__init__.py:37
+msgid "The specified pin is already used by another active input."
+msgstr ""
+"Der angegebene Pin wird bereits von einem anderen aktiven Eingang verwendet."
+
+#: gpio/models.py:17
 msgid "On input state low"
 msgstr "Bei Eingangszustand Low"
 
-#: gpio/models.py:38
+#: gpio/models.py:18
 msgid "On input state high"
 msgstr "Bei Eingangszustand High"
 
-#: gpio/models.py:39
+#: gpio/models.py:19
 msgid "On change of input state"
 msgstr "Bei Änderung des Eingangszustands"
 
-#: gpio/models.py:44
+#: gpio/models.py:24
 msgid "No pull resistor"
 msgstr "Kein Pull-Widerstand"
 
-#: gpio/models.py:45
+#: gpio/models.py:25
 msgid "Pull-up resistor"
 msgstr "Pull-Up-Widerstand"
 
-#: gpio/models.py:46
+#: gpio/models.py:26
 msgid "Pull-down resistor"
 msgstr "Pull-Down-Widerstand"
 
-#: gpio/models.py:50 gpio/templates/gpio/input_list.html:14
+#: gpio/models.py:30 gpio/templates/gpio/input_list.html:14
 msgid "Name"
 msgstr "Name"
 
-#: gpio/models.py:56
+#: gpio/models.py:36
 msgid "I/O-Pin"
 msgstr "I/O-Pin"
 
-#: gpio/models.py:64 gpio/templates/gpio/input_detail.html:20
+#: gpio/models.py:44 gpio/templates/gpio/input_detail.html:20
 #: gpio/templates/gpio/input_detail.html:23
 #: gpio/templates/gpio/input_list.html:29
 msgid "Active"
 msgstr "Aktiv"
 
-#: gpio/models.py:65
+#: gpio/models.py:45
 msgid "Whether this input is active and should be monitored."
 msgstr "Ob dieser Eingang aktiv ist und überwacht werden soll."
 
-#: gpio/models.py:71 gpio/templates/gpio/input_detail.html:30
+#: gpio/models.py:51 gpio/templates/gpio/input_detail.html:30
 msgid "Error"
 msgstr "Fehler"
 
-#: gpio/models.py:75
+#: gpio/models.py:55
 msgid ""
 "An error message if there is an issue with this input. Will be cleared when "
 "the input is set active."
@@ -71,42 +80,50 @@ msgstr ""
 "Eine Fehlermeldung, wenn es ein Problem mit diesem Eingang gibt. Wird "
 "gelöscht, wenn der Eingang auf aktiv gesetzt wird."
 
-#: gpio/models.py:84 gpio/templates/gpio/input_detail.html:34
+#: gpio/models.py:64 gpio/templates/gpio/input_detail.html:34
 msgid "Pull resistor"
 msgstr "Pull-Widerstand"
 
-#: gpio/models.py:85
+#: gpio/models.py:65
 msgid "The internal pull resistor for the input pin."
 msgstr "Der interne Pull-Widerstand für den Eingangspin."
 
-#: gpio/models.py:92 gpio/templates/gpio/input_detail.html:37
+#: gpio/models.py:71
+msgid "Debounce"
+msgstr "Entprellen"
+
+#: gpio/models.py:72
+msgid "Whether to apply debouncing to the input signal."
+msgstr "Ob für das Eingangssignal eine Entprellung angewendet werden soll."
+
+#: gpio/models.py:78
+msgid "Deadtime (ms)"
+msgstr "Totzeit (ms)"
+
+#: gpio/models.py:80
+msgid "Time after a trigger during which no new triggers will be accepted."
+msgstr ""
+"Zeit nach einem Auslöser, während der keine neuen Auslöser akzeptiert werden."
+
+#: gpio/models.py:88 gpio/templates/gpio/input_detail.html:37
 #: gpio/templates/gpio/input_list.html:19
 msgid "Striker"
 msgstr "Schlagwerk"
 
-#: gpio/models.py:103 gpio/templates/gpio/input_detail.html:48
+#: gpio/models.py:99 gpio/templates/gpio/input_detail.html:48
 #: gpio/templates/gpio/input_list.html:20
 msgid "Behaviour"
 msgstr "Verhalten"
 
-#: gpio/models.py:104
+#: gpio/models.py:100
 msgid "Which trigger should call the striker?"
 msgstr "Welcher Auslöser soll das Schlagwerk betätigen?"
 
-#: gpio/models.py:157
-msgid "The specified pin does not exist on this board."
-msgstr "Der angegebene Pin existiert nicht auf diesem Board."
-
-#: gpio/models.py:162
-msgid "The specified pin is already used by another active input."
-msgstr ""
-"Der angegebene Pin wird bereits von einem anderen aktiven Eingang verwendet."
-
-#: gpio/models.py:204
+#: gpio/models.py:140
 msgid "Input"
 msgstr "Eingang"
 
-#: gpio/models.py:205 gpio/views.py:19
+#: gpio/models.py:141 gpio/views.py:19
 msgid "Inputs"
 msgstr "Eingänge"
 

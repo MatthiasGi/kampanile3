@@ -101,7 +101,7 @@ class Carillon(models.Model):
             return False
         data = self._singleton_data
         if data.thread and data.thread.is_alive():
-            if data.priority > priority:
+            if data.priority >= priority:
                 return False
             self.stop()
 

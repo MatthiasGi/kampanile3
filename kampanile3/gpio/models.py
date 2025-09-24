@@ -1,35 +1,15 @@
-from dataclasses import dataclass
-
 import board
 import digitalio
 import microcontroller
-from adafruit_debouncer import Debouncer
 from carillon.models import Striker
 from django.db import models
 from django.db.models import Q, UniqueConstraint
-from django.db.models.signals import post_delete, post_save
-from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-
-INPUT_PIN_SINGLETON_DATA = {}
 
 
 class Input(models.Model):
     """A model representing a GPIO-input that can trigger a striker."""
-
-    @dataclass
-    class PinSingletonData:
-        """Object to hold singleton data that should be unique for pin ids."""
-
-        pin: digitalio.DigitalInOut
-        """The digital input pin object from the digitalio library."""
-
-        name: str
-        """The name of the pin to identify the corresponding Input object."""
-
-        switch: Debouncer
-        """The debouncer object to handle debouncing of the input pin."""
 
     class Behaviour(models.TextChoices):
         """Setting on what input action should call the trigger."""
@@ -86,6 +66,22 @@ class Input(models.Model):
     )
     """The internal pull resistor setting for the input pin."""
 
+    debounce = models.BooleanField(
+        default=True,
+        verbose_name=_("Debounce"),
+        help_text=_("Whether to apply debouncing to the input signal."),
+    )
+    """Whether to apply debouncing to the input signal."""
+
+    deadtime = models.PositiveIntegerField(
+        default=0,
+        verbose_name=_("Deadtime (ms)"),
+        help_text=_(
+            "Time after a trigger during which no new triggers will be accepted."
+        ),
+    )
+    """Time after a trigger during which no new triggers will be accepted."""
+
     striker = models.ForeignKey(
         Striker,
         on_delete=models.CASCADE,
@@ -139,66 +135,6 @@ class Input(models.Model):
         if self.active and self.error:
             self.error = ""
         super().save(*args, **kwargs)
-        Input.load_pins()
-
-    @staticmethod
-    def load_pins():
-        inputs = Input.objects.exclude(
-            Q(active=False) | Q(pin__isnull=True) | Q(pin__exact="")
-        )
-
-        pin_ids = set()
-        pins = []
-
-        # Check if all pins exist and are unique
-        for input in inputs:
-            pin = input.board_pin
-            if pin is None:
-                input.deactivate(_("The specified pin does not exist on this board."))
-                return
-
-            if pin.id in pin_ids:
-                input.deactivate(
-                    _("The specified pin is already used by another active input.")
-                )
-                return
-            pin_ids.add(pin.id)
-            pins.append(pin)
-
-        # Determine pins not longer used anymore
-        old_pin_ids = set(INPUT_PIN_SINGLETON_DATA.keys()).difference(pin_ids)
-        for id in old_pin_ids:
-            INPUT_PIN_SINGLETON_DATA[id].pin.deinit()
-            del INPUT_PIN_SINGLETON_DATA[id]
-
-        # Add new pins or update old ones
-        for input in inputs:
-            pin = input.board_pin
-            if pin.id not in INPUT_PIN_SINGLETON_DATA:
-                pin_obj = digitalio.DigitalInOut(pin)
-                INPUT_PIN_SINGLETON_DATA[pin.id] = Input.PinSingletonData(
-                    pin=pin_obj, name=input.pin, switch=Debouncer(pin_obj)
-                )
-            INPUT_PIN_SINGLETON_DATA[pin.id].pin.switch_to_input(
-                pull=input.pull_setting
-            )
-
-    @staticmethod
-    def check_pins():
-        for data in INPUT_PIN_SINGLETON_DATA.values():
-            data.switch.update()
-
-            if not data.switch.fell and not data.switch.rose:
-                continue
-
-            # State changed, trigger the corresponding input
-            input = Input.objects.get(pin=data.name, active=True)
-            if input.behaviour == Input.Behaviour.ON_INPUT_CHANGE:
-                input.trigger()
-            elif data.switch.rose and input.behaviour == Input.Behaviour.ON_INPUT_HIGH:
-                input.trigger()
-            elif data.switch.fell and input.behaviour == Input.Behaviour.ON_INPUT_LOW:
-                input.trigger()
 
     class Meta:
         verbose_name = _("Input")
@@ -211,9 +147,3 @@ class Input(models.Model):
                 name="unique_active_pin",
             )
         ]
-
-
-@receiver(post_delete, sender=Input)
-@receiver(post_save, sender=Input)
-def _input_change_handler(sender, **kwargs):
-    Input.load_pins()

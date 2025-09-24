@@ -27,7 +27,16 @@ class InputForm(forms.ModelForm):
 
     class Meta:
         model = Input
-        fields = ["name", "pin", "active", "pull", "striker", "behaviour"]
+        fields = [
+            "name",
+            "pin",
+            "active",
+            "pull",
+            "debounce",
+            "deadtime",
+            "striker",
+            "behaviour",
+        ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -44,6 +53,8 @@ class InputForm(forms.ModelForm):
             Field("pin"),
             Field("active"),
             Field("pull"),
+            Field("debounce"),
+            Field("deadtime"),
             Field("striker"),
             Field("behaviour"),
             FormAction(cancel_url=url),

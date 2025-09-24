@@ -1,6 +1,7 @@
+from django.conf import settings
 from django.urls import include, path
 
-from . import views
+from . import lib, views
 
 app_name = "gpio"
 urlpatterns = [
@@ -28,3 +29,7 @@ urlpatterns = [
         ),
     )
 ]
+
+
+if settings.GPIO:
+    lib.init_thread()
