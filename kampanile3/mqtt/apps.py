@@ -11,7 +11,7 @@ class MqttConfig(AppConfig):
             self._setup_mqtt()
 
     def _setup_mqtt(self):
-        from .lib.mqtt import Jukebox, StateSensors, device_info, mqtt_settings
+        from .lib import Jukebox, StateSensors, device_info, mqtt_settings
 
         # Binary sensor to show whether the carillon is currently playing
         StateSensors(device_info, mqtt_settings)
