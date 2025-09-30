@@ -31,5 +31,5 @@ urlpatterns = [
 ]
 
 
-if settings.GPIO:
+if settings.RUNNING_SERVER and settings.GPIO:
     lib.init_thread()

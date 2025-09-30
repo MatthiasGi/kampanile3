@@ -17,4 +17,20 @@ device_info = DeviceInfo(
     identifiers=settings.MQTT_DEVICE_IDENTIFIERS,
 )
 
-__all__ = ["mqtt_settings", "device_info", "Jukebox", "Module", "StateSensors"]
+
+def init_mqtt():
+    # Binary sensor to show whether the carillon is currently playing
+    StateSensors(device_info, mqtt_settings)
+
+    # Jukebox funcationality to play songs selected via MQTT
+    Jukebox(device_info, mqtt_settings)
+
+
+__all__ = [
+    "mqtt_settings",
+    "device_info",
+    "Jukebox",
+    "Module",
+    "StateSensors",
+    "init_mqtt",
+]
