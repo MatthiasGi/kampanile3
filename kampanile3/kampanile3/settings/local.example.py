@@ -12,7 +12,7 @@ TIME_ZONE = "Europe/Berlin"
 # `carillon.models.Rule` model.
 DIRECTORIUM = Directorium.from_cache()
 
-# MQTT-Settings
+# MQTT-Settings (if MQTT_HOST is not set, MQTT-functionality is disabled)
 MQTT_HOST = "localhost"
 MQTT_PORT = 1883
 MQTT_USERNAME = None
