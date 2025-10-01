@@ -17,7 +17,7 @@ from .module import Module
 
 
 class Jukebox(Module):
-    def init_sensors(self, *args, **kwargs):
+    def init_sensors(self):
         self._selected_song = None
         self._priority = 0
         self._tempo = 1.0

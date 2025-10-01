@@ -24,4 +24,5 @@ urlpatterns = [
     path("", include("frontend.urls")),
     path("carillon/", include("carillon.urls")),
     path("gpio/", include("gpio.urls")),
+    path("mqtt/", include("mqtt.urls")),
 ]

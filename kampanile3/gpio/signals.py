@@ -1,3 +1,3 @@
 from django.dispatch import Signal
 
-input_event = Signal()
+input_triggered = Signal()

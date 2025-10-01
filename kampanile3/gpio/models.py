@@ -7,6 +7,8 @@ from django.db.models import Q, UniqueConstraint
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+from .signals import input_triggered
+
 
 class Input(models.Model):
     """A model representing a GPIO-input that can trigger a striker."""
@@ -103,6 +105,7 @@ class Input(models.Model):
 
     def trigger(self):
         """Trigger the striker associated with this input."""
+        input_triggered.send(sender=self.__class__, input=self)
         self.striker.check_rules()
 
     def get_absolute_url(self):

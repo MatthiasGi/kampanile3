@@ -25,6 +25,12 @@ def init_mqtt():
     # Jukebox funcationality to play songs selected via MQTT
     Jukebox(device_info, mqtt_settings)
 
+    # Connect to GPIO inputs as triggers if GPIO is enabled
+    if settings.GPIO:
+        from .gpio import GPIO
+
+        GPIO(device_info, mqtt_settings)
+
 
 __all__ = [
     "mqtt_settings",
