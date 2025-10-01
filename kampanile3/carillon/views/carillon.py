@@ -21,7 +21,6 @@ class CarillonListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "carillon",
                 "title": _("Carillons"),
                 "subtitle": _("The following carillons are configured in the system:"),
             }
@@ -36,7 +35,6 @@ class CarillonDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "carillon",
                 "back_link": reverse("carillon:carillons:list"),
                 "title": _("Carillon: %(name)s") % {"name": self.object.name},
             }
@@ -53,7 +51,6 @@ class CarillonCreateView(LoginRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "carillon",
                 "back_link": reverse("carillon:carillons:list"),
                 "title": _("Create carillon"),
                 "subtitle": _("Add a carillon to play notes on."),
@@ -71,7 +68,6 @@ class CarillonUpdateView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "carillon",
                 "back_link": self.object.get_absolute_url(),
                 "title": _("Modify carillon"),
                 "subtitle": _("Modify the settings of the carillon: %(name)s")
@@ -90,7 +86,6 @@ class CarillonDeleteView(LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "carillon",
                 "back_link": reverse("carillon:carillons:list"),
                 "title": _("Delete carillon"),
                 "subtitle": _("Are you sure you want to delete carillon %(name)s?")

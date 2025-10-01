@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 13:03+0200\n"
+"POT-Creation-Date: 2025-10-01 09:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,19 +38,19 @@ msgstr "Schlagwerke"
 msgid "Songs"
 msgstr "Stücke"
 
-#: frontend/templates/frontend/base.html:44
+#: frontend/templates/frontend/base.html:45
 msgid "GPIO-Inputs"
 msgstr "GPIO-Eingänge"
 
-#: frontend/templates/frontend/base.html:58
+#: frontend/templates/frontend/base.html:60
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: frontend/templates/frontend/base.html:65
+#: frontend/templates/frontend/base.html:67
 msgid "Administration"
 msgstr "Administration"
 
-#: frontend/templates/frontend/base.html:75
+#: frontend/templates/frontend/base.html:77
 msgid "Logout"
 msgstr "Logout"
 

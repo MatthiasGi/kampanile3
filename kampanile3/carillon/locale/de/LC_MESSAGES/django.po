@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 13:03+0200\n"
+"POT-Creation-Date: 2025-10-01 20:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 "Ob dieses Carillon aktiv ist und verwendet werden kann. Kann deaktiviert "
 "werden, sodass keine Stücke abgespielt werden."
 
-#: carillon/models/carillon.py:157 carillon/views/carillon.py:25
+#: carillon/models/carillon.py:157 carillon/views/carillon.py:24
 msgid "Carillons"
 msgstr "Carillons"
 
@@ -343,7 +343,7 @@ msgstr ""
 "Ein Multiplikator für das Tempo des Stücks. Er kann verwendet werden, um das "
 "Stück zu beschleunigen oder zu verlangsamen."
 
-#: carillon/models/song.py:86 carillon/views/song.py:25
+#: carillon/models/song.py:86 carillon/views/song.py:24
 msgid "Songs"
 msgstr "Stücke"
 
@@ -383,7 +383,7 @@ msgstr "Prüfungsart"
 msgid "The type of check condition or interval."
 msgstr "Der Typ der Prüfung bzw. des Intervalls."
 
-#: carillon/models/striker.py:97 carillon/views/striker.py:19
+#: carillon/models/striker.py:97 carillon/views/striker.py:18
 msgid "Strikers"
 msgstr "Schlagwerke"
 
@@ -504,7 +504,7 @@ msgstr "Regel hinzufügen"
 msgid "Do not cancel following rules"
 msgstr "Folgende Regeln nicht abbrechen"
 
-#: carillon/templates/carillon/song_detail.html:6 carillon/views/song.py:79
+#: carillon/templates/carillon/song_detail.html:6 carillon/views/song.py:75
 msgid "Update song"
 msgstr "Stück bearbeiten"
 
@@ -555,7 +555,7 @@ msgid "Add song"
 msgstr "Stück hinzufügen"
 
 #: carillon/templates/carillon/striker_detail.html:6
-#: carillon/views/striker.py:71
+#: carillon/views/striker.py:67
 msgid "Update striker"
 msgstr "Schlagwerk bearbeiten"
 
@@ -588,103 +588,103 @@ msgstr "Dokumentation"
 msgid "Invalid JSON format: ${e.message}"
 msgstr "Ungültiges JSON-Format: ${e.message}"
 
-#: carillon/views/carillon.py:26
+#: carillon/views/carillon.py:25
 msgid "The following carillons are configured in the system:"
 msgstr "Die folgenden Stücke sind im System verfügbar:"
 
-#: carillon/views/carillon.py:41
+#: carillon/views/carillon.py:39
 #, python-format
 msgid "Carillon: %(name)s"
 msgstr "Carillon: %(name)s"
 
-#: carillon/views/carillon.py:58
+#: carillon/views/carillon.py:55
 msgid "Create carillon"
 msgstr "Carillon erstellen"
 
-#: carillon/views/carillon.py:59
+#: carillon/views/carillon.py:56
 msgid "Add a carillon to play notes on."
 msgstr "Ein Carillon hinzufügen, um Noten darauf zu spielen:"
 
-#: carillon/views/carillon.py:76
+#: carillon/views/carillon.py:72
 msgid "Modify carillon"
 msgstr "Carillon bearbeiten"
 
-#: carillon/views/carillon.py:77
+#: carillon/views/carillon.py:73
 #, python-format
 msgid "Modify the settings of the carillon: %(name)s"
 msgstr "Einstellungen des Carillons ändern: %(name)s"
 
-#: carillon/views/carillon.py:95
+#: carillon/views/carillon.py:90
 msgid "Delete carillon"
 msgstr "Carillon löschen"
 
-#: carillon/views/carillon.py:96
+#: carillon/views/carillon.py:91
 #, python-format
 msgid "Are you sure you want to delete carillon %(name)s?"
 msgstr "Sind Sie sicher, dass Sie das Carillon %(name)s löschen möchten?"
 
-#: carillon/views/song.py:27
+#: carillon/views/song.py:26
 msgid "The following songs are available in the carillon to play:"
 msgstr "Die folgenden Stücke sind im Carillon verfügbar, um sie zu spielen:"
 
-#: carillon/views/song.py:61
+#: carillon/views/song.py:58
 msgid "Create song"
 msgstr "Stück erstellen"
 
-#: carillon/views/song.py:62
+#: carillon/views/song.py:59
 msgid "Add a song to the carillon."
 msgstr "Stück zum System hinzufügen."
 
-#: carillon/views/song.py:97
+#: carillon/views/song.py:92
 msgid "Delete song"
 msgstr "Stück löschen"
 
-#: carillon/views/song.py:98
+#: carillon/views/song.py:93
 #, python-format
 msgid "Are you sure you want to delete the song: %(name)s?"
 msgstr "Sind Sie sicher, dass Sie das Stück „%(name)s“ löschen möchten?"
 
-#: carillon/views/striker.py:20
+#: carillon/views/striker.py:19
 msgid "The following strikers are configured in the system:"
 msgstr "Die folgenden Schlagwerke sind im System konfiguriert:"
 
-#: carillon/views/striker.py:53
+#: carillon/views/striker.py:50
 msgid "Create striker"
 msgstr "Schlagwerk erstellen"
 
-#: carillon/views/striker.py:54
+#: carillon/views/striker.py:51
 msgid "Add a striker as a container for rules."
 msgstr "Ein Schlagwerk als Container für Regeln hinzufügen."
 
-#: carillon/views/striker.py:89
+#: carillon/views/striker.py:84
 msgid "Delete striker"
 msgstr "Schlagwerk löschen"
 
-#: carillon/views/striker.py:91
+#: carillon/views/striker.py:86
 #, python-format
 msgid "Are you sure you want to delete the striker \"%(name)s\"?"
 msgstr "Sind Sie sicher, dass Sie das Schlagwerk „%(name)s“ löschen möchten?"
 
-#: carillon/views/striker.py:140
+#: carillon/views/striker.py:133
 msgid "Create rule"
 msgstr "Regel erstellen"
 
-#: carillon/views/striker.py:142
+#: carillon/views/striker.py:135
 #, python-format
 msgid "Add a rule for automatically playing songs on striker \"%(name)s\"."
 msgstr ""
 "Eine Regel zum automatischen Abspielen von Stücken auf Schlagwerk „%(name)s“ "
 "hinzufügen."
 
-#: carillon/views/striker.py:161
+#: carillon/views/striker.py:153
 msgid "Update a rule"
 msgstr "Regel bearbeiten"
 
-#: carillon/views/striker.py:181
+#: carillon/views/striker.py:172
 msgid "Delete rule"
 msgstr "Regel löschen"
 
-#: carillon/views/striker.py:182
+#: carillon/views/striker.py:173
 #, python-format
 msgid "Are you sure you want to delete the rule \"%(name)s\"?"
 msgstr "Sind Sie sicher, dass Sie die Regel „%(name)s“ löschen möchten?"

@@ -15,7 +15,6 @@ class StrikerListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "title": _("Strikers"),
                 "subtitle": _("The following strikers are configured in the system:"),
             }
@@ -30,7 +29,6 @@ class StrikerDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": reverse("carillon:strikers:list"),
                 "title": self.object.name,
                 "rule_list": self.object.rules.all(),
@@ -48,7 +46,6 @@ class StrikerCreateView(LoginRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": reverse("carillon:strikers:list"),
                 "title": _("Create striker"),
                 "subtitle": _("Add a striker as a container for rules."),
@@ -66,7 +63,6 @@ class StrikerUpdateView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": self.object.get_absolute_url(),
                 "title": _("Update striker"),
                 "subtitle": self.object.name,
@@ -84,7 +80,6 @@ class StrikerDeleteView(LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": reverse("carillon:strikers:list"),
                 "title": _("Delete striker"),
                 "subtitle": _(
@@ -103,7 +98,6 @@ class StrikerRuleDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": self.object.striker.get_absolute_url(),
                 "title": self.object.name,
             }
@@ -135,7 +129,6 @@ class StrikerRuleCreateView(LoginRequiredMixin, CreateView):
         striker = Striker.objects.get(pk=self.kwargs.get("pk"))
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": striker.get_absolute_url(),
                 "title": _("Create rule"),
                 "subtitle": _(
@@ -156,7 +149,6 @@ class StrikerRuleUpdateView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": self.object.get_absolute_url(),
                 "title": _("Update a rule"),
                 "subtitle": self.object.name,
@@ -176,7 +168,6 @@ class StrikerRuleDeleteView(LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "striker",
                 "back_link": self.object.striker.get_absolute_url(),
                 "title": _("Delete rule"),
                 "subtitle": _('Are you sure you want to delete the rule "%(name)s"?')

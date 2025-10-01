@@ -15,7 +15,6 @@ class InputListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "input",
                 "title": _("Inputs"),
                 "subtitle": _("The following inputs are configured for this board:"),
             }
@@ -30,7 +29,6 @@ class InputDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "input",
                 "back_link": reverse("gpio:inputs:list"),
                 "title": _("Input: %(name)s") % {"name": self.object.name},
             }
@@ -47,7 +45,6 @@ class InputCreateView(LoginRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "input",
                 "back_link": reverse("gpio:inputs:list"),
                 "title": _("Create input"),
                 "subtitle": _("Add a GPIO input to trigger a striker."),
@@ -65,7 +62,6 @@ class InputUpdateView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "input",
                 "back_link": self.object.get_absolute_url(),
                 "title": _("Update GPIO input"),
                 "subtitle": self.object.name,
@@ -85,7 +81,6 @@ class InputDeleteView(LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "input",
                 "back_link": reverse("gpio:inputs:list"),
                 "title": _("Delete GPIO input"),
                 "subtitle": _(

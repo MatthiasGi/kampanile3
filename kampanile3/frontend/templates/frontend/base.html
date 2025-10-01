@@ -25,25 +25,27 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link{% if menu_active == "carillon" %} active{% endif %}" href="{% url 'carillon:carillons:list' %}">
+                <a class="nav-link{% if app_name == "carillon:carillons" %} active{% endif %}" href="{% url 'carillon:carillons:list' %}">
                   {% trans "Carillons" %}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link{% if menu_active == "striker" %} active{% endif %}" href="{% url 'carillon:strikers:list' %}">
+                <a class="nav-link{% if app_name == "carillon:strikers" %} active{% endif %}" href="{% url 'carillon:strikers:list' %}">
                   {% trans "Strikers" %}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link{% if menu_active == "song" %} active{% endif %}" href="{% url 'carillon:songs:list' %}">
+                <a class="nav-link{% if app_name == "carillon:songs" %} active{% endif %}" href="{% url 'carillon:songs:list' %}">
                   {% trans "Songs" %}
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link{% if menu_active == "input" %} active{% endif %}" href="{% url 'gpio:inputs:list' %}">
-                  {% trans "GPIO-Inputs" %}
-                </a>
-              </li>
+              {% if GPIO_ENABLED %}
+                <li class="nav-item">
+                  <a class="nav-link{% if app_name == "gpio:inputs" %} active{% endif %}" href="{% url 'gpio:inputs:list' %}">
+                    {% trans "GPIO-Inputs" %}
+                  </a>
+                </li>
+              {% endif %}
             </ul>
           </div>
           <div class="dropdown">

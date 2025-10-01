@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 11:26+0200\n"
+"POT-Creation-Date: 2025-10-01 20:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,7 +123,7 @@ msgstr "Welcher Auslöser soll das Schlagwerk betätigen?"
 msgid "Input"
 msgstr "Eingang"
 
-#: gpio/models.py:144 gpio/views.py:19
+#: gpio/models.py:144 gpio/views.py:18
 msgid "Inputs"
 msgstr "Eingänge"
 
@@ -165,32 +165,32 @@ msgstr "Pull-Widerstand?"
 msgid "No striker assigned"
 msgstr "Kein Schlagwerk zugewiesen"
 
-#: gpio/views.py:20
+#: gpio/views.py:19
 msgid "The following inputs are configured for this board:"
 msgstr "Die folgenden Eingänge sind für dieses Board konfiguriert:"
 
-#: gpio/views.py:35
+#: gpio/views.py:33
 #, python-format
 msgid "Input: %(name)s"
 msgstr "Eingang: %(name)s"
 
-#: gpio/views.py:52
+#: gpio/views.py:49
 msgid "Create input"
 msgstr "Eingang erstellen"
 
-#: gpio/views.py:53
+#: gpio/views.py:50
 msgid "Add a GPIO input to trigger a striker."
 msgstr "Einen GPIO-Eingang hinzufügen, um ein Schlagwerk auszulösen."
 
-#: gpio/views.py:70
+#: gpio/views.py:66
 msgid "Update GPIO input"
 msgstr "GPIO-Eingang bearbeiten"
 
-#: gpio/views.py:90
+#: gpio/views.py:85
 msgid "Delete GPIO input"
 msgstr "GPIO-Eingang löschen"
 
-#: gpio/views.py:92
+#: gpio/views.py:87
 #, python-format
 msgid "Are you sure you want to delete the GPIO input \"%(name)s\"?"
 msgstr "Sind Sie sicher, dass Sie den GPIO-Eingang „%(name)s“ löschen möchten?"

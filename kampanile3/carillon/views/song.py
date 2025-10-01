@@ -21,7 +21,6 @@ class SongListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "song",
                 "title": _("Songs"),
                 "subtitle": _(
                     "The following songs are available in the carillon to play:"
@@ -38,7 +37,6 @@ class SongDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "song",
                 "back_link": reverse("carillon:songs:list"),
                 "title": self.object.name,
                 "carillons": Carillon.objects.all(),
@@ -56,7 +54,6 @@ class SongCreateView(LoginRequiredMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "song",
                 "back_link": reverse("carillon:songs:list"),
                 "title": _("Create song"),
                 "subtitle": _("Add a song to the carillon."),
@@ -74,7 +71,6 @@ class SongUpdateView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "song",
                 "back_link": self.object.get_absolute_url(),
                 "title": _("Update song"),
                 "subtitle": self.object.name,
@@ -92,7 +88,6 @@ class SongDeleteView(LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context.update(
             {
-                "menu_active": "song",
                 "back_link": reverse("carillon:songs:list"),
                 "title": _("Delete song"),
                 "subtitle": _("Are you sure you want to delete the song: %(name)s?")
