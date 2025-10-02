@@ -100,7 +100,7 @@ repos:
       - id: check-absent-migrations
 
   - repo: https://github.com/jazzband/pip-tools
-    rev: v7.5.0
+    rev: v7.5.1
     hooks:
       - id: pip-compile
         name: pip-compile (production-requirements.txt)

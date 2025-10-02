@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-29 18:34+0200\n"
+"POT-Creation-Date: 2025-10-02 21:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,30 +16,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mqtt/lib/jukebox.py:45
+#: .\mqtt\lib\jukebox.py:45
 msgid "Song"
 msgstr "Stück"
 
-#: mqtt/lib/jukebox.py:69
+#: .\mqtt\lib\jukebox.py:69
 msgid "Play selected song"
 msgstr "Ausgewähltes Stück spielen"
 
-#: mqtt/lib/jukebox.py:88
+#: .\mqtt\lib\jukebox.py:88
 msgid "Stop"
 msgstr "Stop"
 
-#: mqtt/lib/jukebox.py:105
+#: .\mqtt\lib\jukebox.py:105
 msgid "Play priority"
 msgstr "Wiedergabepriorität"
 
-#: mqtt/lib/state_sensors.py:28
+#: .\mqtt\lib\state_sensors.py:28
 msgid "Playing"
 msgstr "Spielt"
 
-#: mqtt/lib/state_sensors.py:47
+#: .\mqtt\lib\state_sensors.py:47
 msgid "Active"
 msgstr "Aktiv"
 
-#: mqtt/lib/state_sensors.py:89
+#: .\mqtt\lib\state_sensors.py:89
 msgid "Volume"
 msgstr "Lautstärke"

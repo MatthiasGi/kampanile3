@@ -1,4 +1,3 @@
-import board
 import microcontroller
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Field, Layout
@@ -10,6 +9,8 @@ from .models import Input
 
 
 def get_board_pins():
+    import board
+
     yield ("", "---------")
     for pin in dir(board):
         if isinstance(getattr(board, pin), microcontroller.Pin):

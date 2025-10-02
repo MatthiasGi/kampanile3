@@ -1,4 +1,3 @@
-import board
 import digitalio
 import microcontroller
 from carillon.models import Striker
@@ -119,6 +118,8 @@ class Input(models.Model):
 
     @property
     def board_pin(self):
+        import board
+
         if not self.pin or not hasattr(board, self.pin):
             return None
         pin = getattr(board, self.pin)

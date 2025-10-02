@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 20:30+0200\n"
+"POT-Creation-Date: 2025-10-02 21:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,62 +17,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gpio/lib/__init__.py:33
+#: .\gpio\lib\__init__.py:33
 msgid "The specified pin does not exist on this board."
 msgstr "Der angegebene Pin existiert nicht auf diesem Board."
 
-#: gpio/lib/__init__.py:37
+#: .\gpio\lib\__init__.py:37
 msgid "The specified pin is already used by another active input."
 msgstr ""
 "Der angegebene Pin wird bereits von einem anderen aktiven Eingang verwendet."
 
-#: gpio/models.py:19
+#: .\gpio\models.py:18
 msgid "On input state low"
 msgstr "Bei Eingangszustand Low"
 
-#: gpio/models.py:20
+#: .\gpio\models.py:19
 msgid "On input state high"
 msgstr "Bei Eingangszustand High"
 
-#: gpio/models.py:21
+#: .\gpio\models.py:20
 msgid "On change of input state"
 msgstr "Bei Änderung des Eingangszustands"
 
-#: gpio/models.py:26
+#: .\gpio\models.py:25
 msgid "No pull resistor"
 msgstr "Kein Pull-Widerstand"
 
-#: gpio/models.py:27
+#: .\gpio\models.py:26
 msgid "Pull-up resistor"
 msgstr "Pull-Up-Widerstand"
 
-#: gpio/models.py:28
+#: .\gpio\models.py:27
 msgid "Pull-down resistor"
 msgstr "Pull-Down-Widerstand"
 
-#: gpio/models.py:32 gpio/templates/gpio/input_list.html:14
+#: .\gpio\models.py:31 .\gpio\templates\gpio\input_list.html:14
 msgid "Name"
 msgstr "Name"
 
-#: gpio/models.py:38
+#: .\gpio\models.py:37
 msgid "I/O-Pin"
 msgstr "I/O-Pin"
 
-#: gpio/models.py:46 gpio/templates/gpio/input_detail.html:20
-#: gpio/templates/gpio/input_detail.html:23
-#: gpio/templates/gpio/input_list.html:29
+#: .\gpio\models.py:45 .\gpio\templates\gpio\input_detail.html:20
+#: .\gpio\templates\gpio\input_detail.html:23
+#: .\gpio\templates\gpio\input_list.html:29
 msgid "Active"
 msgstr "Aktiv"
 
-#: gpio/models.py:47
+#: .\gpio\models.py:46
 msgid "Whether this input is active and should be monitored."
 msgstr "Ob dieser Eingang aktiv ist und überwacht werden soll."
 
-#: gpio/models.py:53 gpio/templates/gpio/input_detail.html:30
+#: .\gpio\models.py:52 .\gpio\templates\gpio\input_detail.html:30
 msgid "Error"
 msgstr "Fehler"
 
-#: gpio/models.py:57
+#: .\gpio\models.py:56
 msgid ""
 "An error message if there is an issue with this input. Will be cleared when "
 "the input is set active."
@@ -80,117 +80,117 @@ msgstr ""
 "Eine Fehlermeldung, wenn es ein Problem mit diesem Eingang gibt. Wird "
 "gelöscht, wenn der Eingang auf aktiv gesetzt wird."
 
-#: gpio/models.py:66 gpio/templates/gpio/input_detail.html:34
+#: .\gpio\models.py:65 .\gpio\templates\gpio\input_detail.html:34
 msgid "Pull resistor"
 msgstr "Pull-Widerstand"
 
-#: gpio/models.py:67
+#: .\gpio\models.py:66
 msgid "The internal pull resistor for the input pin."
 msgstr "Der interne Pull-Widerstand für den Eingangspin."
 
-#: gpio/models.py:73
+#: .\gpio\models.py:72
 msgid "Debounce"
 msgstr "Entprellen"
 
-#: gpio/models.py:74
+#: .\gpio\models.py:73
 msgid "Whether to apply debouncing to the input signal."
 msgstr "Ob für das Eingangssignal eine Entprellung angewendet werden soll."
 
-#: gpio/models.py:80
+#: .\gpio\models.py:79
 msgid "Deadtime (ms)"
 msgstr "Totzeit (ms)"
 
-#: gpio/models.py:82
+#: .\gpio\models.py:81
 msgid "Time after a trigger during which no new triggers will be accepted."
 msgstr ""
 "Zeit nach einem Auslöser, während der keine neuen Auslöser akzeptiert werden."
 
-#: gpio/models.py:90 gpio/templates/gpio/input_detail.html:37
-#: gpio/templates/gpio/input_list.html:19
+#: .\gpio\models.py:89 .\gpio\templates\gpio\input_detail.html:37
+#: .\gpio\templates\gpio\input_list.html:19
 msgid "Striker"
 msgstr "Schlagwerk"
 
-#: gpio/models.py:101 gpio/templates/gpio/input_detail.html:48
-#: gpio/templates/gpio/input_list.html:20
+#: .\gpio\models.py:100 .\gpio\templates\gpio\input_detail.html:48
+#: .\gpio\templates\gpio\input_list.html:20
 msgid "Behaviour"
 msgstr "Verhalten"
 
-#: gpio/models.py:102
+#: .\gpio\models.py:101
 msgid "Which trigger should call the striker?"
 msgstr "Welcher Auslöser soll das Schlagwerk betätigen?"
 
-#: gpio/models.py:143
+#: .\gpio\models.py:144
 msgid "Input"
 msgstr "Eingang"
 
-#: gpio/models.py:144 gpio/views.py:18
+#: .\gpio\models.py:145 .\gpio\views.py:18
 msgid "Inputs"
 msgstr "Eingänge"
 
-#: gpio/templates/gpio/input_detail.html:6
+#: .\gpio\templates\gpio\input_detail.html:6
 msgid "Update input"
 msgstr "Eingang bearbeiten"
 
-#: gpio/templates/gpio/input_detail.html:9
-#: gpio/templates/gpio/input_list.html:15
+#: .\gpio\templates\gpio\input_detail.html:9
+#: .\gpio\templates\gpio\input_list.html:15
 msgid "Pin"
 msgstr "Pin"
 
-#: gpio/templates/gpio/input_detail.html:15
+#: .\gpio\templates\gpio\input_detail.html:15
 msgid "This input is not connected to a pin."
 msgstr "Dieser Eingang ist mit keinem Pin verbunden."
 
-#: gpio/templates/gpio/input_detail.html:25
-#: gpio/templates/gpio/input_list.html:31
+#: .\gpio\templates\gpio\input_detail.html:25
+#: .\gpio\templates\gpio\input_list.html:31
 msgid "Inactive"
 msgstr "Inaktiv"
 
-#: gpio/templates/gpio/input_detail.html:43
+#: .\gpio\templates\gpio\input_detail.html:43
 msgid "This input is not connected to a striker."
 msgstr "Dieser Eingang ist mit keinem Schlagwerk verbunden."
 
-#: gpio/templates/gpio/input_list.html:6
+#: .\gpio\templates\gpio\input_list.html:6
 msgid "Add input"
 msgstr "Eingang hinzufügen"
 
-#: gpio/templates/gpio/input_list.html:12
+#: .\gpio\templates\gpio\input_list.html:12
 msgid "Input active?"
 msgstr "Eingang aktiv?"
 
-#: gpio/templates/gpio/input_list.html:17
+#: .\gpio\templates\gpio\input_list.html:17
 msgid "Pull resistor?"
 msgstr "Pull-Widerstand?"
 
-#: gpio/templates/gpio/input_list.html:57
+#: .\gpio\templates\gpio\input_list.html:57
 msgid "No striker assigned"
 msgstr "Kein Schlagwerk zugewiesen"
 
-#: gpio/views.py:19
+#: .\gpio\views.py:19
 msgid "The following inputs are configured for this board:"
 msgstr "Die folgenden Eingänge sind für dieses Board konfiguriert:"
 
-#: gpio/views.py:33
+#: .\gpio\views.py:33
 #, python-format
 msgid "Input: %(name)s"
 msgstr "Eingang: %(name)s"
 
-#: gpio/views.py:49
+#: .\gpio\views.py:49
 msgid "Create input"
 msgstr "Eingang erstellen"
 
-#: gpio/views.py:50
+#: .\gpio\views.py:50
 msgid "Add a GPIO input to trigger a striker."
 msgstr "Einen GPIO-Eingang hinzufügen, um ein Schlagwerk auszulösen."
 
-#: gpio/views.py:66
+#: .\gpio\views.py:66
 msgid "Update GPIO input"
 msgstr "GPIO-Eingang bearbeiten"
 
-#: gpio/views.py:85
+#: .\gpio\views.py:85
 msgid "Delete GPIO input"
 msgstr "GPIO-Eingang löschen"
 
-#: gpio/views.py:87
+#: .\gpio\views.py:87
 #, python-format
 msgid "Are you sure you want to delete the GPIO input \"%(name)s\"?"
 msgstr "Sind Sie sicher, dass Sie den GPIO-Eingang „%(name)s“ löschen möchten?"
