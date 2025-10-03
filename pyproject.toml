@@ -22,6 +22,10 @@ development = [
   "pre-commit",
 ]
 
+production = [
+  "gunicorn",
+]
+
 [[project.authors]]
 name = "Matthias Gianfelice"
 email = "matthias@gianfelice.de"

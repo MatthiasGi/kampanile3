@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=<USERNAME>
+Group=www-data
+WorkingDirectory=<PROJECTDIR>/kampanile3
+ExecStart=<PROJECTDIR>/.venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 1 \
+          --bind unix:/run/gunicorn.sock \
+          kampanile3.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
