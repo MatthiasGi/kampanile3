@@ -1,6 +1,0 @@
-[Dektop Entry]
-Type=Application
-Name=GrandOrgue
-Comment=Virtual Pipe Organ
-Exec=grandorgue
-NoDisplay=false

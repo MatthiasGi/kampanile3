@@ -118,6 +118,8 @@ rpi-gpio==0.7.1
     # via adafruit-blinka
 rpi-ws281x==5.0.0
     # via adafruit-blinka
+schedule==1.2.2
+    # via kampanile3 (pyproject.toml)
 sqlparse==0.5.3
     # via django
 sysv-ipc==1.1.0

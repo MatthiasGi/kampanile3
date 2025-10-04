@@ -15,6 +15,7 @@ dependencies = [
   "directorium",
   "Adafruit-Blinka",
   "adafruit-circuitpython-debouncer",
+  "schedule",
 ]
 
 [project.optional-dependencies]

@@ -42,9 +42,6 @@ Then adjust `kampanile3/settings/local.py` to your needs and run the server:
 python manage.py runserver 0.0.0.0:8000
 ```
 
-In a runtime, the command `python manage.py checkstrikers` should be run every
-minute, e.g. via cron or systemd timer.
-
 ## Production
 
 For production, we assume a Nginx reverse proxy in front of Gunicorn. The Nginx
@@ -123,10 +120,15 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
-### Crontab
+### Autostart GrandOrgue
 
-Add the following line to your crontab (e.g. via `sudo crontab -e`):
+In the case of a regular Raspberry Pi OS installation with a desktop
+environment, GrandOrgue can be started automatically by creating the file
+`~/.config/labwc/autostart` with the following content:
 
 ```text
-* * * * * <PROJECTDIR>/.venv/bin/python <PROJECTDIR>/kampanile3/manage.py checkstrikers
+/usr/bin/lwrespawn /usr/bin/GrandOrgue
 ```
+
+Think about activating an autologin and configuring GrandOrgue to listen to the
+MIDI-ports you want to use.

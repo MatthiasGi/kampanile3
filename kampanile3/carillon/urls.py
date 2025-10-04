@@ -1,5 +1,6 @@
 from django.urls import include, path
 
+from . import lib
 from .views import carillon, song, striker
 
 app_name = "carillon"
@@ -124,3 +125,5 @@ urlpatterns = [
         ),
     ),
 ]
+
+lib.init_schedule()
