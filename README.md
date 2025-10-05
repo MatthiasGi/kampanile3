@@ -82,6 +82,8 @@ sudo cp deployment/gunicorn.service.sample /etc/systemd/system/gunicorn.service
 ```
 
 Modify the `/etc/systemd/system/gunicorn.service` to your needs where marked.
+Make sure that `gunicorn` runs in the `kampanile3` subdirectory of the project
+directory so it picks up the `gunicorn.conf.py`-file.
 
 Then start and enable the socket:
 
