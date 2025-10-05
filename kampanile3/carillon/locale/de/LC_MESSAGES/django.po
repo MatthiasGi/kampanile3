@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 19:37+0200\n"
+"POT-Creation-Date: 2025-10-05 15:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,11 +299,11 @@ msgid "How often the played song should be repeated if the rule applies."
 msgstr ""
 "Wie oft das gespielte Stück wiederholt werden soll, wenn die Regel zutrifft."
 
-#: carillon/models/rule.py:125
+#: carillon/models/rule.py:133
 msgid "Rule"
 msgstr "Regel"
 
-#: carillon/models/rule.py:126
+#: carillon/models/rule.py:134
 #: carillon/templates/carillon/striker_detail.html:17
 msgid "Rules"
 msgstr "Regeln"

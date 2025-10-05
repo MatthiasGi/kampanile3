@@ -130,5 +130,5 @@ environment, GrandOrgue can be started automatically by creating the file
 /usr/bin/lwrespawn /usr/bin/GrandOrgue
 ```
 
-Think about activating an autologin and configuring GrandOrgue to listen to the
-MIDI-ports you want to use.
+Think about activating an autologin through `sudo raspi-config` and configuring
+GrandOrgue to listen to the MIDI-ports you want to use.

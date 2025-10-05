@@ -95,15 +95,13 @@ class Rule(models.Model):
         return self.parsed_condition.is_met
 
     @property
-    def midi(self) -> list[mido.Message]:
+    def number_repeats(self) -> int:
         """
-        Returns the MIDI messages to play when the rule applies, taking into
-        account the repeat setting.
+        Returns the number of times the song should be played when the rule
+        applies, taking into account the repeat setting.
         """
-        if not self.song:
-            return []
         repeats = 1
-        now = timezone.now()
+        now = timezone.localtime()
         if self.repeat == Rule.RepeatSettings.HOURS12:
             repeats = now.hour % 12 or 12
         elif self.repeat == Rule.RepeatSettings.HOURS24:
@@ -112,7 +110,17 @@ class Rule(models.Model):
             repeats = now.minute // 15 or 4
         elif self.repeat == Rule.RepeatSettings.MINUTES30:
             repeats = now.minute // 30 or 2
-        return self.song.midi * repeats
+        return repeats
+
+    @property
+    def midi(self) -> list[mido.Message]:
+        """
+        Returns the MIDI messages to play when the rule applies, taking into
+        account the repeat setting.
+        """
+        if not self.song:
+            return []
+        return self.song.midi * self.number_repeats
 
     def get_absolute_url(self):
         return reverse("carillon:rules:detail", kwargs={"pk": self.pk})
