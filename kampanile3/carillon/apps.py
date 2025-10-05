@@ -6,3 +6,8 @@ class CarillonConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "carillon"
     verbose_name = _("Carillon")
+
+    def ready(self):
+        from .lib import init_schedule
+
+        init_schedule()
