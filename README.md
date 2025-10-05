@@ -134,3 +134,19 @@ environment, GrandOrgue can be started automatically by creating the file
 
 Think about activating an autologin through `sudo raspi-config` and configuring
 GrandOrgue to listen to the MIDI-ports you want to use.
+
+### Setup firewall
+
+A simple way to setup a firewall is through `ufw`:
+
+```bash
+sudo apt install ufw
+
+sudo ufw default deny incoming
+sudo ufw allow from <IP-Address-Range>/24 to any port 22
+sudo ufw limit ssh
+
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+sudo ufw status
+```
