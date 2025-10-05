@@ -150,3 +150,14 @@ sudo ufw allow 'Nginx Full'
 sudo ufw enable
 sudo ufw status
 ```
+
+### Unattended upgrades
+
+Another recommendation is to install unattended upgrades to keep the system
+up-to-date:
+
+```bash
+sudo apt install unattended-upgrades
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+sudo unattended-upgrade --dry-run --debug
+```
