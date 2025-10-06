@@ -49,7 +49,7 @@ crispy-bootstrap5==2025.6
     # via kampanile3 (pyproject.toml)
 directorium==0.2.0
     # via kampanile3 (pyproject.toml)
-django==5.2.5
+django==5.2.7
     # via
     #   crispy-bootstrap5
     #   django-crispy-forms
