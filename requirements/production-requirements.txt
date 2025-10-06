@@ -37,7 +37,7 @@ adafruit-pureio==1.1.11
     # via adafruit-blinka
 annotated-types==0.7.0
     # via pydantic
-asgiref==3.9.2
+asgiref==3.10.0
     # via django
 binho-host-adapter==0.1.6
     # via adafruit-blinka
