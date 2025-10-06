@@ -41,7 +41,7 @@ asgiref==3.9.2
     # via django
 binho-host-adapter==0.1.6
     # via adafruit-blinka
-certifi==2025.8.3
+certifi==2025.10.5
     # via requests
 charset-normalizer==3.4.3
     # via requests
