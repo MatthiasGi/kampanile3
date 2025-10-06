@@ -94,7 +94,7 @@ pre-commit==4.3.0
     # via kampanile3 (pyproject.toml)
 pyaml==25.5.0
     # via ha-mqtt-discoverable
-pydantic==2.11.7
+pydantic==2.11.10
     # via ha-mqtt-discoverable
 pydantic-core==2.33.2
     # via pydantic
