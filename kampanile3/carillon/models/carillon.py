@@ -4,7 +4,10 @@ from threading import Thread
 
 import mido
 import mido.backends.rtmidi
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -65,6 +68,14 @@ class Carillon(models.Model):
     )
     """Whether this carillon is active and can be used. If it is not active, no songs will be played."""
 
+    volume = models.PositiveSmallIntegerField(
+        default=127,
+        validators=[MinValueValidator(0), MaxValueValidator(127)],
+        verbose_name=_("Volume"),
+        help_text=_("The volume of the carillon (0-127)."),
+    )
+    """The volume of the carillon (0-127), after a restart the carillon tries to reapply the volume."""
+
     @property
     def _singleton_data(self) -> SingletonData:
         """Get the singleton data for this carillon."""
@@ -97,6 +108,7 @@ class Carillon(models.Model):
         playing, it will be aborted if the priority is equal or higher than the
         current song's priority. Returns if the song was started or not.
         """
+        self.send_volume_message()
         if not self.active:
             return False
         data = self._singleton_data
@@ -112,10 +124,11 @@ class Carillon(models.Model):
         carillon_play.send(sender=self.__class__, carillon=self, priority=priority)
         return True
 
-    def set_volume(self, volume: int):
+    def send_volume_message(self):
         """Sends a MIDI-message to set the volume of the carillon."""
-        volume = max(0, min(127, volume))  # Clamp the volume to 0-127
-        self.port.send(mido.Message("control_change", control=7, value=volume))
+        if self.volume is None:
+            return
+        self.port.send(mido.Message("control_change", control=7, value=self.volume))
 
     def _threaded_play(self, messages: list[mido.Message]):
         """Internal method to play MIDI messages in a separate thread."""
@@ -155,3 +168,8 @@ class Carillon(models.Model):
     class Meta:
         verbose_name = _("Carillon")
         verbose_name_plural = _("Carillons")
+
+
+@receiver(post_save, sender=Carillon)
+def _carillon_post_save(instance: Carillon, **kwargs):
+    instance.send_volume_message()

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 19:37+0200\n"
+"POT-Creation-Date: 2025-10-08 21:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,14 +32,14 @@ msgstr "Stop"
 msgid "Play priority"
 msgstr "Wiedergabepriorität"
 
-#: mqtt/lib/state_sensors.py:28
+#: mqtt/lib/state_sensors.py:29
 msgid "Playing"
 msgstr "Spielt"
 
-#: mqtt/lib/state_sensors.py:47
+#: mqtt/lib/state_sensors.py:48
 msgid "Active"
 msgstr "Aktiv"
 
-#: mqtt/lib/state_sensors.py:89
+#: mqtt/lib/state_sensors.py:83
 msgid "Volume"
 msgstr "Lautstärke"

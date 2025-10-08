@@ -120,9 +120,8 @@
             <div class="col">
               <label for="volume-range" class="form-label">
                 {% trans "Volume" %}
-                <span class="text-muted">{% trans "(initially unknown)" %}</span>
               </label>
-              <input type="range" class="form-range" id="volume-range" min="0" max="127" step="1" value="127">
+              <input type="range" class="form-range" id="volume-range" min="0" max="127" step="1" value="{{ default_carillon.volume }}">
             </div>
             <div class="col-auto d-flex align-items-center">
               <button class="btn btn-outline-primary" title="{% trans "Stop playing" %}" data-bs-toggle="tooltip" id="stop-button">

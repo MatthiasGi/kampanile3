@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 15:29+0200\n"
+"POT-Creation-Date: 2025-10-08 21:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: carillon/apps.py:8 carillon/models/carillon.py:156
+#: carillon/apps.py:8 carillon/models/carillon.py:169
 #: carillon/models/striker.py:34
 #: carillon/templates/carillon/striker_detail.html:9
 #: carillon/templates/carillon/striker_list.html:12
 msgid "Carillon"
 msgstr "Carillon"
 
-#: carillon/models/carillon.py:37 carillon/models/rule.py:28
+#: carillon/models/carillon.py:40 carillon/models/rule.py:28
 #: carillon/models/song.py:10 carillon/models/striker.py:26
 #: carillon/templates/carillon/carillon_list.html:17
 #: carillon/templates/carillon/rule_list.html:11
@@ -33,22 +33,22 @@ msgstr "Carillon"
 msgid "Name"
 msgstr "Name"
 
-#: carillon/models/carillon.py:43
+#: carillon/models/carillon.py:46
 #: carillon/templates/carillon/carillon_list.html:18
 msgid "Port Name"
 msgstr "Portname"
 
-#: carillon/models/carillon.py:44
+#: carillon/models/carillon.py:47
 msgid "The name of the serial port used to connect to the carillon."
 msgstr ""
 "Der Name des seriellen Ports, der zum Verbinden mit dem Carillon verwendet "
 "wird."
 
-#: carillon/models/carillon.py:52
+#: carillon/models/carillon.py:55
 msgid "Default"
 msgstr "Standard"
 
-#: carillon/models/carillon.py:54
+#: carillon/models/carillon.py:57
 msgid ""
 "Whether this carillon is the default carillon. Only one carillon can be the "
 "default. If activated here, another carillon that was the default will loose "
@@ -58,11 +58,11 @@ msgstr ""
 "Eigenschaft Standard haben. Wenn es hier aktiviert wird, verliert ein "
 "anderes Carillon, das zuvor das Standard-Carillon war, diesen Status."
 
-#: carillon/models/carillon.py:61
+#: carillon/models/carillon.py:64
 msgid "Active"
 msgstr "Aktiv"
 
-#: carillon/models/carillon.py:63
+#: carillon/models/carillon.py:66
 msgid ""
 "Whether this carillon is active and can be used. May be deactivated to mute "
 "all songs."
@@ -70,7 +70,15 @@ msgstr ""
 "Ob dieses Carillon aktiv ist und verwendet werden kann. Kann deaktiviert "
 "werden, sodass keine Stücke abgespielt werden."
 
-#: carillon/models/carillon.py:157 carillon/views/carillon.py:24
+#: carillon/models/carillon.py:74
+msgid "Volume"
+msgstr "Lautstärke"
+
+#: carillon/models/carillon.py:75
+msgid "The volume of the carillon (0-127)."
+msgstr "Die Lautstärke des Carillons (0-127)."
+
+#: carillon/models/carillon.py:170 carillon/views/carillon.py:24
 msgid "Carillons"
 msgstr "Carillons"
 
@@ -415,54 +423,59 @@ msgid "The carillon is currently <strong>not</strong> active."
 msgstr "Das Carillon ist derzeit <strong>nicht</strong> aktiv."
 
 #: carillon/templates/carillon/carillon_detail.html:29
+#, python-format
+msgid "The current volume is set to %(volume)s."
+msgstr "Die aktuelle Lautstärke ist auf %(volume)s eingestellt."
+
+#: carillon/templates/carillon/carillon_detail.html:32
 msgid "Test sending MIDI-signals"
 msgstr "Senden von MIDI-Signalen testen"
 
-#: carillon/templates/carillon/carillon_detail.html:32
+#: carillon/templates/carillon/carillon_detail.html:35
 msgid "C2"
 msgstr "C2"
 
-#: carillon/templates/carillon/carillon_detail.html:33
+#: carillon/templates/carillon/carillon_detail.html:36
 msgid "C3"
 msgstr "C3"
 
-#: carillon/templates/carillon/carillon_detail.html:34
+#: carillon/templates/carillon/carillon_detail.html:37
 msgid "C4"
 msgstr "C4"
 
-#: carillon/templates/carillon/carillon_detail.html:35
+#: carillon/templates/carillon/carillon_detail.html:38
 msgid "C5"
 msgstr "C5"
 
-#: carillon/templates/carillon/carillon_detail.html:36
+#: carillon/templates/carillon/carillon_detail.html:39
 msgid "C6"
 msgstr "C6"
 
-#: carillon/templates/carillon/carillon_detail.html:40
+#: carillon/templates/carillon/carillon_detail.html:43
 msgid "Volume 0"
 msgstr "Lautstärke 0"
 
-#: carillon/templates/carillon/carillon_detail.html:41
+#: carillon/templates/carillon/carillon_detail.html:44
 msgid "Volume 63"
 msgstr "Lautstärke 63"
 
-#: carillon/templates/carillon/carillon_detail.html:42
+#: carillon/templates/carillon/carillon_detail.html:45
 msgid "Volume 127"
 msgstr "Lautstärke 127"
 
-#: carillon/templates/carillon/carillon_detail.html:65
+#: carillon/templates/carillon/carillon_detail.html:68
 msgid "Note played successfully!"
 msgstr "Note erfolgreich gespielt!"
 
-#: carillon/templates/carillon/carillon_detail.html:67
+#: carillon/templates/carillon/carillon_detail.html:70
 msgid "Error playing note: ${ data.error }"
 msgstr "Fehler beim Spielen der Note: ${ data.error }"
 
-#: carillon/templates/carillon/carillon_detail.html:86
+#: carillon/templates/carillon/carillon_detail.html:89
 msgid "Volume set successfully!"
 msgstr "Lautstärke erfolgreich eingestellt!"
 
-#: carillon/templates/carillon/carillon_detail.html:88
+#: carillon/templates/carillon/carillon_detail.html:91
 msgid "Error setting volume: ${ data.error }"
 msgstr "Fehler beim Einstellen der Lautstärke: ${ data.error }"
 

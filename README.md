@@ -143,7 +143,8 @@ A simple way to setup a firewall is through `ufw`:
 sudo apt install ufw
 
 sudo ufw default deny incoming
-sudo ufw allow from <IP-Address-Range>/24 to any port 22
+sudo ufw allow from <IP-Address-Range>/24 to any port 22    # SSH
+sudo ufw allow from <IP-Address-Range>/24 to any port 5900  # VNC
 sudo ufw limit ssh
 
 sudo ufw allow 'Nginx Full'

@@ -25,6 +25,9 @@
       {% blocktranslate %}The carillon is currently <strong>not</strong> active.{% endblocktranslate %}
     {% endif %}
   </p>
+  <p class="lead">
+    {% blocktranslate with volume=carillon.volume %}The current volume is set to {{ volume }}.{% endblocktranslate %}
+  </p>
 
   <h2>{% trans "Test sending MIDI-signals" %}</h2>
   <div class="btn-toolbar">

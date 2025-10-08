@@ -1,5 +1,6 @@
 """General sensors representing the state of the default carillon."""
 
+from carillon.models import Carillon
 from carillon.signals import carillon_play, carillon_stop
 from django.db.models.signals import post_save
 from django.utils.translation import gettext
@@ -51,8 +52,6 @@ class StateSensors(Module):
         settings = Settings(mqtt=self.mqtt_settings, entity=info)
 
         def publish_state():
-            from carillon.models import Carillon
-
             carillon = Carillon.get_default()
             if carillon and carillon.active:
                 self.active_switch.on()
@@ -60,8 +59,6 @@ class StateSensors(Module):
                 self.active_switch.off()
 
         def on_change(client: Client, userdata, message: MQTTMessage):
-            from carillon.models import Carillon
-
             payload = message.payload.decode().lower()
             active = payload in ("1", "true", "on", "yes")
             try:
@@ -76,11 +73,8 @@ class StateSensors(Module):
         publish_state()
 
         def update_active_switch(**kwargs):
-            from carillon.models import Carillon
-
-            if kwargs.get("sender") != Carillon:
-                return
-            publish_state()
+            if kwargs.get("sender") == Carillon:
+                publish_state()
 
         post_save.connect(update_active_switch)
 
@@ -96,13 +90,26 @@ class StateSensors(Module):
         settings = Settings(mqtt=self.mqtt_settings, entity=info)
 
         def on_change(client: Client, userdata, message: MQTTMessage):
-            from carillon.models import Carillon
-
             try:
-                volume = int(message.payload.decode())
-                Carillon.get_default().set_volume(volume)
+                carillon = Carillon.get_default()
+                carillon.volume = int(message.payload.decode())
+                carillon.save()
+                self.volume_number.set_value(carillon.volume)
             except (Carillon.DoesNotExist, ValueError):
+                pass
+
+        def publish_state():
+            try:
+                self.volume_number.set_value(Carillon.get_default().volume)
+            except Carillon.DoesNotExist:
                 pass
 
         self.volume_number = Number(settings, on_change)
         self.volume_number.write_config()
+        publish_state()
+
+        def update_volume(**kwargs):
+            if kwargs.get("sender") == Carillon:
+                publish_state()
+
+        post_save.connect(update_volume)

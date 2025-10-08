@@ -146,7 +146,8 @@ def set_volume_view(request, pk):
             return JsonResponse(
                 {"error": "Volume must be between 0 and 127"}, status=400
             )
-        carillon.set_volume(volume)
+        carillon.volume = volume
+        carillon.save()
         return JsonResponse({"success": True, "carillon_id": pk, "volume": volume})
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
