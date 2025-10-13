@@ -66,7 +66,7 @@ django-npm==1.0.1
     # via kampanile3 (pyproject.toml)
 django-split-settings==1.3.2
     # via kampanile3 (pyproject.toml)
-filelock==3.19.1
+filelock==3.20.0
     # via virtualenv
 gitlike-commands==0.3.0
     # via ha-mqtt-discoverable
