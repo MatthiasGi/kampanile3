@@ -86,7 +86,7 @@ pyaml==25.5.0
     # via ha-mqtt-discoverable
 pydantic==2.11.10
     # via ha-mqtt-discoverable
-pydantic-core==2.41.1
+pydantic-core==2.41.3
     # via pydantic
 pyftdi==0.57.1
     # via adafruit-blinka
