@@ -70,7 +70,7 @@ filelock==3.20.0
     # via virtualenv
 gitlike-commands==0.3.0
     # via ha-mqtt-discoverable
-ha-mqtt-discoverable==0.21.1
+ha-mqtt-discoverable==0.22.0
     # via kampanile3 (pyproject.toml)
 identify==2.6.15
     # via pre-commit
