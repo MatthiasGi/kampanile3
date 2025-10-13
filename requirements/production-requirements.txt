@@ -68,7 +68,7 @@ gunicorn==23.0.0
     # via kampanile3 (pyproject.toml)
 ha-mqtt-discoverable==0.21.1
     # via kampanile3 (pyproject.toml)
-idna==3.10
+idna==3.11
     # via requests
 lgpio==0.2.2.0
     # via adafruit-blinka

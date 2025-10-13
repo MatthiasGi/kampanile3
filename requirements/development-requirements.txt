@@ -74,7 +74,7 @@ ha-mqtt-discoverable==0.21.1
     # via kampanile3 (pyproject.toml)
 identify==2.6.15
     # via pre-commit
-idna==3.10
+idna==3.11
     # via requests
 lgpio==0.2.2.0
     # via adafruit-blinka
