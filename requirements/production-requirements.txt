@@ -80,7 +80,7 @@ packaging==25.0
     #   mido
 paho-mqtt==2.1.0
     # via ha-mqtt-discoverable
-platformdirs==4.4.0
+platformdirs==4.5.0
     # via directorium
 pyaml==25.5.0
     # via ha-mqtt-discoverable
