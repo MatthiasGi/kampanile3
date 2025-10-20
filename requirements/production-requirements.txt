@@ -19,7 +19,7 @@ adafruit-blinka-raspberry-pi5-neopixel==1.0.0rc2
     # via adafruit-blinka
 adafruit-circuitpython-busdevice==5.2.13
     # via adafruit-circuitpython-typing
-adafruit-circuitpython-connectionmanager==3.1.5
+adafruit-circuitpython-connectionmanager==3.1.6
     # via adafruit-circuitpython-requests
 adafruit-circuitpython-debouncer==2.0.13
     # via kampanile3 (pyproject.toml)
