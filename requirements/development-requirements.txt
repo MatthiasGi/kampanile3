@@ -135,5 +135,5 @@ typing-inspection==0.4.2
     # via pydantic
 urllib3==2.5.0
     # via requests
-virtualenv==20.34.0
+virtualenv==20.35.3
     # via pre-commit
