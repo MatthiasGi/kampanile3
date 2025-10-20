@@ -23,7 +23,7 @@ adafruit-circuitpython-connectionmanager==3.1.6
     # via adafruit-circuitpython-requests
 adafruit-circuitpython-debouncer==2.0.13
     # via kampanile3 (pyproject.toml)
-adafruit-circuitpython-requests==4.1.13
+adafruit-circuitpython-requests==4.1.14
     # via adafruit-circuitpython-typing
 adafruit-circuitpython-ticks==1.1.5
     # via adafruit-circuitpython-debouncer
