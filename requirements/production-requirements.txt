@@ -31,7 +31,7 @@ adafruit-circuitpython-typing==1.12.2
     # via
     #   adafruit-blinka
     #   adafruit-circuitpython-busdevice
-adafruit-platformdetect==3.84.0
+adafruit-platformdetect==3.84.1
     # via adafruit-blinka
 adafruit-pureio==1.1.11
     # via adafruit-blinka
