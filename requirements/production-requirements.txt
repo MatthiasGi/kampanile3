@@ -25,7 +25,7 @@ adafruit-circuitpython-debouncer==2.0.13
     # via kampanile3 (pyproject.toml)
 adafruit-circuitpython-requests==4.1.13
     # via adafruit-circuitpython-typing
-adafruit-circuitpython-ticks==1.1.4
+adafruit-circuitpython-ticks==1.1.5
     # via adafruit-circuitpython-debouncer
 adafruit-circuitpython-typing==1.12.2
     # via
