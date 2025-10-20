@@ -43,7 +43,7 @@ binho-host-adapter==0.1.6
     # via adafruit-blinka
 certifi==2025.10.5
     # via requests
-charset-normalizer==3.4.3
+charset-normalizer==3.4.4
     # via requests
 crispy-bootstrap5==2025.6
     # via kampanile3 (pyproject.toml)
