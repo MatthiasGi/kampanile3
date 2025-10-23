@@ -37,3 +37,10 @@ email = "matthias@gianfelice.de"
 
 [project.urls]
 Repository = "https://github.com/MatthiasGi/kampanile3"
+
+[build-system]
+requires = ["setuptools >= 42.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []

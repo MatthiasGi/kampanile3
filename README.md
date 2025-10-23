@@ -20,7 +20,7 @@ cd kampanile3
 
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements/development-requirements.txt
+pip install -e .[development]
 
 pre-commit install
 
@@ -57,7 +57,7 @@ cd kampanile3
 
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements/production-requirements.txt
+pip install -e .[production]
 
 cd kampanile3
 python manage.py migrate
@@ -71,94 +71,3 @@ cp kampanile3/settings/local.example.py kampanile3/settings/local.py
 ```
 
 Modify `kampanile3/settings/local.py` to your needs.
-
-### Gunicorn
-
-To setup gunicorn inside of a systemd socket:
-
-```bash
-sudo cp deployment/gunicorn.socket.sample /etc/systemd/system/gunicorn.socket
-sudo cp deployment/gunicorn.service.sample /etc/systemd/system/gunicorn.service
-```
-
-Modify the `/etc/systemd/system/gunicorn.service` to your needs where marked.
-Make sure that `gunicorn` runs in the `kampanile3` subdirectory of the project
-directory so it picks up the `gunicorn.conf.py`-file.
-
-Then start and enable the socket:
-
-```bash
-sudo systemctl start gunicorn.socket
-sudo systemctl enable gunicorn.socket
-sudo systemctl start gunicorn
-sudo systemctl enable gunicorn
-```
-
-You may check if the socket is running and calling the service:
-
-```bash
-sudo systemctl status gunicorn.socket
-file /run/gunicorn.sock
-
-curl --unix-socket /run/gunicorn.sock localhost
-sudo systemctl status gunicorn
-```
-
-### Nginx
-
-```bash
-sudo apt install nginx
-sudo rm /etc/nginx/sites-enabled/default
-sudo cp deployment/kampanile3.sample /etc/nginx/sites-available/kampanile3
-sudo ln -s /etc/nginx/sites-available/kampanile3 /etc/nginx/sites-enabled/kampanile3
-```
-
-Modify the `/etc/nginx/sites-available/kampanile3` to your needs where marked.
-Then test the config file and start nginx:
-
-```bash
-sudo nginx -t
-sudo systemctl start nginx
-sudo systemctl enable nginx
-```
-
-### Autostart GrandOrgue
-
-In the case of a regular Raspberry Pi OS installation with a desktop
-environment, GrandOrgue can be started automatically by creating the file
-`~/.config/labwc/autostart` with the following content:
-
-```text
-/usr/bin/lwrespawn /usr/bin/GrandOrgue
-```
-
-Think about activating an autologin through `sudo raspi-config` and configuring
-GrandOrgue to listen to the MIDI-ports you want to use.
-
-### Setup firewall
-
-A simple way to setup a firewall is through `ufw`:
-
-```bash
-sudo apt install ufw
-
-sudo ufw default deny incoming
-sudo ufw allow from <IP-Address-Range>/24 to any port 22    # SSH
-sudo ufw allow from <IP-Address-Range>/24 to any port 5900  # VNC
-sudo ufw limit ssh
-
-sudo ufw allow 'Nginx Full'
-sudo ufw enable
-sudo ufw status
-```
-
-### Unattended upgrades
-
-Another recommendation is to install unattended upgrades to keep the system
-up-to-date:
-
-```bash
-sudo apt install unattended-upgrades
-sudo dpkg-reconfigure --priority=low unattended-upgrades
-sudo unattended-upgrade --dry-run --debug
-```
