@@ -110,11 +110,11 @@ Prepare the virtual environment and install the production dependencies:
 git clone https://github.com/MatthiasGi/kampanile3.git
 cd kampanile3
 
-sudo apt install libasound2-dev
+sudo apt install libasound2-dev npm gettext
 
 python -m venv .venv
 source .venv/bin/activate
-pip install -e .[production]
+pip install -e .[rpi]
 
 cd kampanile3
 cp kampanile3/settings/local.example.py kampanile3/settings/local.py
@@ -127,7 +127,6 @@ commands:
 python manage.py migrate
 python manage.py createsuperuser
 
-sudo apt install npm gettext
 npm install
 python manage.py collectstatic --noinput
 python manage.py compilemessages

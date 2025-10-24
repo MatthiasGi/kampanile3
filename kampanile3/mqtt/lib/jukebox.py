@@ -76,9 +76,10 @@ class Jukebox(Module):
             if message.payload.decode() == "PRESS" and self._selected_song:
                 from carillon.models import Carillon
 
-                Carillon.get_default().play(
-                    self._selected_song.midi, priority=self._priority
-                )
+                carillon = Carillon.get_default()
+                if not carillon:
+                    return
+                carillon.play(self._selected_song.midi, priority=self._priority)
 
         self.play_button = Button(settings, on_press)
         self.play_button.write_config()
@@ -95,7 +96,10 @@ class Jukebox(Module):
             if message.payload.decode() == "PRESS":
                 from carillon.models import Carillon
 
-                Carillon.get_default().stop()
+                carillon = Carillon.get_default()
+                if not carillon:
+                    return
+                carillon.stop()
 
         self.stop_button = Button(settings, on_press)
         self.stop_button.write_config()

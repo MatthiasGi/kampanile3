@@ -27,6 +27,11 @@ production = [
   "gunicorn",
 ]
 
+rpi = [
+  "kampanile3[production]",
+  "RPi.GPIO",
+]
+
 [[project.authors]]
 name = "Matthias Gianfelice"
 email = "matthias@gianfelice.de"

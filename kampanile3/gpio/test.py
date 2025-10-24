@@ -1,10 +1,13 @@
+from adafruit_platformdetect import Detector
 from django.db import IntegrityError
 from django.test import TestCase
+from django.test.utils import skipUnless
 
 from .models import Input
 
 
 class InputTestCase(TestCase):
+    @skipUnless(Detector().board.id, "No board detected")
     def test_unique_pin(self):
         Input.objects.create(name="Input 1", pin="D1", active=True)
         # Inactive inputs can share pins

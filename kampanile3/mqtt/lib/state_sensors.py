@@ -61,13 +61,13 @@ class StateSensors(Module):
         def on_change(client: Client, userdata, message: MQTTMessage):
             payload = message.payload.decode().lower()
             active = payload in ("1", "true", "on", "yes")
-            try:
-                carillon = Carillon.get_default()
-                carillon.active = active
-                carillon.save()
-                publish_state()
-            except Carillon.DoesNotExist:
-                pass
+
+            carillon = Carillon.get_default()
+            if not carillon:
+                return
+            carillon.active = active
+            carillon.save()
+            publish_state()
 
         self.active_switch = Switch(settings, on_change)
         publish_state()
@@ -92,17 +92,19 @@ class StateSensors(Module):
         def on_change(client: Client, userdata, message: MQTTMessage):
             try:
                 carillon = Carillon.get_default()
+                if not carillon:
+                    return
                 carillon.volume = int(message.payload.decode())
                 carillon.save()
                 self.volume_number.set_value(carillon.volume)
-            except (Carillon.DoesNotExist, ValueError):
+            except ValueError:
                 pass
 
         def publish_state():
-            try:
-                self.volume_number.set_value(Carillon.get_default().volume)
-            except Carillon.DoesNotExist:
-                pass
+            carillon = Carillon.get_default()
+            if not carillon:
+                return
+            self.volume_number.set_value(carillon.volume)
 
         self.volume_number = Number(settings, on_change)
         self.volume_number.write_config()
