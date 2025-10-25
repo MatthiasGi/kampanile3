@@ -131,6 +131,8 @@ npm install
 python manage.py collectstatic --noinput
 python manage.py compilemessages
 
+python manage.py loaddata songs
+
 cd ..
 ```
 
@@ -180,11 +182,21 @@ Then test the config file and start nginx:
 
 ```bash
 sudo nginx -t
-sudo systemctl start nginx
 sudo systemctl enable nginx
+sudo systemctl restart nginx
 ```
 
-### Autostart GrandOrgue
+### Install and autostart GrandOrgue
+
+Install GrandOrgue firstly:
+
+```bash
+sudo apt install grandorgue
+```
+
+Then connect through VNC and start GrandOrgue once to create the configuration.
+Open the carillon, select the MIDI-ports with the help of the webinterface and
+save the configuration.
 
 In the case of a regular Raspberry Pi OS installation with a desktop
 environment, GrandOrgue can be started automatically by creating the file
@@ -193,9 +205,6 @@ environment, GrandOrgue can be started automatically by creating the file
 ```text
 /usr/bin/lwrespawn /usr/bin/GrandOrgue
 ```
-
-Think about activating an autologin through `sudo raspi-config` and configuring
-GrandOrgue to listen to the MIDI-ports you want to use.
 
 ### Setup firewall
 
@@ -213,3 +222,8 @@ sudo ufw allow 'Nginx Full'
 sudo ufw enable
 sudo ufw status
 ```
+
+### Finished
+
+Now reboot the system, log in the webinterface and setup the carillon as you
+like!

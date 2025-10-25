@@ -5,6 +5,10 @@ SECRET_KEY = "django-insecure-sze7ee3p!19w+$k8^8m64*8l@*+pr59gk+!mpus143_^94y&x1
 
 ALLOWED_HOSTS = []
 
+# Static files root in nginx-directory. If changed here, must be changed in
+# nginx config as well.
+STATIC_ROOT = "/var/www/kampanile3/static/"
+
 LANGUAGE_CODE = "de-de"
 TIME_ZONE = "Europe/Berlin"
 

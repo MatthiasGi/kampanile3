@@ -10,7 +10,7 @@ server {
   }
 
   location /static/ {
-    alias <PROJECTDIR>/kampanile3/static/;
+    alias /var/www/kampanile3/static/;
   }
 
   location / {
