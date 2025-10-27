@@ -14,7 +14,7 @@ TIME_ZONE = "Europe/Berlin"
 
 # The Directorium instance used for the corresponding conditions of the
 # `carillon.models.Rule` model.
-DIRECTORIUM = Directorium.from_cache()
+DIRECTORIUM = Directorium.from_cache(calendar="koeln")
 
 # MQTT-Settings (if MQTT_HOST is not set, MQTT-functionality is disabled)
 MQTT_HOST = "localhost"

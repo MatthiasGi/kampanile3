@@ -131,7 +131,7 @@ npm install
 python manage.py collectstatic --noinput
 python manage.py compilemessages
 
-python manage.py loaddata songs
+python manage.py loaddata sample
 
 cd ..
 ```

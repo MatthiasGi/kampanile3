@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from directorium import Directorium
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -118,3 +120,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGOUT_REDIRECT_URL = "/"
+
+# Default Directorium, may be overwritten in local settings with specific
+# settings
+DIRECTORIUM = Directorium.from_cache()
