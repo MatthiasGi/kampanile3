@@ -89,19 +89,6 @@ After rebooting, you need to reboot again:
 sudo reboot
 ```
 
-<!-- ### Prepare Adafruit Blinka
-
-Following
-[Adafruit's Blinka guide](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
-run the following commands:
-
-```bash
-source env/bin/activate
-pip3 install --upgrade adafruit-python-shell
-wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
-sudo -E env PATH=$PATH python3 raspi-blinka.py
-``` -->
-
 ## Setup the server
 
 Prepare the virtual environment and install the production dependencies:

@@ -69,3 +69,6 @@ cp kampanile3/settings/local.example.py kampanile3/settings/local.py
 ```
 
 Modify `kampanile3/settings/local.py` to your needs.
+
+A deployment for Raspberry Pi is described
+[in the deployment section](deployment/README.md).
