@@ -127,4 +127,9 @@ DIRECTORIUM = Directorium.from_cache()
 
 # Default settings to not use GPIO and MQTT
 MQTT_HOST = None
+MQTT_PORT = 1883
+MQTT_USERNAME = None
+MQTT_PASSWORD = None
+MQTT_DEVICE_NAME = "Kampanile"
+MQTT_DEVICE_IDENTIFIERS = "kampanile"
 GPIO = False
