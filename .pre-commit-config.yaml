@@ -96,8 +96,6 @@ repos:
     rev: v0.4.0
     hooks:
       - id: check-untracked-migrations
-        additional_dependencies:
-          - django
       - id: check-absent-migrations
 
   - repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
@@ -121,21 +119,8 @@ repos:
         args:
           - cd kampanile3; python manage.py check
         pass_filenames: false
-        language: python
+        language: system
         always_run: true
-        additional_dependencies:
-          - mido
-          - python-rtmidi
-          - ha-mqtt-discoverable
-          - django
-          - django-split-settings
-          - django-npm
-          - django-crispy-forms
-          - crispy-bootstrap5
-          - directorium
-          - Adafruit-Blinka
-          - adafruit-circuitpython-debouncer
-          - schedule
 
       - id: django-test
         name: Django Tests
@@ -143,21 +128,8 @@ repos:
         args:
           - cd kampanile3; python manage.py test --failfast --noinput --parallel
         pass_filenames: false
-        language: python
+        language: system
         types: [python]
-        additional_dependencies:
-          - mido
-          - python-rtmidi
-          - ha-mqtt-discoverable
-          - django
-          - django-split-settings
-          - django-npm
-          - django-crispy-forms
-          - crispy-bootstrap5
-          - directorium
-          - Adafruit-Blinka
-          - adafruit-circuitpython-debouncer
-          - schedule
 
       - id: django-makemessages
         name: Django make messages (i18n)
@@ -165,18 +137,5 @@ repos:
         args:
           - cd kampanile3; python manage.py makemessages -l de --no-obsolete
         pass_filenames: false
-        language: python
+        language: system
         files: ^.*\.(po|py|html|js|txt)$
-        additional_dependencies:
-          - mido
-          - python-rtmidi
-          - ha-mqtt-discoverable
-          - django
-          - django-split-settings
-          - django-npm
-          - django-crispy-forms
-          - crispy-bootstrap5
-          - directorium
-          - Adafruit-Blinka
-          - adafruit-circuitpython-debouncer
-          - schedule
