@@ -32,7 +32,7 @@ MANIFEST
 *.mo
 
 # Environment
-.venv
+.venv*
 
 ### VisualStudioCode ###
 .vscode/*
