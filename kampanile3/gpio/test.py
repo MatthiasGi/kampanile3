@@ -1,4 +1,3 @@
-import microcontroller
 from django.db import IntegrityError
 from django.test import TestCase
 from django.test.utils import skipIf
@@ -6,8 +5,19 @@ from django.test.utils import skipIf
 from .models import Input
 
 
+def _check_inputs():
+    import microcontroller
+
+    if microcontroller.chip_id is None:
+        return False
+
+    from .forms import get_board_pins
+
+    return sum(1 for _ in get_board_pins()) > 1
+
+
 class InputTestCase(TestCase):
-    @skipIf(microcontroller.chip_id is None, "No board detected")
+    @skipIf(_check_inputs, "No board detected")
     def test_unique_pin(self):
         Input.objects.create(name="Input 1", pin="D1", active=True)
         # Inactive inputs can share pins
