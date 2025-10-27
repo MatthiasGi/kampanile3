@@ -2,8 +2,6 @@
 
 A customizable chime with web interface.
 
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/MatthiasGi/kampanile3/main.svg)](https://results.pre-commit.ci/latest/github/MatthiasGi/kampanile3/main)
-
 ## Carillon
 
 To use the carillon via [GrandOrgue](https://github.com/GrandOrgue/grandorgue),

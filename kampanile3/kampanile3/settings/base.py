@@ -124,3 +124,7 @@ LOGOUT_REDIRECT_URL = "/"
 # Default Directorium, may be overwritten in local settings with specific
 # settings
 DIRECTORIUM = Directorium.from_cache()
+
+# Default settings to not use GPIO and MQTT
+MQTT_HOST = None
+GPIO = False
