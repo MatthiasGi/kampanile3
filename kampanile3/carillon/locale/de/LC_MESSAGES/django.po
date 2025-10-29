@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-27 19:26+0100\n"
+"POT-Creation-Date: 2025-10-29 21:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,7 +239,7 @@ msgstr "Für jede Viertelstunde"
 msgid "For every 30 minutes"
 msgstr "Für jede halbe Stunde"
 
-#: carillon/models/rule.py:34 carillon/models/striker.py:96
+#: carillon/models/rule.py:34 carillon/models/striker.py:98
 msgid "Striker"
 msgstr "Schlagwerk"
 
@@ -247,7 +247,7 @@ msgstr "Schlagwerk"
 msgid "The striker that checks, if the rule applies."
 msgstr "Das Schlagwerk, das prüft, ob die Regel zutrifft."
 
-#: carillon/models/rule.py:42 carillon/models/striker.py:40
+#: carillon/models/rule.py:42 carillon/models/striker.py:42
 #: carillon/templates/carillon/rule_detail.html:9
 #: carillon/templates/carillon/rule_list.html:17
 #: carillon/templates/carillon/striker_detail.html:13
@@ -375,7 +375,7 @@ msgstr "Jede halbe Stunde prüfen"
 msgid "Check every hour"
 msgstr "Jede volle Stunde prüfen"
 
-#: carillon/models/striker.py:42
+#: carillon/models/striker.py:44
 msgid ""
 "The priority of this striker, used to determine if it should abort other "
 "strikers' songs."
@@ -383,15 +383,15 @@ msgstr ""
 "Die Priorität des Schlagwerks, die verwendet wird, um zu bestimmen, ob es "
 "die Stücke anderer Schlagwerke abbrechen soll."
 
-#: carillon/models/striker.py:51
+#: carillon/models/striker.py:53
 msgid "Check type"
 msgstr "Prüfungsart"
 
-#: carillon/models/striker.py:52
+#: carillon/models/striker.py:54
 msgid "The type of check condition or interval."
 msgstr "Der Typ der Prüfung bzw. des Intervalls."
 
-#: carillon/models/striker.py:97 carillon/views/striker.py:18
+#: carillon/models/striker.py:99 carillon/views/striker.py:18
 msgid "Strikers"
 msgstr "Schlagwerke"
 

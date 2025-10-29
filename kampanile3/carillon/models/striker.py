@@ -32,6 +32,8 @@ class Striker(models.Model):
         on_delete=models.PROTECT,
         related_name="strikers",
         verbose_name=_("Carillon"),
+        blank=True,
+        null=True,
     )
     """The carillon that this striker is associated with."""
 

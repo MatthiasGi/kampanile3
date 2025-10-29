@@ -37,7 +37,7 @@ class Rule(models.Model):
     )
     """The striker that checks if the rule applies."""
 
-    priority = models.PositiveSmallIntegerField(
+    priority = models.SmallIntegerField(
         default=0,
         verbose_name=_("Priority"),
         help_text=_("The priority of the rule. Higher values means firstly evaluated."),
@@ -129,6 +129,6 @@ class Rule(models.Model):
         return self.name
 
     class Meta:
-        ordering = ["priority"]
+        ordering = ["-priority"]
         verbose_name = _("Rule")
         verbose_name_plural = _("Rules")
