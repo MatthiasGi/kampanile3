@@ -27,6 +27,7 @@ class GPIO(Module):
             )
             settings = Settings(mqtt=self.mqtt_settings, entity=info)
             self._triggers[input.pk] = DeviceTrigger(settings)
+            self._triggers[input.pk].write_config()
 
     def _handle_input_triggered(self, **kwargs):
         input = kwargs.get("input")
