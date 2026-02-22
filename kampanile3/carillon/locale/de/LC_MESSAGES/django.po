@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 21:33+0100\n"
+"POT-Creation-Date: 2026-02-22 16:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,6 +138,17 @@ msgstr ""
 "Vergleicht die aktuelle Uhrzeit mit einer angegebenen Stunde und Minute. "
 "Verfügbare Vergleichsoperatoren „comparator“ sind: gt, gte, lt, lte, eq und "
 "neq."
+
+#: carillon/models/conditions/date/weekday_condition.py:51
+msgid "Weekday Condition"
+msgstr "Wochentags-Bedingung"
+
+#: carillon/models/conditions/date/weekday_condition.py:55
+msgid ""
+"A condition that checks if today's weekday matches the specified weekday."
+msgstr ""
+"Eine Bedingung, die prüft, ob der heutige Wochentag mit dem angegebenen "
+"Wochentag übereinstimmt."
 
 #: carillon/models/conditions/directorium/easter_offset_condition.py:35
 msgid "Easter offset condition"

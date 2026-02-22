@@ -169,3 +169,29 @@ class ConditionTestCase(TestCase):
         data["comparator"] = "lte"
         condition = build_condition(data)
         self.assertTrue(condition.is_met)
+
+    def test_weekday_condition_is_met(self):
+        today = date.today()
+        data = {"type": "weekday", "weekday": today.weekday()}
+        condition = build_condition(data)
+        self.assertTrue(condition.is_met)
+        data["weekday"] = (today.weekday() + 1) % 7
+        condition = build_condition(data)
+        self.assertFalse(condition.is_met)
+
+        weekdays = [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY",
+            "SATURDAY",
+            "SUNDAY",
+        ]
+        for i, weekday in enumerate(weekdays):
+            data["weekday"] = weekday
+            condition = build_condition(data)
+            if today.weekday() == i:
+                self.assertTrue(condition.is_met)
+            else:
+                self.assertFalse(condition.is_met)
